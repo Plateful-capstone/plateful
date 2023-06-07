@@ -1,5 +1,6 @@
 package com.team5.plateful.models;
 
+
 import jakarta.persistence.*;
 import org.hibernate.annotations.Type;
 
