@@ -1,10 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+<header th:fragment="navbar" class="container">
+    <div class="row grow">
+        <div class="column shrink justify-center">
+            LOGO HERE
+    </div>
+        <div class="column align-right">
+            <nav>
+                <ul>
+                    <li>
+                        <a th:href="@{/static}"Home</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/recipes}"All Recipes</a>
+                        <ul>
+                            <li>
+                                <a th:href="@{/recipes/search}">Search All Recipes</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/recipes/create}">Create Recipe</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a th:href="@{/profile}">Profile</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/about}">About Us</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/login}">Login</a>
+                    <li>
+                        <a th:href="@{/register}">Register</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
