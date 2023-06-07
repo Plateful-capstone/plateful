@@ -22,6 +22,10 @@ public class User {
     @Column(nullable = false)
     private String password;
 
+    @Column(nullable = false)
+    private String avatar_url;
+
+
 //    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
 //    private List<Recipe> recipes;
 //
@@ -59,7 +63,17 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-//
+
+
+    public String getAvatar_url() {
+        return avatar_url;
+    }
+
+    public void setAvatar_url(String avatar_url) {
+        this.avatar_url = avatar_url;
+    }
+
+
 //    public List<Recipe> getRecipes() {
 //        return recipes;
 //    }
