@@ -2,29 +2,49 @@ package com.team5.plateful.models;
 
 
 import jakarta.persistence.*;
-
-import java.util.List;
+import org.hibernate.annotations.Type;
 
 @Entity
-@Table(name="posts")
+@Table(name="recipes")
 public class Recipe {
-
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false, length=100)
-    private String title;
+    @Column(nullable = false, length = 100)
+    private String recipeName;
 
-    @Column(nullable = false, length=500)
-    private String body;
+    @Column(nullable = false)
+    private String recipeDescription;
 
-    @ManyToOne
-    @JoinColumn(name="user_id")
-    private User user;
+    @Column(nullable = false)
+    private String recipeIngredients;
 
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "post")
-    private List<Comment> comments;
+    @Column(nullable = false, columnDefinition = "TEXT")
+    private String recipeInstructions;
+
+    @Column(nullable = false)
+    private String recipeImageUrl;
+
+    public Recipe() {
+    }
+
+    public Recipe(long id, String recipeName, String recipeDescription, String recipeIngredients, String recipeInstructions, String recipeImageUrl) {
+        this.id = id;
+        this.recipeName = recipeName;
+        this.recipeDescription = recipeDescription;
+        this.recipeIngredients = recipeIngredients;
+        this.recipeInstructions = recipeInstructions;
+        this.recipeImageUrl = recipeImageUrl;
+    }
+
+    public Recipe(String recipeName, String recipeDescription, String recipeIngredients, String recipeInstructions, String recipeImageUrl) {
+        this.recipeName = recipeName;
+        this.recipeDescription = recipeDescription;
+        this.recipeIngredients = recipeIngredients;
+        this.recipeInstructions = recipeInstructions;
+        this.recipeImageUrl = recipeImageUrl;
+    }
 
     public long getId() {
         return id;
@@ -34,49 +54,43 @@ public class Recipe {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getRecipeName() {
+        return recipeName;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setRecipeName(String recipeName) {
+        this.recipeName = recipeName;
     }
 
-    public String getBody() {
-        return body;
+    public String getRecipeDescription() {
+        return recipeDescription;
     }
 
-    public void setBody(String body) {
-        this.body = body;
+    public void setRecipeDescription(String recipeDescription) {
+        this.recipeDescription = recipeDescription;
     }
 
-    public User getUser() {
-        return user;
+    public String getRecipeIngredients() {
+        return recipeIngredients;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setRecipeIngredients(String recipeIngredients) {
+        this.recipeIngredients = recipeIngredients;
     }
 
-    public List<Comment> getComments() {
-        return comments;
+    public String getRecipeInstructions() {
+        return recipeInstructions;
     }
 
-    public void setComments(List<Comment> comments) {
-        this.comments = comments;
+    public void setRecipeInstructions(String recipeInstructions) {
+        this.recipeInstructions = recipeInstructions;
     }
 
-    public Recipe() {
+    public String getRecipeImageUrl() {
+        return recipeImageUrl;
     }
 
-    public Recipe(String title, String body) {
-        this.title = title;
-        this.body = body;
-    }
-
-    public Recipe(String title, String body, User user) {
-        this.title = title;
-        this.body = body;
-        this.user = user;
+    public void setRecipeImageUrl(String recipeImageUrl) {
+        this.recipeImageUrl = recipeImageUrl;
     }
 }
