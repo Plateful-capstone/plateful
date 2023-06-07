@@ -6,9 +6,22 @@
   <header th:replace="partials/navbar :: navbar"></header>
   <div class="container grow justify-center">
     <div class="row justify-center">
-      <div class="column shrink">
-        <h1>CREATE PAGE</h1>
-      </div>
+      <form th:action="@{/recipes/create}" th:method="post" th:object="${recipe}"  class="column shrink" >
+        <h4>Create a recipe</h4>
+        <label for="recipeName">Recipe name:</label>
+        <input type="text" name="recipeName" id="recipeName" th:field="*{recipeName}">
+        <label for="recipeDescription">Recipe description:</label>
+        <input type="text" name="recipeDescription" id="recipeDescription" th:field="*{recipeDescription}">
+        <label for="recipeIngredients">Recipe ingredients:</label>
+        <input type="text" name="recipeIngredients" id="recipeIngredients" th:field="*{recipeIngredients}">
+        <label for="recipeInstructions">Recipe instructions:</label>
+<!--        textarea for recipe instructions-->
+        <textarea name="recipeInstructions" id="recipeInstructions" th:field="*{recipeInstructions}" placeholder="Enter something..."></textarea>
+        <label for="recipeImage">Recipe image:</label>
+        <input type="text" name="recipeImage" id="recipeImage" th:field="*{recipeImageUrl}" value="upload image">
+        <button>Submit recipe</button>
+
+      </form>
     </div>
   </div>
   <footer th:replace="partials/footer :: footer"></footer>
