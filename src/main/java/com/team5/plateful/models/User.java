@@ -22,11 +22,11 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
-    private List<Recipe> recipes;
-
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
-    private List<Comment> comments;
+//    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
+//    private List<Recipe> recipes;
+//
+//    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
+//    private List<Comment> comments;
 
     public long getId() {
         return id;
@@ -59,22 +59,22 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    public List<Recipe> getRecipes() {
-        return recipes;
-    }
-
-    public void getRecipes(List<Recipe> posts) {
-        this.recipes = posts;
-    }
-
-    public List<Comment> getComments() {
-        return comments;
-    }
-
-    public void setComments(List<Comment> comments) {
-        this.comments = comments;
-    }
+//
+//    public List<Recipe> getRecipes() {
+//        return recipes;
+//    }
+//
+//    public void getRecipes(List<Recipe> posts) {
+//        this.recipes = posts;
+//    }
+//
+//    public List<Comment> getComments() {
+//        return comments;
+//    }
+//
+//    public void setComments(List<Comment> comments) {
+//        this.comments = comments;
+//    }
 
     public User() {
     }

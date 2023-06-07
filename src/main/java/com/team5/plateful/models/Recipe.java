@@ -23,8 +23,8 @@ public class Recipe {
     @JoinColumn(name="user_id")
     private User user;
 
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "post")
-    private List<Comment> comments;
+//    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "post")
+//    private List<Comment> comments;
 
     public long getId() {
         return id;
@@ -58,13 +58,13 @@ public class Recipe {
         this.user = user;
     }
 
-    public List<Comment> getComments() {
-        return comments;
-    }
-
-    public void setComments(List<Comment> comments) {
-        this.comments = comments;
-    }
+//    public List<Comment> getComments() {
+//        return comments;
+//    }
+//
+//    public void setComments(List<Comment> comments) {
+//        this.comments = comments;
+//    }
 
     public Recipe() {
     }
