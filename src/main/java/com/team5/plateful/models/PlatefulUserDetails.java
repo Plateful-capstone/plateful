@@ -34,7 +34,8 @@ public class PlatefulUserDetails extends User implements UserDetails {
     public PlatefulUserDetails() {
     }
 
-    public PlatefulUserDetails(String username, String email, String password, String avatar_url) {
-        super(username, email, password, avatar_url);
+
+    public PlatefulUserDetails(long id, String username, String email, String password, String avatar_url) {
+        super(id, username, email, password, avatar_url);
     }
 }

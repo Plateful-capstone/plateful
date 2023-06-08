@@ -96,4 +96,11 @@ public class User {
         this.avatar_url = avatar_url;
     }
 
+    public User(long id, String username, String email, String password, String avatar_url) {
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.avatar_url = avatar_url;
+    }
 }
