@@ -1,0 +1,37 @@
+footer.container {
+    background-color: blue;
+    height: 20vh;
+
+}
+
+footer.container .row {
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: lightblue;
+}
+
+.footer-logo-wrapper img {
+    height: 100%;
+    width: 300px;
+    object-fit: cover;
+}
+
+.media-logo-wrapper img {
+    height: 50%;
+    width: auto;
+    object-fit: cover;
+}
+
+.media-logo-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.border-right {
+    border-right: 1px solid black;
+}
+
+.border-left {
+    border-left: 1px solid black;
+}
