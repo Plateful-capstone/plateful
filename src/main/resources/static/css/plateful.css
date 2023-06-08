@@ -123,3 +123,23 @@ nav ul li {
 
 /*recipe grid end*/
 
+/*profile start*/
+.cookbook-column {
+    background-color: red;
+    min-width: 70vw;
+    height: 100%;
+}
+.profile-column {
+    background-color: blue;
+    min-width: 30vw;
+    height: 100%;
+}
+
+.profile-photo-row {
+    background-color: yellow;
+}
+
+.profile-info {
+    background-color: green;
+}
+/*profile end*/
