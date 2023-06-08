@@ -1,20 +1,16 @@
-footer.container {
-    background-color: blue;
-    height: 20vh;
-
+:root {
+    --background: #FEF0F2;
+    --border: #FFE7ED;
+    --color: #374552;
+    --text-alert: #F75E88;
 }
 
-footer.container .row {
-    width: 100%;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    background-color: lightblue;
+header.container {
+    max-height: 20vh;
 }
 
-.footer-logo-wrapper img {
-    height: 100%;
+.nav-image-wrapper {
     width: 300px;
-    object-fit: cover;
 }
 
 .media-logo-wrapper img {
@@ -28,6 +24,15 @@ footer.container .row {
     align-items: center;
 }
 
+footer.container {
+    background-color: var(--color);
+    height: 20vh;
+}
+
+.footer-logo-wrapper img {
+    width: 300px;
+}
+
 .border-right {
     border-right: 1px solid black;
 }
@@ -35,6 +40,7 @@ footer.container .row {
 .border-left {
     border-left: 1px solid black;
 }
+
 
 /*modal start*/
 
@@ -107,3 +113,4 @@ footer.container .row {
 }
 
 /*recipe grid end*/
+
