@@ -1,20 +1,16 @@
-footer.container {
-    background-color: blue;
-    height: 20vh;
-
+:root {
+    --background: #FEF0F2;
+    --border: #FFE7ED;
+    --color: #374552;
+    --text-alert: #F75E88;
 }
 
-footer.container .row {
-    width: 100%;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    background-color: lightblue;
+header.container {
+    max-height: 20vh;
 }
 
-.footer-logo-wrapper img {
-    height: 100%;
+.nav-image-wrapper {
     width: 300px;
-    object-fit: cover;
 }
 
 .media-logo-wrapper img {
@@ -28,6 +24,15 @@ footer.container .row {
     align-items: center;
 }
 
+footer.container {
+    background-color: var(--color);
+    height: 20vh;
+}
+
+.footer-logo-wrapper img {
+    width: 300px;
+}
+
 .border-right {
     border-right: 1px solid black;
 }
@@ -35,3 +40,86 @@ footer.container .row {
 .border-left {
     border-left: 1px solid black;
 }
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+/*modal start*/
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Modal Content/Box */
+.modal-content {
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    color: #C53683;
+    background: linear-gradient(to bottom, #FEF0F2, #C53683);
+    border-radius: 5px;
+}
+
+/* Close Button */
+.close {
+
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    transition: all ease .3s;
+}
+
+.close:hover:first-child,
+.close:focus:first-child {
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+/*modal end*/
+
+/*recipe grid start*/
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    padding: 10px;
+}
+
+.grid-item {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.grid-item h4 {
+    margin: 0;
+}
+
+.grid-item:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+
+/*recipe grid end*/
+
