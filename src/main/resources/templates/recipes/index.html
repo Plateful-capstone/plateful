@@ -5,27 +5,13 @@
 <div class="page-wrapper">
     <header th:replace="partials/navbar :: navbar"></header>
     <div class="container grow justify-center">
-        <div class="row justify-center">
-            <div class="column shrink">
-                <h3>All recipes</h3>
-                <div class="row grow">
-                    <div th:each="recipe : ${recipes}">
-                        <div class="column shrink">
-                            <div class="card">
-                                <div class="card-divider">
-                                    <h4 th:text="${recipe.recipeName}"></h4>
-                                </div>
-                                <img th:src="${recipe.recipeImageUrl}" alt="recipe image">
-                                <div class="card-section">
-                                    <p th:text="${recipe.recipeDescription}"></p>
-                                    <a th:href="@{/recipes/{id}/show(id=${recipe.id})}">Show recipe</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+        <h3>All recipes</h3>
+        <div class="grid-container">
+            <a th:each="recipe : ${recipes}" th:href="@{/recipes/{id}/view(id=${recipe.id})}">
+                <div class="grid-item" th:style="'background-image: url(' + ${recipe.recipeImageUrl} + ')'">
+                    <h4 th:text="${recipe.recipeName}"></h4>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
     <footer th:replace="partials/footer :: footer"></footer>
