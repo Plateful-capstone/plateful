@@ -5,14 +5,13 @@
     --text-alert: #F75E88;
 }
 
+button {
+    border-radius: 10px;
+    width: fit-content;
+}
 
 body {
     background-color: var(--background);
-}
-
-header.container {
-    max-height: 20vh;
-    width: 80vw;
 }
 
 div.container.grow.justify-center {
