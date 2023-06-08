@@ -1,40 +1,29 @@
 <header th:fragment="navbar" class="container">
-    <div class="row grow">
-        <div class="column shrink justify-center">
+    <div class="row full-width">
+        <div class="column justify-center">
             <div class="nav-image-wrapper">
-                <img src="/css/img/plateful-logo.png">
+                <img src="/css/img/plateful-logo.png" alt="Plateful Logo">
             </div>
-    </div>
+        </div>
         <div class="column align-right">
-            <nav>
-                <ul>
-                    <li>
-                        <a th:href="@{/static}"Home</a>
-                    </li>
-                    <li>
-                        <a th:href="@{/recipes}"All Recipes</a>
-                        <ul>
-                            <li>
-                                <a th:href="@{/recipes/search}">Search All Recipes</a>
-                            </li>
-                            <li>
-                                <a th:href="@{/recipes/create}">Create Recipe</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a th:href="@{/profile}">Profile</a>
-                    </li>
-                    <li>
-                        <a th:href="@{/about}">About Us</a>
-                    </li>
-                    <li>
-                        <a th:href="@{/login}">Login</a>
-                    <li>
-                        <a th:href="@{/register}">Register</a>
-                    </li>
-                </ul>
-            </nav>
+            <div class="row">
+                <nav>
+                    <ul>
+                        <li><a th:href="@{/static}">Home</a></li>
+                        <li>
+                            <a th:href="@{/recipes}">All Recipes</a>
+                            <ul>
+                                <li><a th:href="@{/recipes/search}">Search All Recipes</a></li>
+                                <li><a th:href="@{/recipes/create}">Create Recipe</a></li>
+                            </ul>
+                        </li>
+                        <li><a th:href="@{/profile}">Profile</a></li>
+                        <li><a th:href="@{/about}">About Us</a></li>
+                        <li><a th:href="@{/login}">Login</a></li>
+                        <li><a th:href="@{/register}">Register</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </div>
 </header>
