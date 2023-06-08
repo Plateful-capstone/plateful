@@ -4,4 +4,6 @@ import com.team5.plateful.models.Recipe;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RecipeRepository extends JpaRepository<Recipe, Long> {
+    Recipe findById(long id);
+    void deleteById(long id);
 }
