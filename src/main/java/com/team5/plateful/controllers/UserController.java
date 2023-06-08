@@ -68,7 +68,6 @@ public class UserController {
         long userId = user.getId();
         user = usersDao.findUserById(userId);
         model.addAttribute("user", user);
-        // Print the username to the console (debugging purpose)
         System.out.println(user.getUsername());
         return "profile";
     }
