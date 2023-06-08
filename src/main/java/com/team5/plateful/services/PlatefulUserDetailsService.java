@@ -24,7 +24,7 @@ public class PlatefulUserDetailsService implements UserDetailsService {
         if (user == null){
             throw new UsernameNotFoundException("User details not found for user: " + username);
         } else {
-            return new PlatefulUserDetails(user.getUsername(), user.getEmail(), user.getPassword(), user.getAvatar_url());
+            return new PlatefulUserDetails(user.getId(), user.getUsername(), user.getEmail(), user.getPassword(), user.getAvatar_url());
         }
     }
 }

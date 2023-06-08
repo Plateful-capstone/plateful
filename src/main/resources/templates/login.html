@@ -5,12 +5,10 @@
 <body>
 <div class="page-wrapper">
   <header th:replace="partials/navbar :: navbar"></header>
-
   <div class="container" >
     <div class="row">
       <div class="column">
-
-        <form action="/login" method="post" class="form login-form">
+        <form th:action="@{/login}" th:method="post" class="form login-form">
           <div class="form-group-wrapper">
             <h1>Please Log In</h1>
             <div class="card">
