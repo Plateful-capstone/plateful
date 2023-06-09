@@ -24,6 +24,12 @@ public class UserController {
         this.usersDao = usersDao;
     }
 
+    // handle GET request for the landing page
+    @GetMapping("/")
+    public String home() {
+        return "index";
+    }
+
     // Handle GET request for the login form
     @GetMapping("login")
     public String showLoginForm(){
