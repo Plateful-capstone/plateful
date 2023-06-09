@@ -66,4 +66,18 @@ public class RecipeController {
         recipesDao.deleteById(id);
         return "redirect:/recipes";
     }
+
+    // get mapping for search
+    @GetMapping("/recipes/search")
+    public String searchRecipeForm(Model model) {
+        model.addAttribute("recipes", recipesDao.findAll());
+        return "recipes/index";
+    }
+
+    // Route for searching for a recipe
+    @PostMapping("/recipes/search")
+    public String searchRecipe(@RequestParam(name = "search") String search, Model model) {
+        model.addAttribute("recipes", recipesDao.findByRecipeNameContaining(search));
+        return "recipes/index";
+    }
 }
