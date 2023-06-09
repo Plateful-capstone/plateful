@@ -176,7 +176,13 @@ nav ul li {
 }
 
 .profile-photo-row {
-    background-color: yellow;
+    background-color: white;
+}
+.avatar {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
 }
 
 .profile-info {
