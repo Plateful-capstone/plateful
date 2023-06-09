@@ -16,7 +16,7 @@ public class PlatefulSecurityConfiguration {
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests((requests) -> requests
                 .requestMatchers("/recipes/create", "/recipes/*/view", "/recipes/comment/", "/recipes/*/edit", "/profile").authenticated()
-                .requestMatchers("/recipes", "/recipes/{id}", "/register", "/login", "/about", "/static", "/recipes/search", "/").permitAll()
+                .requestMatchers("/recipes", "/recipes/{id}", "/register", "/login", "/logout","/about", "/static", "/recipes/search").permitAll()
                 .requestMatchers("/css/**", "/js/**").permitAll()
         );
         http.formLogin((form) -> form
