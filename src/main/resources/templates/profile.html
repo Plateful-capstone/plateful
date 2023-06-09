@@ -21,10 +21,14 @@
                         <p>Username: <span sec:authentication="principal.username"></span></p>
                         <p>Email: <span sec:authentication="principal.email"></span></p>
                         <form class="d-flex justify-center align-center" th:action="@{/profile}" th:method="post">
+
                             <label for="email">Email:</label>
                             <input type="email" name="email" id="email" th:value="${user.email}">
                             <input type="submit" value="Change">
+
+
                         </form>
+                        <p><a th:href="@{/profile/update}"><span class="">Update Account Here!</span></a></p>
                     </div>
                 </div>
 
