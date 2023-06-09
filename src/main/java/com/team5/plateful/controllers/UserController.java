@@ -68,4 +68,10 @@ public class UserController {
         usersDao.save(user);
         return "redirect:/profile";
     }
+    @GetMapping("/logout")
+    public String logout() {
+        SecurityContextHolder.clearContext();
+        return "redirect:/login";
+    }
+
 }
