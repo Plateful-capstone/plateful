@@ -3,6 +3,7 @@ package com.team5.plateful.controllers;
 
 import com.team5.plateful.models.User;
 import com.team5.plateful.repositories.UserRepository;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -14,14 +15,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class UserController {
 
-    // Dependency injection for UserRepository and PasswordEncoder
     private final UserRepository usersDao;
-    // Dependency injection for PasswordEncoder
     private final PasswordEncoder passwordEncoder;
 
     public UserController(UserRepository usersDao, PasswordEncoder passwordEncoder){
-        this.passwordEncoder = passwordEncoder;
         this.usersDao = usersDao;
+        this.passwordEncoder = passwordEncoder;
     }
 
     // handle GET request for the landing page
@@ -36,13 +35,18 @@ public class UserController {
         return "about";
     }
 
-    // Handle GET request for the login form
-    @GetMapping("login")
+    @GetMapping("/login")
     public String showLoginForm(){
         return "/login";
     }
 
-    // Handle GET request for the registration form
+    @PostMapping("/login")
+    public String loginSessionSetter(Model model, HttpSession session) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        session.setAttribute("user", user);
+        return "redirect:/login";
+    }
+
     @GetMapping("/register")
     public String showRegistrationForm() {
         return "/register";
@@ -80,4 +84,5 @@ public class UserController {
         usersDao.save(user);
         return "redirect:/profile";
     }
+
 }
