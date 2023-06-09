@@ -3,9 +3,9 @@ package com.team5.plateful.controllers;
 
 import com.team5.plateful.models.User;
 import com.team5.plateful.repositories.UserRepository;
+//import org.springframework.security.core.context.SecurityContextHolder;
+//import org.springframework.security.crypto.password.PasswordEncoder;
 import jakarta.servlet.http.HttpSession;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,9 +16,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class UserController {
 
     private final UserRepository usersDao;
-    private final PasswordEncoder passwordEncoder;
+    // Dependency injection for PasswordEncoder
+//    private final PasswordEncoder passwordEncoder;
 
-    public UserController(UserRepository usersDao, PasswordEncoder passwordEncoder){
+    public UserController(UserRepository usersDao){
+//        this.passwordEncoder = passwordEncoder;
+
         this.usersDao = usersDao;
         this.passwordEncoder = passwordEncoder;
     }
@@ -56,7 +59,7 @@ public class UserController {
     @PostMapping("/register")
     public String registerUser(@RequestParam(name="username") String username, @RequestParam(name="email") String email, @RequestParam(name="password") String password, @RequestParam(name="avatar_url") String avatar_url) {
         User user = new User(username, email, password, avatar_url);
-        password = passwordEncoder.encode(password);
+//        password = passwordEncoder.encode(password);
         usersDao.save(new User(username, email, password, avatar_url));
         return "redirect:/login";
     }
@@ -64,23 +67,25 @@ public class UserController {
     // Handle GET request for the user profile page
     @GetMapping("/profile")
     public String showProfile(Model model){
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        long userId = user.getId();
-        user = usersDao.findUserById(userId);
-        model.addAttribute("user", user);
-        System.out.println(user.getUsername());
+//        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        long userId = user.getId();
+//        user = usersDao.findUserById(userId);
+//        model.addAttribute("user", user);
+//        // Print the username to the console (debugging purpose)
+//        System.out.println(user.getUsername());
+
         return "profile";
     }
 
     // Handle POST request for updating user profile
     @PostMapping("/profile")
     public String changeProfile(@RequestParam(name="email") String email){
-        System.out.println("Post mapping hit");
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        long userId = user.getId();
-        user = usersDao.findUserById(userId);
-        user.setEmail(email);
-        usersDao.save(user);
+//        System.out.println("Post mapping hit");
+//        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        long userId = user.getId();
+//        user = usersDao.findUserById(userId);
+//        user.setEmail(email);
+//        usersDao.save(user);
         return "redirect:/profile";
     }
   

@@ -23,8 +23,22 @@ public class RecipeController {
     }
 
     // Route for viewing an individual recipe
-    @GetMapping("/recipes/{id}/view")
+    @GetMapping("/recipes/{id}")
     public String viewIndividualRecipe(@PathVariable long id, Model model) {
+        if (recipesDao.findById(id) == null) {
+            // make API call to spoonacular
+            // save recipe to database
+            // return recipe
+
+            Recipe recipe = new Recipe( );
+            recipe.setRecipeName(recipe.getRecipeName());
+            recipe.setRecipeDescription(recipe.getRecipeDescription());
+            recipe.setRecipeIngredients(recipe.getRecipeIngredients());
+            recipe.setRecipeInstructions(recipe.getRecipeInstructions());
+            recipe.setRecipeImageUrl(recipe.getRecipeImageUrl());
+            recipesDao.save(recipe);
+            return "redirect:/recipes/{id}";
+        }
         Recipe recipe = recipesDao.findById(id);
         model.addAttribute("recipe", recipe);
         return "recipes/show";
@@ -71,13 +85,13 @@ public class RecipeController {
     @GetMapping("/recipes/search")
     public String searchRecipeForm(Model model) {
         model.addAttribute("recipes", recipesDao.findAll());
-        return "recipes/index";
+        return "recipes/search";
     }
 
     // Route for searching for a recipe
     @PostMapping("/recipes/search")
     public String searchRecipe(@RequestParam(name = "search") String search, Model model) {
         model.addAttribute("recipes", recipesDao.findByRecipeNameContaining(search));
-        return "recipes/index";
+        return "recipes/search";
     }
 }
