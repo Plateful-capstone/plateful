@@ -15,11 +15,24 @@ const createIngredientsList = (ingredients) => {
 
     return ingredientsList;
 }
+
+// Create a function that loops through the instructions and creates a list of instructions
+
+const createRecipeSteps = (analyzedInstructions) => {
+    const stepsParagraph = document.createElement("p");
+    stepsParagraph.id = "stepsList";
+
+    let steps = analyzedInstructions[0].steps.map((step) => step.step);
+    stepsParagraph.innerHTML = steps.join("<br>");
+
+    return stepsParagraph;
+}
+
 searchButton.addEventListener("click", (e) => {
     e.preventDefault();
     const searchInput = document.querySelector("#searchInput");
     const searchValue = searchInput.value;
-    const searchURL = `https://api.spoonacular.com/recipes/complexSearch?query=${searchValue}&number=1&addRecipeInformation=true&fillIngredients=true&apiKey=${keys.spoonacularAPIKey}`;
+    const searchURL = `https://api.spoonacular.com/recipes/complexSearch?query=${searchValue}&number=5&addRecipeInformation=true&fillIngredients=true&apiKey=${keys.spoonacularAPIKey}`;
     fetch(searchURL)
         .then((response) => {
             return response.json();
@@ -52,6 +65,8 @@ searchButton.addEventListener("click", (e) => {
             });
             let ingredientsList = createIngredientsList(data.results[0].extendedIngredients);
             resultsContainer.appendChild(ingredientsList);
+            let recipeStepsParagraph = createRecipeSteps(data.results[0].analyzedInstructions);
+            resultsContainer.appendChild(recipeStepsParagraph);
         })
         .catch((error) => {
             console.log(error);
