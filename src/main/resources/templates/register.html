@@ -9,14 +9,27 @@
       <div class="column shrink">
         <h1>Register PAGE</h1>
         <form th:action="@{/register}" th:method="post">
-          <label for="username">Username:</label>
-          <input type="text" name="username" id="username"><br>
-          <label for="email">Email:</label>
-          <input type="email" name="email" id="email"><br>
-          <label for="password">Password:</label>
-          <input type="password" name="password" id="password"><br>
-          <label for="avatar_url">Profile Picture:</label>
-          <input type="text" name="avatar_url" id="avatar_url"><br>
+          <div>
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username">
+          </div>
+          <div>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email">
+          </div>
+          <div>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" onkeyup="passConfirm()">
+          </div>
+          <div>
+            <label for="confirm_password">Confirm Password:</label>
+            <input id="confirm_password" name="confirm_password" type="password">
+          </div>
+          <div>
+            <label for="avatar_url">Profile Picture:</label>
+            <input type="text" name="avatar_url" id="avatar_url"><br>
+          </div>
+          <div class="justify-center align-center text-center" id="message"></div>
           <input type="submit" value="Register">
         </form>
       </div>
@@ -24,6 +37,22 @@
   </div>
   <footer th:replace="partials/footer :: footer"></footer>
 </div>
+<script>
+    function passConfirm() {
+      let password = document.getElementById(`password`).value;
+      let confirmPassword = document.getElementById(`confirm_password`).value;
+      let message = document.getElementById(`message`);
+      if (password === confirmPassword) {
+        message.style.color = `lightgreen`;
+        message.innerHTML = `Passwords match.`
+      } else {
+        message.style.color = `red`;
+        message.innerHTML = `Passwords do not match.`
+      }
+      document.getElementById(`password`).onkeyup = passConfirm;
+      document.getElementById(`confirm_password`).onkeyup = passConfirm;
+    }
+</script>
 
 </body>
 </html>

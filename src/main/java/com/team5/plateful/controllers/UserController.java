@@ -1,6 +1,7 @@
 // Import necessary dependencies
 package com.team5.plateful.controllers;
 
+import com.team5.plateful.models.Recipe;
 import com.team5.plateful.models.User;
 import com.team5.plateful.repositories.UserRepository;
 //import org.springframework.security.core.context.SecurityContextHolder;
@@ -93,6 +94,30 @@ public class UserController {
     public String logout() {
         SecurityContextHolder.clearContext();
         return "redirect:/login";
+    }
+
+
+    @GetMapping("/profile/update")
+    public String updateProfile(Model model){
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        long userId = user.getId();
+        user = usersDao.findUserById(userId);
+        model.addAttribute("user", user);
+        return "profile/update";
+    }
+
+    @PostMapping("/profile/update")
+    public String updateProfile(@RequestParam(name="email") String email, @RequestParam(name="username") String username, @RequestParam(name="password") String password, @RequestParam(name="avatar_url") String avatar_url) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        long userId = user.getId();
+        user = usersDao.findUserById(userId);
+        password = passwordEncoder.encode(password);
+        user.setUsername(username);
+        user.setEmail(email);
+        user.setPassword(password);
+        user.setAvatar_url(avatar_url);
+        usersDao.save(user);
+        return "redirect:/profile";
     }
 
 }
