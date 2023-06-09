@@ -30,6 +30,12 @@ public class UserController {
         return "index";
     }
 
+    // handle get request for the about page
+    @GetMapping("/about")
+    public String about() {
+        return "about";
+    }
+
     // Handle GET request for the login form
     @GetMapping("login")
     public String showLoginForm(){
