@@ -157,6 +157,10 @@ nav ul li {
     cursor: pointer;
 }
 
+#ingredientsList {
+    display: none;
+}
+
 /*recipe grid end*/
 
 /*profile start*/
