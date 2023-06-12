@@ -49,6 +49,12 @@ public class UserController {
         return "redirect:/profile";
     }
 
+    @GetMapping("/logout")
+    public String logout() {
+        SecurityContextHolder.clearContext();
+        return "redirect:/login";
+    }
+
     @GetMapping("/register")
     public String showRegistrationForm() {
         return "/register";
@@ -87,12 +93,6 @@ public class UserController {
         usersDao.save(user);
         return "redirect:/profile";
     }
-  
-    @GetMapping("/logout")
-    public String logout() {
-        SecurityContextHolder.clearContext();
-        return "redirect:/login";
-    }
 
 
     @GetMapping("/profile/update")
@@ -104,8 +104,9 @@ public class UserController {
         return "profile/update";
     }
 
+    // Handle POST request for updating user profile
     @PostMapping("/profile/update")
-    public String updateProfile(@RequestParam(name="email") String email, @RequestParam(name="username") String username, @RequestParam(name="password") String password, @RequestParam(name="avatar_url") String avatar_url) {
+    public String updateProfile(@RequestParam(name="email") String email, @RequestParam(name="username") String username, @RequestParam(name="password") String password) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         long userId = user.getId();
         user = usersDao.findUserById(userId);
@@ -113,7 +114,7 @@ public class UserController {
         user.setUsername(username);
         user.setEmail(email);
         user.setPassword(password);
-        user.setAvatar_url(avatar_url);
+//        user.setAvatar_url(avatar_url);
         usersDao.save(user);
         return "redirect:/profile";
     }

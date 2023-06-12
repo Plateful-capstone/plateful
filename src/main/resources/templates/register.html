@@ -19,7 +19,7 @@
           </div>
           <div>
             <label for="password">Password:</label>
-            <input type="password" name="password" id="password" onkeyup="passConfirm()">
+            <input type="password" name="password" id="password">
           </div>
           <div>
             <label for="confirm_password">Confirm Password:</label>
@@ -37,22 +37,8 @@
   </div>
   <footer th:replace="partials/footer :: footer"></footer>
 </div>
-<script>
-    function passConfirm() {
-      let password = document.getElementById(`password`).value;
-      let confirmPassword = document.getElementById(`confirm_password`).value;
-      let message = document.getElementById(`message`);
-      if (password === confirmPassword) {
-        message.style.color = `lightgreen`;
-        message.innerHTML = `Passwords match.`
-      } else {
-        message.style.color = `red`;
-        message.innerHTML = `Passwords do not match.`
-      }
-      document.getElementById(`password`).onkeyup = passConfirm;
-      document.getElementById(`confirm_password`).onkeyup = passConfirm;
-    }
-</script>
+
+<script type="module" th:src="@{/js/passwordMatcher.js}"></script>
 
 </body>
 </html>
