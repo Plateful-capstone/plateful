@@ -184,7 +184,6 @@ footer.container .row {
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px;
-    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -198,9 +197,9 @@ footer.container .row {
     cursor: pointer;
 }
 
-#ingredientsList {
-    display: none;
-}
+/*#ingredientsList {*/
+/*    display: none;*/
+/*}*/
 
 /*recipe grid end*/
 

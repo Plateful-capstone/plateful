@@ -17,30 +17,32 @@
           <button class="btn primary" id="searchButton">Search</button>
          </form>
         <div class="container" id="resultsContainer">
-            <div class="row">
-                <div class="column">
-                <h2>Results</h2>
-                <ul class="post-grid">
-                    <li th:each="recipe : ${recipes}" class="column post">
-                    <a th:href="@{|/recipes/${recipe.id}|}">
-                        <img th:src="@{'https://picsum.photos/id/' + ${recipe.id} + '/340/200'}" alt="Post thumbnail" class="post-thumbnail">
-                    </a>
-                    <a th:href="@{|/recipes/${recipe.id}|}"><h2 th:text="${recipe.title}"></h2></a>
-                    <p th:text="${recipe.description}" class="excerpt"></p>
-                    <div class="d-flex align-center justify-space-between">
-                        <a th:href="@{|/recipes/${recipe.id}|}">
-                        <p class="read-more">Read More</p>
-                        </a>
-                        <p class="comments" th:text="${recipe.comments.size() + ' Comments'}"></p>
-                    </div>
-                    <div class="d-flex align-center gap-5">
-                        <img th:src="@{'https://picsum.photos/id/' + ${recipe.id} + '/50/50'}" alt="User avatar" class="avatar">
-                        <p th:text="${recipe.user.username}"></p>
-                    </div>
-                    </li>
-                </ul>
-                </div>
-            </div>
+
+
+<!--            <div class="row">-->
+<!--                <div class="column">-->
+<!--                <h2>Results</h2>-->
+<!--                <ul class="post-grid">-->
+<!--                    <li th:each="recipe : ${recipes}" class="column post">-->
+<!--                    <a th:href="@{|/recipes/${recipe.id}|}">-->
+<!--                        <img th:src="@{'https://picsum.photos/id/' + ${recipe.id} + '/340/200'}" alt="Post thumbnail" class="post-thumbnail">-->
+<!--                    </a>-->
+<!--                    <a th:href="@{|/recipes/${recipe.id}|}"><h2 th:text="${recipe.title}"></h2></a>-->
+<!--                    <p th:text="${recipe.description}" class="excerpt"></p>-->
+<!--                    <div class="d-flex align-center justify-space-between">-->
+<!--                        <a th:href="@{|/recipes/${recipe.id}|}">-->
+<!--                        <p class="read-more">Read More</p>-->
+<!--                        </a>-->
+<!--                        <p class="comments" th:text="${recipe.comments.size() + ' Comments'}"></p>-->
+<!--                    </div>-->
+<!--                    <div class="d-flex align-center gap-5">-->
+<!--                        <img th:src="@{'https://picsum.photos/id/' + ${recipe.id} + '/50/50'}" alt="User avatar" class="avatar">-->
+<!--                        <p th:text="${recipe.user.username}"></p>-->
+<!--                    </div>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--                </div>-->
+<!--            </div>-->
         </div>
       </div>
     </div>
