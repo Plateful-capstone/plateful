@@ -57,7 +57,7 @@ public class UserController {
 
     @GetMapping("/register")
     public String showRegistrationForm() {
-        return "/register";
+        return "register";
     }
 
     // Handle POST request for user registration
@@ -103,6 +103,7 @@ public class UserController {
         model.addAttribute("user", user);
         return "profile/update";
     }
+
 
     // Handle POST request for updating user profile
     @PostMapping("/profile/update")
