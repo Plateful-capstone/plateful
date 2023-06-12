@@ -58,6 +58,7 @@ nav ul li .btn {
 }
 header.container .row {
     padding: unset;
+    max-width: unset;
 }
 header.container {
     padding: unset;
