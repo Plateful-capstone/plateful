@@ -104,6 +104,7 @@ public class UserController {
         return "profile/update";
     }
 
+
     // Handle POST request for updating user profile
     @PostMapping("/profile/update")
     public String updateProfile(@RequestParam(name="email") String email, @RequestParam(name="username") String username, @RequestParam(name="password") String password) {
