@@ -1,23 +1,23 @@
 <header th:fragment="navbar" class="container grow justify-center">
     <div class="row grow justify-space-between">
         <div class="column shrink justify-center">
-            <div class="nav-image-wrapper">
-                <img src="/css/img/plateful-logo.png" alt="Plateful Logo">
-            </div>
+<!--            <div class="nav-image-wrapper">-->
+<!--                <img src="/css/img/plateful-logo.png" alt="Plateful Logo">-->
+<!--            </div>-->
         </div>
-        <div class="column align-right justify-center">
+        <div class="column align-right justify-center navholder">
                 <nav class="d-flex">
                     <ul th:if="${#authorization.expression('isAuthenticated()')}" class="d-flex align-center">
                         <!-- Authenticated User -->
-                        <li><a th:href="@{/}">Home</a></li>
-                        <li><a th:href="@{/recipes}">All Recipes</a></li>
-                        <li><a th:href="@{/recipes/create}">Add Recipe</a></li>
-                        <li><a th:href="@{/recipes/search}">Search For Recipe</a></li>
-                        <li><a th:href="@{/about}">About Us</a></li>
-                        <li><a th:href="@{/profile}">profile</a></li>
-                        <li>
+                        <li class="navli"><a th:href="@{/}">Home</a></li>
+                        <li class="navli"><a th:href="@{/recipes}">All Recipes</a></li>
+                        <li class="navli"><a th:href="@{/recipes/create}">Add Recipe</a></li>
+                        <li class="navli"><a th:href="@{/recipes/search}">Search For Recipe</a></li>
+                        <li class="navli"><a th:href="@{/about}">About Us</a></li>
+                        <li class="navli"><a th:href="@{/profile}">Profile</a></li>
+                        <li class="navli">
                             <form th:action="@{/logout}" th:method="post" class="d-flex justify-center align-center">
-                                <button class="btn-link btn logout-btn">Logout</button>
+                                <button class="btn-link btn logout-btn cta">Logout</button>
                             </form>
                         </li>
                     </ul>
