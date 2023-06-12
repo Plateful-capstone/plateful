@@ -1,21 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 :root {
     --background: #FEF0F2;
     --border: #FFE7ED;
     --color: #374552;
     --text-alert: #F75E88;
+    --that-pink: #C53683;
 }
 
 button {
-    border-radius: 10px;
     width: fit-content;
 }
 
 body {
     background-color: var(--background);
+    font-family: Raleway, sans-serif;
+}
+
+h1{
+    color: #Fff;
 }
 
 div.container.grow.justify-center {
     padding: 20px;
+}
+
+.cta {
+    /*border: 1px solid var(--that-pink)*/
+    color: white;
+    background-color: var(--that-pink);
+    border: unset;
+    border-radius: 30px;
+    padding-bottom: 7px;
+    padding-top: 7px;
+    padding-left: 20px;
+    padding-right: 20px
 }
 
 /*navbar start*/
@@ -35,17 +54,30 @@ nav ul {
     padding: 0;
 }
 
+
+.navli {
+    font-weight: 600;
+    transition: all ease .3s;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+.navli:hover {
+    color: var(--that-pink);
+}
+
 nav ul li {
     margin-right: 20px;
 }
 
 nav {
     background: white;
-    border-bottom: 1px solid black;
-    border-top: 1px solid black;
-    border-left: 1px solid black;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    border: 1px solid var(--that-pink);
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    padding-left: 60px;
 }
 
 .logout-btn-container {
@@ -230,3 +262,11 @@ footer.container .row {
     background-color: green;
 }
 /*profile end*/
+
+/*/ ======================================= /*/
+/*/ ==============   USER LOGIN   ========= /*/
+/*/ ======================================= /*/
+
+.header-format {
+
+}

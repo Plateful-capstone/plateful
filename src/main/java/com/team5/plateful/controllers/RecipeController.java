@@ -94,4 +94,11 @@ public class RecipeController {
         model.addAttribute("recipes", recipesDao.findByRecipeNameContaining(search));
         return "recipes/search";
     }
+//
+//    @GetMapping("/recipes/{id}/view")
+//    public String viewRecipeForm(Model model) {
+//        model.addAttribute("recipes", recipesDao.findAll());
+//        return
+//    }
 }
+
