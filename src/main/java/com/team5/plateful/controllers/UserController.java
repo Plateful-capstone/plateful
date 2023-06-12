@@ -57,7 +57,7 @@ public class UserController {
 
     @GetMapping("/register")
     public String showRegistrationForm() {
-        return "/register";
+        return "register";
     }
 
     // Handle POST request for user registration
