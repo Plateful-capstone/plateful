@@ -99,6 +99,7 @@ public class RecipeController {
 //        model.addAttribute("recipes", recipesDao.findByRecipeNameContaining(search));
         return "recipes/search";
     }
+
     @PostMapping("/recipes/search/create")
     @ResponseBody
     public Recipe addFromRecipeAPI(@RequestBody Recipe recipe) throws JsonProcessingException {
@@ -108,4 +109,13 @@ public class RecipeController {
         recipesDao.save(recipe);
         return recipe;
     }
+
+//
+//    @GetMapping("/recipes/{id}/view")
+//    public String viewRecipeForm(Model model) {
+//        model.addAttribute("recipes", recipesDao.findAll());
+//        return
+//    }
+
 }
+
