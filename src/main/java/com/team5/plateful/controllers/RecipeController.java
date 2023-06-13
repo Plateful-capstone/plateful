@@ -1,5 +1,7 @@
 package com.team5.plateful.controllers;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.team5.plateful.models.Recipe;
 import com.team5.plateful.models.User;
 import com.team5.plateful.repositories.RecipeRepository;
@@ -39,7 +41,7 @@ public class RecipeController {
             recipe.setRecipeInstructions(recipe.getRecipeInstructions());
             recipe.setRecipeImageUrl(recipe.getRecipeImageUrl());
             recipesDao.save(recipe);
-            return "redirect:/recipes/{id}";
+            return "redirect:/recipes/{id}/view";
         }
         Recipe recipe = recipesDao.findById(id);
         model.addAttribute("recipe", recipe);
@@ -55,6 +57,7 @@ public class RecipeController {
 
     @PostMapping("/recipes/create")
     public String createRecipe(@ModelAttribute Recipe recipe) {
+
         // Get the current authenticated user
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
@@ -62,6 +65,9 @@ public class RecipeController {
         recipe.setUser(user);
 
         // Save the recipe to the database
+
+        System.out.println("Received Recipe: " + recipe.toString()); // Debugging statement
+
         recipesDao.save(recipe);
 
         return "redirect:/recipes";
@@ -95,14 +101,35 @@ public class RecipeController {
     // get mapping for search
     @GetMapping("/recipes/search")
     public String searchRecipeForm(Model model) {
-        model.addAttribute("recipes", recipesDao.findAll());
+        model.addAttribute("recipe", new Recipe());
+//        model.addAttribute("recipes", recipesDao.findAll());
         return "recipes/search";
     }
 
     // Route for searching for a recipe
     @PostMapping("/recipes/search")
-    public String searchRecipe(@RequestParam(name = "search") String search, Model model) {
-        model.addAttribute("recipes", recipesDao.findByRecipeNameContaining(search));
+    public String searchRecipe(@RequestParam(name = "search") String search, Model model, @ModelAttribute Recipe recipe) {
+        recipesDao.save(recipe);
+//        model.addAttribute("recipes", recipesDao.findByRecipeNameContaining(search));
         return "recipes/search";
     }
+
+    @PostMapping("/recipes/search/create")
+    @ResponseBody
+    public Recipe addFromRecipeAPI(@RequestBody Recipe recipe) throws JsonProcessingException {
+        System.out.println("Received Recipe: ");
+        ObjectMapper objectMapper = new ObjectMapper();
+        System.out.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(recipe));
+        recipesDao.save(recipe);
+        return recipe;
+    }
+
+//
+//    @GetMapping("/recipes/{id}/view")
+//    public String viewRecipeForm(Model model) {
+//        model.addAttribute("recipes", recipesDao.findAll());
+//        return
+//    }
+
 }
+

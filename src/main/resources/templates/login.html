@@ -2,14 +2,16 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="partials/head :: head ('Plateful login page')" ></head>
 <body>
+
 <div class="page-wrapper">
-  <header th:replace="partials/navbar :: navbar"></header>
   <div class="container grow justify-center" >
     <div class="row justify-center">
       <div class="column shrink">
         <form th:action="@{/login}" th:method="post" class="form login-form">
           <div class="form-group-wrapper">
+            <div class="header-format" >
             <h1>Please Log In</h1>
+            </div>
             <div class="card">
               <div class="card-body">
                 <div class="column shrink">
@@ -25,11 +27,10 @@
             </div>
           </div>
         </form>
-        <p>Dont have an account? <a href="/register"><span class="">Sign Up Here!</span></a></p>
+        <p>Dont have an account? <a th:href="@{/register}"><span class="">Sign Up Here!</span></a></p>
       </div>
     </div>
   </div>
-  <footer th:replace="partials/footer :: footer"></footer>
 </div>
 </body>
 </html>
