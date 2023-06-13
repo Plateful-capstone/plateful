@@ -23,7 +23,8 @@ public class PlatefulSecurityConfiguration {
                         "/recipes/*/edit",
                         "/profile/update",
                         "/profile",
-                        "/recipes/search/create"
+                        "/recipes/search/create",
+                        "/profile/changeImage"
                 ).authenticated()
                 .requestMatchers(
                         "/recipes",
