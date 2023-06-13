@@ -5,33 +5,38 @@
 <div th:replace="loading :: loading-animation"></div>
 <div class="page-wrapper">
   <header th:replace="partials/navbar :: navbar"></header>
-  <div class="container grow justify-center">
-    <div class="row justify-center">
-      <div class="column shrink">
-        <h1>Register PAGE</h1>
-        <form th:action="@{/register}" th:method="post">
-          <div>
-            <label for="username">Username:</label>
-            <input type="text" name="username" id="username">
+  <div class="container grow justify-center register-container">
+    <div class="row justify-center register-inner align-center">
+      <div class="column register-content-wrapper justify-center align-center shrink">
+        <div class="row grow justify-center header-format register_header">
+          <h1>Welcome to Plateful!</h1>
+        </div>
+        <div class="row grow justify-center register-p">
+          <p>Create an account or <span class="anch"><a href="/login">log in</a></span></p>
+        </div>
+        <form th:action="@{/register}" th:method="post" class="register-form row form justify-space-between">
+          <div class="input-wrapper">
+            <label class="card-title" for="username">Username:</label>
+            <input class="card-text register_input" type="text" name="username" id="username">
           </div>
-          <div>
-            <label for="email">Email:</label>
-            <input type="email" name="email" id="email">
+          <div class="input-wrapper">
+            <label class="card-title" for="email">Email:</label>
+            <input class="card-text register_input" type="email" name="email" id="email">
           </div>
-          <div>
-            <label for="password">Password:</label>
-            <input type="password" name="password" id="password">
+          <div class="input-wrapper">
+            <label class="card-title" for="password">Password:</label>
+            <input class="card-text register_input" type="password" name="password" id="password">
           </div>
-          <div>
-            <label for="confirm_password">Confirm Password:</label>
-            <input id="confirm_password" name="confirm_password" type="password">
+          <div class="input-wrapper">
+            <label class="card-title" for="confirm_password">Confirm Password:</label>
+            <input class="card-text register_input" id="confirm_password" name="confirm_password" type="password">
           </div>
-          <div>
-            <label for="avatar_url">Profile Picture:</label>
-            <input type="text" name="avatar_url" id="avatar_url"><br>
+          <div class="input-wrapper">
+            <label class="card-title" for="avatar_url">Profile Picture:</label>
+            <input class="card-text register_input" type="text" name="avatar_url" id="avatar_url"><br>
           </div>
           <div class="justify-center align-center text-center" id="message"></div>
-          <input type="submit" value="Register">
+          <input class="btn cta" type="submit" value="Register">
         </form>
       </div>
     </div>
