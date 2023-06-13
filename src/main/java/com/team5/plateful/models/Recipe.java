@@ -17,7 +17,7 @@ public class Recipe {
     @Column(nullable = false, columnDefinition = "TEXT")
     private String recipeDescription;
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String recipeIngredients;
 
     @Column(nullable = false, columnDefinition = "TEXT")
