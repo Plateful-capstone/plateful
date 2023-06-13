@@ -23,6 +23,12 @@ public class User {
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
     private List<Recipe> recipes;
 
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
+    private List<CookBook> cookbooks;
+
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
+    private List<Comments> comments;
+
     public List<Recipe> getRecipes() {
         return recipes;
     }
@@ -74,7 +80,21 @@ public class User {
         this.avatar_url = avatar_url;
     }
 
+    public List<CookBook> getCookbooks() {
+        return cookbooks;
+    }
 
+    public void setCookbooks(List<CookBook> cookbooks) {
+        this.cookbooks = cookbooks;
+    }
+
+    public List<Comments> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comments> comments) {
+        this.comments = comments;
+    }
 
     public User() {
     }
@@ -92,5 +112,10 @@ public class User {
         this.email = email;
         this.password = password;
         this.avatar_url = avatar_url;
+    }
+
+
+    public User(List<Comments> comments) {
+        this.comments = comments;
     }
 }
