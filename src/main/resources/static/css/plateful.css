@@ -353,6 +353,25 @@ footer.container .row {
 .login_header {
     padding-bottom: 20px;
 }
+.login-content-wrapper {
+    /* Remove or adjust the min-width property if necessary */
+    /*min-width: 50vw;*/
+    /*height: auto;*/
+}
+
+.login-image-wrapper {
+    min-width: 50vw;
+}
+
+.login-image-wrapper img {
+    max-height: 50vh;
+    min-width: 40vw;
+    object-fit: cover;
+}
+
+.login-form {
+    flex-direction: column;
+}
 
 label {
     font-weight: 600;
@@ -363,8 +382,6 @@ label {
     border: unset;
     padding-bottom: 5px;
     padding-top: 5px;
-    margin-top: 10px;
-    margin-bottom: 10px;
 }
 
 .login_button {
@@ -382,22 +399,6 @@ label {
     color: var(--button-hover)
 }
 
-.login_image {
-    width: 50%;
-    background-repeat: no-repeat;
-    height: 40vh;
-}
-
-.login_image img {
-    object-fit: cover;
-    height: auto;
-    width: auto;
-}
-
-.header-format {
-
-}
-
 .logo-wrapper {
     display: flex;
     justify-content: center;
@@ -406,6 +407,19 @@ label {
 }
 
 .login-inner {
-    max-height: 100%;
+    /* Remove or adjust the min-width property if necessary */
+    min-width: 70vw;
+    max-height: 70vh;
+    border: 1px solid pink;
+    border-radius: 10px;
+    background-color: var(--color);
+}
+
+
+
+
+div.container.login-container {
+    background: var(--background);
+    border: unset;
 }
 
