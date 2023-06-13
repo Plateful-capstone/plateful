@@ -10,8 +10,11 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 @Controller
 public class UserController {
@@ -71,16 +74,16 @@ public class UserController {
 
     // Handle GET request for the user profile page
     @GetMapping("/profile")
-    public String showProfile(Model model){
+    public String showProfile(Model model) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         long userId = user.getId();
         user = usersDao.findUserById(userId);
         model.addAttribute("user", user);
-        // Print the username to the console (debugging purpose)
-        System.out.println(user.getUsername());
-
+        List<Recipe> userRecipes = user.getRecipes();
+        model.addAttribute("userRecipes", userRecipes);
         return "profile";
     }
+
 
     // Handle POST request for updating user profile
     @PostMapping("/profile")
@@ -119,5 +122,6 @@ public class UserController {
         usersDao.save(user);
         return "redirect:/profile";
     }
+
 
 }

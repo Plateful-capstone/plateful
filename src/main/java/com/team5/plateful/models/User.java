@@ -20,11 +20,16 @@ public class User {
     private String password;
     @Column(nullable = false)
     private String avatar_url;
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
+    private List<Recipe> recipes;
 
+    public List<Recipe> getRecipes() {
+        return recipes;
+    }
 
-//    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
-//    private List<Recipe> recipes;
-//
+    public void setRecipes(List<Recipe> recipes) {
+        this.recipes = recipes;
+    }
 //    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
 //    private List<Comment> comments;
 
@@ -70,21 +75,6 @@ public class User {
     }
 
 
-//    public List<Recipe> getRecipes() {
-//        return recipes;
-//    }
-//
-//    public void getRecipes(List<Recipe> posts) {
-//        this.recipes = posts;
-//    }
-//
-//    public List<Comment> getComments() {
-//        return comments;
-//    }
-//
-//    public void setComments(List<Comment> comments) {
-//        this.comments = comments;
-//    }
 
     public User() {
     }

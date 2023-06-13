@@ -3,7 +3,9 @@ package com.team5.plateful.controllers;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.team5.plateful.models.Recipe;
+import com.team5.plateful.models.User;
 import com.team5.plateful.repositories.RecipeRepository;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -55,10 +57,22 @@ public class RecipeController {
 
     @PostMapping("/recipes/create")
     public String createRecipe(@ModelAttribute Recipe recipe) {
+
+        // Get the current authenticated user
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        // Set the user on the recipe
+        recipe.setUser(user);
+
+        // Save the recipe to the database
+
         System.out.println("Received Recipe: " + recipe.toString()); // Debugging statement
+
         recipesDao.save(recipe);
+
         return "redirect:/recipes";
     }
+
 
     // Route for editing a recipe
     @PostMapping("/recipes/{id}/edit")
