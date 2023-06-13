@@ -26,6 +26,37 @@ public class Recipe {
     @Column(nullable = false)
     private String recipeImageUrl;
 
+    @ManyToOne
+    @JoinColumn(name="user_id")
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Recipe(String recipeName, String recipeDescription, String recipeIngredients, String recipeInstructions, String recipeImageUrl, User user) {
+        this.recipeName = recipeName;
+        this.recipeDescription = recipeDescription;
+        this.recipeIngredients = recipeIngredients;
+        this.recipeInstructions = recipeInstructions;
+        this.recipeImageUrl = recipeImageUrl;
+        this.user = user;
+    }
+
+    public Recipe(long id, String recipeName, String recipeDescription, String recipeIngredients, String recipeInstructions, String recipeImageUrl, User user) {
+        this.id = id;
+        this.recipeName = recipeName;
+        this.recipeDescription = recipeDescription;
+        this.recipeIngredients = recipeIngredients;
+        this.recipeInstructions = recipeInstructions;
+        this.recipeImageUrl = recipeImageUrl;
+        this.user = user;
+    }
+
     public Recipe() {
     }
 

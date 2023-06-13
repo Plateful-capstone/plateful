@@ -9,23 +9,32 @@
         <div class="row grow justify-center">
             <div class="cookbook-column column shrink align-center">
                 <h1>Cookbook</h1>
+<!--                <p><a th:href="@{/profile/my_recipes}"><span class="">My recipes</span></a></p>-->
+                <div class="recipes-grid">
+                    <div class="recipe-card" th:each="recipe : ${userRecipes}">
+                        <a th:href="@{/recipes/{id}/view(id=${recipe.id})}" class="card-link">
+                            <div class="card-background" th:style="'background-image: url(' + ${recipe.recipeImageUrl} + ')'" ></div>
+                            <div class="card-content">
+                                <h3 class="recipe-title" th:text="${recipe.recipeName}"></h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
             <div class="profile-column column shrink">
                 <div class="profile-photo-row row grow">
                     <div class="column justify-center">
-                        <img src="https://picsum.photos/200/300" alt="Avatar" class="avatar">
+                        <img th:src="${user.avatar_url}" alt="Avatar" class="avatar">
                     </div>
                 </div>
                 <div class="profile-info justify-center row grow">
                     <div class="column justify-center shrink">
                         <h1>Your profile</h1>
-<!--                        view profile data-->
                         <p>Username: <span sec:authentication="principal.username"></span></p>
                         <p>Email: <span sec:authentication="principal.email"></span></p>
                         <p><a th:href="@{/profile/update}"><span class="">Update Account Here!</span></a></p>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

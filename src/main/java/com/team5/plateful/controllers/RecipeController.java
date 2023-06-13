@@ -1,7 +1,9 @@
 package com.team5.plateful.controllers;
 
 import com.team5.plateful.models.Recipe;
+import com.team5.plateful.models.User;
 import com.team5.plateful.repositories.RecipeRepository;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +25,7 @@ public class RecipeController {
     }
 
     // Route for viewing an individual recipe
-    @GetMapping("/recipes/{id}")
+    @GetMapping("/recipes/{id}/view")
     public String viewIndividualRecipe(@PathVariable long id, Model model) {
         if (recipesDao.findById(id) == null) {
             // make API call to spoonacular
@@ -53,9 +55,18 @@ public class RecipeController {
 
     @PostMapping("/recipes/create")
     public String createRecipe(@ModelAttribute Recipe recipe) {
+        // Get the current authenticated user
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        // Set the user on the recipe
+        recipe.setUser(user);
+
+        // Save the recipe to the database
         recipesDao.save(recipe);
+
         return "redirect:/recipes";
     }
+
 
     // Route for editing a recipe
     @PostMapping("/recipes/{id}/edit")
