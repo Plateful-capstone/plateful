@@ -2,6 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="partials/head :: head ('Plateful register page')" ></head>
 <body>
+<div th:replace="loading :: loading-animation"></div>
 <div class="page-wrapper">
   <header th:replace="partials/navbar :: navbar"></header>
   <div class="container grow justify-center">
@@ -38,7 +39,10 @@
   <footer th:replace="partials/footer :: footer"></footer>
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script th:src="@{/js/loadingAnimation.js}"></script>
 <script type="module" th:src="@{/js/passwordMatcher.js}"></script>
+<script th:replace="loading :: lottie-script"></script>
 
 </body>
 </html>

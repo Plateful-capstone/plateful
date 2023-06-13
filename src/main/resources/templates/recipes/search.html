@@ -3,6 +3,7 @@
 <head th:replace="partials/head :: head ('Search Page')"></head>
 
 <body>
+<div th:replace="loading :: loading-animation"></div>
 <div class="page-wrapper">
   <header th:replace="partials/navbar :: navbar"></header>
   <div class="container grow justify-center">
@@ -50,7 +51,9 @@
   <footer th:replace="partials/footer :: footer"></footer>
 </div>
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script th:src="@{/js/loadingAnimation.js}"></script>
+<script th:replace="loading :: lottie-script"></script>
 <script type="module" th:src="@{/js/spoonacular.js}"></script>
 </body>
 </html>
