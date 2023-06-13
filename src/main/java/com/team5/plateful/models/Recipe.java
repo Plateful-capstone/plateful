@@ -4,6 +4,9 @@ package com.team5.plateful.models;
 import jakarta.persistence.*;
 import org.hibernate.annotations.Type;
 
+import java.util.List;
+import java.util.Set;
+
 @Entity
 @Table(name="recipes")
 public class Recipe {
@@ -29,6 +32,20 @@ public class Recipe {
     @ManyToOne
     @JoinColumn(name="user_id")
     private User user;
+
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "recipe")
+    private List<Comments> comments;
+
+    @ManyToMany(mappedBy = "recipes")
+    private Set<CookBook> cookbooks;
+
+    public Set<CookBook> getCookbooks() {
+        return cookbooks;
+    }
+
+    public void setCookbooks(Set<CookBook> cookbooks) {
+        this.cookbooks = cookbooks;
+    }
 
     public User getUser() {
         return user;
@@ -123,5 +140,21 @@ public class Recipe {
 
     public void setRecipeImageUrl(String recipeImageUrl) {
         this.recipeImageUrl = recipeImageUrl;
+    }
+
+    public List<Comments> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comments> comments) {
+        this.comments = comments;
+    }
+
+    public Recipe(List<Comments> comments) {
+        this.comments = comments;
+    }
+
+    public Recipe(Set<CookBook> cookbooks) {
+        this.cookbooks = cookbooks;
     }
 }
