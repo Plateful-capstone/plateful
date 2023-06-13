@@ -5,8 +5,8 @@
 <div th:replace="loading :: loading-animation"></div>
 <div class="page-wrapper">
     <div class="container login-container grow justify-center">
-        <div class="row login-inner justify-center align-center">
-            <div class="column login-image-wrapper justify-center">
+        <div class="row login-inner no-padding">
+            <div class="column login-image-wrapper">
                 <img src="/css/img/wings.jpg" alt="Fruit Smoothie">
             </div>
             <div class="column login-content-wrapper justify-center align-center shrink">
@@ -14,12 +14,12 @@
                     <a href="/"><img src="/css/img/plateful-logo.png" alt="Plateful Logo"></a>
                 </div>
                 <div class="row grow justify-center header-format login_header">
-                    <h1>Please Log In</h1>
+                    <h1>Welcome Back :)</h1>
                 </div>
                 <form th:action="@{/login}" th:method="post" class="form row login-form justify-space-around">
-                    <label class="card-title" for="username">Username</label>
+                    <label class="card-title" for="username">Username:</label>
                     <input class="card-text login_input" id="username" name="username" type="text" required>
-                    <label class="card-title" for="password">Password</label>
+                    <label class="card-title" for="password">Password:</label>
                     <input class="card-text login_input" id="password" name="password" type="password" required>
                     <!--                  <div class="login_button">-->
                     <input type="submit" class="btn cta" id="login-btn" value="Log In">
