@@ -123,5 +123,10 @@ public class UserController {
         return "redirect:/profile";
     }
 
+    // Handle GET request for the loading page
+    @GetMapping("/loading")
+    public String loading() {
+        return "loading";
+    }
 
 }

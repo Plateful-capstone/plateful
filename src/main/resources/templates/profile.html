@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
 <head th:replace="partials/head :: head ('User Profile')"></head>
 <body>
+<div th:replace="loading :: loading-animation"></div>
 <div class="page-wrapper">
     <header th:replace="partials/navbar :: navbar"></header>
     <div class="container justify-center grow">
@@ -43,5 +44,10 @@
     </div>
     <footer th:replace="partials/footer :: footer"></footer>
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script th:src="@{/js/loadingAnimation.js}"></script>
+<script th:replace="loading :: lottie-script"></script>
+
 </body>
 </html>

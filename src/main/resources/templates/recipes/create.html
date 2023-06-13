@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="partials/head :: head ('Create a recipe')" ></head>
 <body>
-
+<div th:replace="loading :: loading-animation"></div>
 <div class="page-wrapper">
   <header th:replace="partials/navbar :: navbar"></header>
   <div class="container grow justify-center">
@@ -35,7 +35,12 @@
   <footer th:replace="partials/footer :: footer"></footer>
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script th:src="@{/js/loadingAnimation.js}"></script>
+<script th:replace="loading :: lottie-script"></script>
 <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
 <script type="module" src="/js/filestack.js"></script>
+
+
 </body>
 </html>

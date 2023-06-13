@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
+<body>
+<div th:fragment="loading-animation" class="page-wrapper loading-animation">
+  <div class="container grow justify-center">
+    <div class="row justify-center">
+      <div class="column shrink">
+        <lottie-player class="loadingImg" src="https://assets1.lottiefiles.com/packages/lf20_UGvCSC/loading_animation.json" speed="1" loop  autoplay></lottie-player>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script th:fragment="lottie-script" src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</body>
+</html>
