@@ -205,11 +205,62 @@ footer.container .row {
 /*recipe grid end*/
 
 /*profile start*/
+
+/*cookbook start*/
 .cookbook-column {
     background-color: white;
     min-width: 70vw;
     height: 100%;
 }
+.user-cookbook {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.user-recipes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Display 3 columns */
+    grid-gap: 20px;
+}
+
+.user-recipe-card {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease; /* Add transition for smooth hover effect */
+}
+
+.user-recipe-card:hover {
+    transform: translateY(-5px); /* Apply a slight translation on hover */
+}
+
+.user-card-link {
+    text-decoration: none;
+    color: #333;
+}
+
+.user-card-background {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+}
+
+.user-card-content {
+    padding: 10px;
+}
+
+.user-recipe-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+/*cookbook end*/
 .profile-column {
     background-color: blue;
     min-width: 30vw;

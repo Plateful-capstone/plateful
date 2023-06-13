@@ -79,10 +79,8 @@ public class UserController {
         long userId = user.getId();
         user = usersDao.findUserById(userId);
         model.addAttribute("user", user);
-
         List<Recipe> userRecipes = user.getRecipes();
         model.addAttribute("userRecipes", userRecipes);
-
         return "profile";
     }
 
@@ -123,21 +121,6 @@ public class UserController {
         usersDao.save(user);
         return "redirect:/profile";
     }
-    @GetMapping("/profile/recipes")
-    public String userRecipes(Model model) {
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        long userId = user.getId();
-        User retrievedUser = usersDao.findUserById(userId);
 
-        if (retrievedUser != null) {
-            List<Recipe> userRecipes = retrievedUser.getRecipes();
-
-            if (userRecipes != null) {
-                model.addAttribute("userRecipes", userRecipes);
-            }
-        }
-
-        return "profile";
-    }
 
 }
