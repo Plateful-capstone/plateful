@@ -26,9 +26,11 @@
             <div class="profile-column column shrink">
                 <div class="profile-photo-row row grow">
                     <div class="column justify-center">
-<!--                        avatar placeholder-->
-                        <img src="https://picsum.photos/200/300" alt="Avatar" class="avatar">
-<!--                        <img th:src="${user.avatar_url}" alt="Avatar" class="avatar">-->
+                        <!-- avatar placeholder -->
+                        <form th:action="@{/profile/changeImage}" method="post" id="form-change-avatar">
+                            <img id="openImage" class="changeAvatar" th:src="${user.avatar_url}">
+                            <input type="hidden" name="avatarImageUrl" id="avatarUrl" th:value="${user.avatar_url}">
+                        </form>
                     </div>
                 </div>
                 <div class="profile-info justify-center row grow">
@@ -48,6 +50,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script th:src="@{/js/loadingAnimation.js}"></script>
 <script th:replace="loading :: lottie-script"></script>
+<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+<script th:type="module" th:src="@{/js/url_avatar_filestack.js}"></script>
 
 </body>
 </html>

@@ -129,4 +129,18 @@ public class UserController {
         return "loading";
     }
 
+
+    //change user image utilizing filestack API
+    @PostMapping("/profile/changeImage")
+    public String changeImage(@RequestParam(name="avatarImageUrl") String avatar_url){
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        long userId = user.getId();
+        user = usersDao.findUserById(userId);
+        System.out.println(user.getAvatar_url());
+        user.setAvatar_url(avatar_url);
+        System.out.println(avatar_url);
+        usersDao.save(user);
+        return "redirect:/profile";
+    }
+
 }
