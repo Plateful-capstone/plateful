@@ -6,6 +6,7 @@
     --color: #374552;
     --text-alert: #F75E88;
     --that-pink: #C53683;
+    --button-hover: #CA5CD2
 }
 
 button {
@@ -15,6 +16,7 @@ button {
 body {
     background-color: var(--background);
     font-family: Raleway, sans-serif;
+
 }
 
 h1{
@@ -34,7 +36,13 @@ div.container.grow.justify-center {
     padding-bottom: 7px;
     padding-top: 7px;
     padding-left: 20px;
-    padding-right: 20px
+    padding-right: 20px;
+    transition: all ease .3s;
+}
+
+.cta:hover {
+    color: white;
+    background-color: var(--button-hover) ;
 }
 
 /*navbar start*/
@@ -316,6 +324,17 @@ footer.container .row {
 /*/ ======================================= /*/
 /*/ ==============   USER LOGIN   ========= /*/
 /*/ ======================================= /*/
+
+.anch {
+
+}
+
+.login_image {
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 .header-format {
 

@@ -5,29 +5,36 @@
 
 <div class="page-wrapper">
   <div class="container grow justify-center" >
-    <div class="row justify-center">
-      <div class="column shrink">
-        <form th:action="@{/login}" th:method="post" class="form login-form">
-          <div class="form-group-wrapper">
-            <div class="header-format" >
-            <h1>Please Log In</h1>
-            </div>
-            <div class="card">
-              <div class="card-body">
-                <div class="column shrink">
-                  <label class="card-title row" for="username">Username</label>
-                  <input class="card-text row" id="username" name="username" type="text" required>
+    <div class="login-inner">
+<!--      <div class="login-image">-->
+<!--        <img src="/css/img/fruitsmoothie.jpg" alt="Fruit Smoothie">-->
+<!--      </div>-->
+      <div class="row justify-center">
+        <div class="column shrink">
+          <form th:action="@{/login}" th:method="post" class="form login-form">
+            <div class="form-group-wrapper">
+              <div class="header-format" >
+                <h1>Please Log In</h1>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <div class="column shrink">
+                    <label class="card-title row" for="username">Username</label>
+                    <input class="card-text row" id="username" name="username" type="text" required>
+                  </div>
+                  <div class="column shrink">
+                    <label class="card-title row" for="password">Password</label>
+                    <input class="card-text row" id="password" name="password" type="password" required>
+                  </div>
+                  <input type="submit" class="btn" id="login-btn" value="Log In">
                 </div>
-                <div class="column shrink">
-                  <label class="card-title row" for="password">Password</label>
-                  <input class="card-text row" id="password" name="password" type="password" required>
-                </div>
-                <input type="submit" class="btn" id="login-btn" value="Log In">
               </div>
             </div>
-          </div>
-        </form>
-        <p>Dont have an account? <a th:href="@{/register}"><span class="">Sign Up Here!</span></a></p>
+
+          </form>
+          <p>Dont have an account? <a href="/register"><span class="">Sign Up Here!</span></a></p>
+        </div>
+
       </div>
     </div>
   </div>
