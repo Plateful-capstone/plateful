@@ -85,48 +85,84 @@ searchButton.addEventListener("click", (e) => {
                 <button class="add-to-cookbook-btn" data-results-index="${index}">Add to cookbook</button>
                 `;
 
+                resultDiv.addEventListener('click', (e) => {
+                        console.log('add to cookbook button clicked')
+                        e.preventDefault();
+                        console.log('add to cookbook button clicked')
+                        const resultIndex = e.target.getAttribute('data-results-index');
+                        const result = data.results[resultIndex];
+                        const recipe = {
+                            recipeDescription: extractSummaryInfo(result.summary),
+                            recipeImageUrl: result.image,
+                            recipeIngredients: createIngredientsList(result.extendedIngredients),
+                            recipeInstructions: createRecipeSteps(result.analyzedInstructions),
+                            recipeName: result.title
+                        };
+
+                        console.log(recipe);
+                        fetch('/recipes/search/create', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': document.querySelector('meta[name="_csrf"]').getAttribute('content')
+                            },
+                            body: JSON.stringify(recipe)
+                        })
+                            .then((response) => {
+                                return response.json();
+                            })
+                            .then((data) => {
+                                console.log(data);
+                                // redirect to "/recipes"
+                                window.location.href = "/recipes";
+                            })
+                            .catch((error) => {
+                                console.log(error);
+                            });
+                });
+
                 console.log(extractSummaryInfo(result.summary))
                 resultsContainer.appendChild(resultDiv);
             });
 
-            resultsContainer.addEventListener('click', (e) => {
-                if (e.target.classList.contains('add-to-cookbook-btn')) {
-                    console.log('add to cookbook button clicked')
-                    e.preventDefault();
-                    console.log('add to cookbook button clicked')
-                    const resultIndex = e.target.getAttribute('data-results-index');
-                    const result = data.results[resultIndex];
-                    const recipe = {
-                        recipeDescription: extractSummaryInfo(result.summary),
-                        recipeImageUrl: result.image,
-                        recipeIngredients: createIngredientsList(result.extendedIngredients),
-                        recipeInstructions: createRecipeSteps(result.analyzedInstructions),
-                        recipeName: result.title
-                    };
-
-                    console.log(recipe);
-                    fetch('/recipes/search/create', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': document.querySelector('meta[name="_csrf"]').getAttribute('content')
-                        },
-                        body: JSON.stringify(recipe)
-                    })
-                        .then((response) => {
-                            return response.json();
-                        })
-                        .then((data) => {
-                            console.log(data);
-                            // redirect to "/recipes"
-                            window.location.href = "/recipes";
-                        })
-                        .catch((error) => {
-                            console.log(error);
-                        });
-
-                }
-            });
+            // resultsContainer.addEventListener('click', (e) => {
+            //     if (e.target.classList.contains('add-to-cookbook-btn')) {
+            //         console.log('add to cookbook button clicked')
+            //         e.preventDefault();
+            //         console.log('add to cookbook button clicked')
+            //         const resultIndex = e.target.getAttribute('data-results-index');
+            //         const result = data.results[resultIndex];
+            //         const recipe = {
+            //             recipeDescription: extractSummaryInfo(result.summary),
+            //             recipeImageUrl: result.image,
+            //             recipeIngredients: createIngredientsList(result.extendedIngredients),
+            //             recipeInstructions: createRecipeSteps(result.analyzedInstructions),
+            //             recipeName: result.title
+            //         };
+            //
+            //         console.log(recipe);
+            //         fetch('/recipes/search/create', {
+            //             method: 'POST',
+            //             headers: {
+            //                 'Content-Type': 'application/json',
+            //                 'X-CSRF-TOKEN': document.querySelector('meta[name="_csrf"]').getAttribute('content')
+            //             },
+            //             body: JSON.stringify(recipe)
+            //         })
+            //             .then((response) => {
+            //                 return response.json();
+            //             })
+            //             .then((data) => {
+            //                 console.log(data);
+            //                 // redirect to "/recipes"
+            //                 window.location.href = "/recipes";
+            //             })
+            //             .catch((error) => {
+            //                 console.log(error);
+            //             });
+            //
+            //     }
+            // });
             // document.querySelector('.add-to-cookbook-btn').addEventListener('click', (e) => {
             //     e.preventDefault();
             //     console.log('add to cookbook button clicked')
