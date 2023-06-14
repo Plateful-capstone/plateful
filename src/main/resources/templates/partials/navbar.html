@@ -9,13 +9,13 @@
                 <nav class="d-flex">
                     <ul th:if="${#authorization.expression('isAuthenticated()')}" class="d-flex align-center">
                         <!-- Authenticated User -->
-                        <li class="navli"><a th:href="@{/}">Home</a></li>
-                        <li class="navli"><a th:href="@{/recipes}">All Recipes</a></li>
-                        <li class="navli"><a th:href="@{/recipes/create}">Add Recipe</a></li>
-                        <li class="navli"><a th:href="@{/recipes/search}">Search for recipes</a></li>
-                        <li class="navli"><a th:href="@{/about}">About Us</a></li>
-                        <li class="navli"><a th:href="@{/profile}">Profile</a></li>
-                        <li>
+                        <a th:href="@{/}"><li class="navli">Home</li></a>
+                        <a th:href="@{/recipes}"><li class="navli">All Recipes</li></a>
+                        <a th:href="@{/recipes/create}"><li class="navli">Add Recipe</li></a>
+                        <a th:href="@{/recipes/search}"><li class="navli">Search for recipes</li></a>
+                        <a th:href="@{/about}"><li class="navli">About Us</li></a>
+                        <a th:href="@{/profile}"><li class="navli">Profile</li>
+                        <li></a>
                             <form th:action="@{/logout}" th:method="post" class="d-flex justify-center align-center">
                                 <button class="btn-link btn logout-btn cta">Logout</button>
                             </form>
@@ -23,10 +23,10 @@
                     </ul>
                     <ul th:unless="${#authorization.expression('isAuthenticated()')}" class="d-flex align-center">
                         <!-- Not Authenticated User -->
-                        <li><a th:href="@{/}">Home</a></li>
-                        <li><a th:href="@{/recipes}">All Recipes</a></li>
-                        <li><a th:href="@{/about}">About Us</a></li>
-                        <li><a th:href="@{/login}">Login</a></li>
+                        <a th:href="@{/}"><li class="navli">Home</li></a>
+                        <a th:href="@{/recipes}"><li class="navli">All Recipes</li></a>
+                        <a th:href="@{/about}"><li class="navli">About Us</li></a>
+                        <a th:href="@{/login}"><li class="navli">Login</li></a>
                     </ul>
                 </nav>
         </div>
