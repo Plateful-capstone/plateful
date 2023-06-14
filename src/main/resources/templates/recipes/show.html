@@ -38,7 +38,8 @@
                     <h3>Instructions: </h3>
                     <textarea type="text" name="recipeInstructions" th:text="${recipe.recipeInstructions}"></textarea>
                     <h3>Image URL: </h3>
-                    <input type="text" name="recipeImageUrl" placeholder="Image URL" th:value="${recipe.recipeImageUrl}" />
+                    <input type="button" id="open" class="image-add" value="Change Image">
+                    <input type="hidden" name="recipeImageUrl" placeholder="Image URL" id="recipeImageURL" th:value="${recipe.recipeImageUrl}" />
                     <button type="submit">Submit Changes</button>
                 </form>
               </div>
@@ -48,6 +49,7 @@
             <form th:action="@{/recipes/{id}/delete(id=${recipe.id})}" method="post">
             <button>Delete recipe</button>
             </form>
+
           </div>
         </div>
       </div>
@@ -60,5 +62,8 @@
 <script th:src="@{/js/loadingAnimation.js}"></script>
 <script th:replace="loading :: lottie-script"></script>
 <script th:src="@{/js/editModal.js}"></script>
+<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+<script type="module" src="/js/edit-recipe-filestack.js"></script>
+
 </body>
 </html>
