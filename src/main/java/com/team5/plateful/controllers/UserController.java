@@ -65,7 +65,7 @@ public class UserController {
 
     // Handle POST request for user registration
     @PostMapping("/register")
-    public String registerUser(@RequestParam(name="username") String username, @RequestParam(name="email") String email, @RequestParam(name="password") String password, @RequestParam(name="avatar_url") String avatar_url) {
+    public String registerUser(@RequestParam(name="username") String username, @RequestParam(name="email") String email, @RequestParam(name="password") String password, @RequestParam(name="avatarImageUrl") String avatar_url) {
         User user = new User(username, email, password, avatar_url);
         password = passwordEncoder.encode(password);
         usersDao.save(new User(username, email, password, avatar_url));

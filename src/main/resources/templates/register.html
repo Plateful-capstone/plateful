@@ -32,8 +32,12 @@
             <input class="card-text register_input" id="confirm_password" name="confirm_password" type="password">
           </div>
           <div class="input-wrapper">
-            <label class="card-title" for="avatar_url">Profile Picture:</label>
-            <input class="card-text register_input" type="text" name="avatar_url" id="avatar_url"><br>
+            <div class="form-group">
+              <label class="card-title" for="open">Add profile picture: </label>
+              <input type="button" name="image" class="image-add" id="open" value="Add image"/>
+              <input type="hidden" name="avatarImageUrl" id="avatarImage" value="avatarImage" />
+              <div id="thumbnailContainer"></div>
+            </div>
           </div>
           <div class="justify-center align-center text-center" id="message"></div>
           <input class="btn cta" type="submit" value="Register">
@@ -48,6 +52,9 @@
 <script th:src="@{/js/loadingAnimation.js}"></script>
 <script type="module" th:src="@{/js/passwordMatcher.js}"></script>
 <script th:replace="loading :: lottie-script"></script>
+
+<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+<script th:type="module" th:src="@{/js/register-user-avatar-url.js}"></script>
 
 </body>
 </html>

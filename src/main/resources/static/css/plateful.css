@@ -479,6 +479,7 @@ div.container.login-container {
     border: 1px solid pink;
     border-radius: 10px;
     background-color: var(--color);
+    overflow: scroll;
 }
 
 .register-form {
