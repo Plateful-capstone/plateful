@@ -149,7 +149,7 @@ div.container.grow { /*  */
     /*border: 3px solid pink;*/
 }
 
-div.container {
+footer div.container {
     background-color: var(--color);
 }
 
@@ -540,8 +540,46 @@ div.container.login-container {
 /*// ======================================= //*/
 
 
-.pink-border h1 {
+.mission-statement-title-wrapper {
+    background: var(--color);
+    max-width: 50vw;
+    border-radius: 10px;
+}
+.mission-statement-content {
+    background: var(--color);
+    padding: 20px;
+    border-radius: 10px;
+}
+.the-team-content {
+    background: var(--color);
+    max-width: 50vw;
+    border-radius: 10px;
+    color: white;
+}
 
+.the-team-pictures-row {
+    background: var(--color);
+    padding: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    min-height: 20vh;
+}
+
+.the-team-image-wrapper {
+    min-width: 10vw;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.the-team-image-wrapper img {
+    min-width: 10vw;
+    object-fit: cover;
+    height: 100%;
+}
+.border-row{
+    max-width: 80vw;
+    border-top: 2px solid var(--that-pink);
+    border-radius: 10px;
 }
 
 
