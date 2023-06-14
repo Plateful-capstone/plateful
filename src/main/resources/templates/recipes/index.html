@@ -26,9 +26,21 @@
         <h3>All recipes</h3>
         <div class="grid-container">
             <a th:each="recipe : ${recipes}" th:href="@{/recipes/{id}/view(id=${recipe.id})}">
-                <div class="grid-item" th:style="'background-image: url(' + ${recipe.recipeImageUrl} + '); background-size: cover;'">
-                    <h4 th:text="${recipe.recipeName}"></h4>
-                </div>
+<!--                <div class="grid-item row" th:style="'background-image: url(' + ${recipe.recipeImageUrl} + '); background-size: cover;'">-->
+                    <div class="grid-item row">
+                        <div class="column">
+                            <div class="row justify-center">
+                                <img src="https://picsum.photos/200/300" alt="">
+                            </div>
+                            <div class="row">
+                                <h3 th:text="${recipe.recipeName}"></h3>
+                            </div>
+                        </div>
+<!--                        <div class="column">-->
+<!--                            <h3 th:text="${recipe.recipeName}"></h3>-->
+<!--                        </div>-->
+                    </div>
+<!--                </div>-->
             </a>
         </div>
         <div class="container" id="result-container">
