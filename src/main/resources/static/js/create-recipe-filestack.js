@@ -20,8 +20,12 @@ const options = {
         console.log(file);
         const imageURL = document.querySelector("#recipeImage");
         imageURL.value = file.url;
-
-
+        let fileName = file.filename;
+        const filenameParagraph = document.createElement("p")
+        filenameParagraph.textContent = "File: " + fileName;
+        filenameParagraph.id = "filenameParagraph";
+        let openButton = document.querySelector("#open");
+        openButton.insertAdjacentElement('afterend', filenameParagraph);
 
         // Render thumbnail image
         const container = document.querySelector("#thumbnailContainer");

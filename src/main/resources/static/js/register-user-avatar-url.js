@@ -25,7 +25,7 @@ const options = {
         const filenameParagraph = document.createElement('p');
         filenameParagraph.textContent = "File: " + filename;
         filenameParagraph.id = "filenameParagraph";
-        openButton.insertAdjacentElement('afterend', filenameParagraph);
+        openButton.insertAdjacentElement("afterend", filenameParagraph);
 
         //render thumbnail image
         const container = document.querySelector("#thumbnailContainer");
