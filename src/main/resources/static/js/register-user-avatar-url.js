@@ -1,4 +1,4 @@
-import keys from './keys.js';
+import keys from "./keys.js";
 
 window.addEventListener('DOMContentLoaded', function(){
     console.log("DOM content loaded");
@@ -18,12 +18,16 @@ const options = {
     onFileUploadFinished: (file) => {
         console.log('File upload complete');
         console.log(file);
-        const imageURL = document.querySelector("#recipeImage");
+        const imageURL = document.querySelector("#avatarImage");
         imageURL.value = file.url;
+        const openButton = document.querySelector('#open');
+        let filename = file.filename;
+        const filenameParagraph = document.createElement('p');
+        filenameParagraph.textContent = "File: " + filename;
+        filenameParagraph.id = "filenameParagraph";
+        openButton.insertAdjacentElement('afterend', filenameParagraph);
 
-
-
-        // Render thumbnail image
+        //render thumbnail image
         const container = document.querySelector("#thumbnailContainer");
         const thumbnail = document.querySelector("#thumbnail") || new Image();
         thumbnail.src = file.url;
@@ -32,5 +36,5 @@ const options = {
         if (!container.contains(thumbnail)) {
             container.appendChild(thumbnail);
         }
-    },
-};
+    }
+}
