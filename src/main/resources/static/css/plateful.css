@@ -11,6 +11,8 @@
     --navbar-color: #fff
 }
 
+
+
 p {
     color:white;
 }
@@ -56,7 +58,10 @@ div.container.grow.justify-center {
     background-color: var(--button-hover) ;
 }
 
-/*navbar start*/
+/*// ======================================= //*/
+/*// ==============   Navbar Start   ========= //*/
+/*// ======================================= //*/
+
 .nav-image-wrapper {
     width: 200px;
     height: auto;
@@ -130,10 +135,14 @@ header.container {
     max-height: 20vh;
 }
 
-/*navbar end*/
+/*// ======================================= //*/
+/*// ==============   Navbar End   ========= //*/
+/*// ======================================= //*/
 
 
-
+/*// ======================================= //*/
+/*// ==============   Footer Start   ========= //*/
+/*// ======================================= //*/
 
 div.container.grow {
     background-color: var(--color);
@@ -154,7 +163,6 @@ div.container.align-center {
 div.row.align-bottom {
     border: 3px solid black;
     background-color: var(--color);
-    /*border-radius: 10px;*/
 }
 
 .media-logo-wrapper img {
@@ -173,8 +181,6 @@ footer.container {
 }
 
 footer.container .row {
-    /*width: 80vh;*/
-    /*background-color: blue;*/
     border-radius: 10px 10px 0 0;
 }
 
@@ -190,9 +196,13 @@ footer.container .row {
     border-left: 1px solid black;
 }
 
+/*// ======================================= //*/
+/*// ==============   Footer END   ========= //*/
+/*// ======================================= //*/
 
-
-/*modal start*/
+/*// ======================================= //*/
+/*// ==============  Modal Start  ========= //*/
+/*// ======================================= //*/
 
 .modal {
     display: none;
@@ -234,9 +244,15 @@ footer.container .row {
     cursor: pointer;
     transform: scale(1.1);
 }
-/*modal end*/
+/*// ======================================= //*/
+/*// ==============   Modal End   ========= //*/
+/*// ======================================= //*/
 
-/*recipe grid start*/
+
+/*// ======================================= //*/
+/*// ==============   Recipe Grid Start   ========= //*/
+/*// ======================================= //*/
+
 .grid-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -261,16 +277,13 @@ footer.container .row {
     background-color: #f5f5f5;
     cursor: pointer;
 }
+/*// ======================================= //*/
+/*// ==============   Recipe Grid END   ========= //*/
+/*// ======================================= //*/
 
-/*#ingredientsList {*/
-/*    display: none;*/
-/*}*/
-
-/*recipe grid end*/
-
-/*profile start*/
-
-/*cookbook start*/
+/*// ======================================= //*/
+/*// ==============   Cookbook / Profile END   ========= //*/
+/*// ======================================= //*/
 .cookbook-column {
     background-color: white;
     min-width: 70vw;
@@ -323,8 +336,6 @@ footer.container .row {
     font-weight: bold;
 }
 
-
-/*cookbook end*/
 .profile-column {
     background-color: blue;
     min-width: 25vw;
@@ -344,7 +355,9 @@ footer.container .row {
 .profile-info {
     background-color: green;
 }
-/*profile end*/
+/*// ======================================= //*/
+/*// ==============   Cookbook / Profile End   ========= //*/
+/*// ======================================= //*/
 
 /*/ ======================================= /*/
 /*/ ==============   USER LOGIN   ========= /*/
@@ -411,7 +424,7 @@ label {
     /* Remove or adjust the min-width property if necessary */
     min-width: 70vw;
     max-height: 70vh;
-    border: 1px solid pink;
+    border: 3px solid pink;
     border-radius: 10px;
     overflow: hidden;
     background-color: var(--color);
@@ -423,7 +436,7 @@ label {
 }
 
 div.container.login-container {
-    background: var(--background);
+    background: #4B5F71;
     border: unset;
 }
 

@@ -55,7 +55,7 @@ searchButton.addEventListener("click", (e) => {
     e.preventDefault();
     const searchInput = document.querySelector("#searchInput");
     const searchValue = searchInput.value;
-    const searchURL = `https://api.spoonacular.com/recipes/complexSearch?query=${searchValue}&number=5&addRecipeInformation=true&fillIngredients=true&apiKey=${keys.spoonacularAPIKey}`;
+    const searchURL = `https://api.spoonacular.com/recipes/complexSearch?query=${searchValue}&number=20&addRecipeInformation=true&fillIngredients=true&apiKey=${keys.spoonacularAPIKey}`;
     fetch(searchURL)
         .then((response) => {
             return response.json();
