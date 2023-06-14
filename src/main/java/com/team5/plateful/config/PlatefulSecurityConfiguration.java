@@ -21,6 +21,7 @@ public class PlatefulSecurityConfiguration {
                         "/recipes/*/view",
                         "/recipes/comment/",
                         "/recipes/*/edit",
+                        "/recipes/*/delete",
                         "/profile/update",
                         "/profile",
                         "/recipes/search/create",
