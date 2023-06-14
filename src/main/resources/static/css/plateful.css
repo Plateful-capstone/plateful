@@ -144,14 +144,23 @@ header.container {
 /*// ==============   Footer Start   ========= //*/
 /*// ======================================= //*/
 
-div.container.grow {
+div.container.grow { /*  */
+    /*background-color: var(--color);*/
+    /*border: 3px solid pink;*/
+}
+
+div.container {
     background-color: var(--color);
-    border: 3px solid black;
+}
+
+.pink-border {
+    border: 3px solid pink;
 }
 
 div.container.justify-center {
     padding: 30px;
 }
+
 div.container.chef.justify-center {
     background-color: var(--color);
 }
@@ -456,6 +465,17 @@ div.container.login-container {
     flex: 1 0 0;
 }
 
+@media screen and (max-width: 900px) {
+    .login-content-wrapper.row {
+        gap: 37px;
+    }
+
+    .login-content-wrapper.logo-wrapper {
+        padding-bottom: 11px;
+        padding-top: 64px;
+    }
+}
+
 /*// ======================================= //*/
 /*// ==============   Register Page   ========= //*/
 /*// ======================================= //*/
@@ -495,6 +515,9 @@ div.container.login-container {
     padding-top: 30px;
 }
 
+/*// ======================================= //*/
+/*// ==============   Register Page END  ========= //*/
+/*// ======================================= //*/
 
 
 /*// ======================================= //*/
@@ -507,4 +530,44 @@ div.container.login-container {
     background: transparent;
 }
 
+/*// ======================================= //*/
+/*// ==============   Loading Page END   ========= //*/
+/*// ======================================= //*/
+
+
+/*// ======================================= //*/
+/*// ==============   About Page START  ========= //*/
+/*// ======================================= //*/
+
+
+.pink-border h1 {
+
+}
+
+
+/*// ======================================= //*/
+/*// ==============   About Page END  ========= //*/
+/*// ======================================= //*/
+
+
+/*// ======================================= //*/
+/*// ==============   Recipe List END  ========= //*/
+/*// ======================================= //*/
+
+.recipe-description {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.recipe-name {
+    color: white;
+    font-weight: 700;
+}
+
+
+
+
+/*// ======================================= //*/
+/*// ==============   Recipe List END  ========= //*/
+/*// ======================================= //*/
 
