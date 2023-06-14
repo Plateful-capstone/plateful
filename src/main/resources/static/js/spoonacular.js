@@ -9,14 +9,6 @@ const allRecipesButton = document.querySelector("#allRecipes");
 
 
 const createIngredientsList = (ingredients) => {
-    // const ingredientsList = document.createElement("p");
-    // ingredientsList.id = "ingredientsList";
-    //
-    // let ingredientsNames = ingredients.map((ingredient) => ingredient.name);
-    // ingredientsList.innerText = ingredientsNames.join(", ");
-    // ingredientsList.innerHTML = ingredientsNames.join("<br>");
-    //
-    // return ingredientsList;
 
     let ingredientsNames = ingredients.map((ingredient) => ingredient.original);
     return ingredientsNames.join(", "); // Return the plain string representation
@@ -28,24 +20,22 @@ const createIngredientsList = (ingredients) => {
 // Create a function that loops through the instructions and creates a list of instructions
 
 const createRecipeSteps = (analyzedInstructions) => {
-    // const stepsParagraph = document.createElement("p");
-    // stepsParagraph.id = "stepsList";
-    //
-    // let steps = analyzedInstructions[0].steps.map((step) => step.step);
-    // stepsParagraph.innerHTML = steps.join("<br>");
-    //
-    // return stepsParagraph;
 
     let steps = analyzedInstructions[0].steps.map((step) => step.step);
     return steps.join("\n"); // Return the plain string representation with line breaks
 
 }
+const extractBoldTags = (text) => {
+    const regex = /<\/?b>/gi;
+    return text.replace(regex, "");
+};
 
-function extractSummaryInfo(summary) {
+
+const extractSummaryInfo = (summary) => {
     const regex = /(.*spoonacular.*b>)/i;
     const match = summary.match(regex);
     if (match) {
-        return match[0] + ".";
+        return extractBoldTags(match[0] + ".");
     }
     return '';
 }
@@ -125,78 +115,6 @@ searchButton.addEventListener("click", (e) => {
                 resultsContainer.appendChild(resultDiv);
             });
 
-            // resultsContainer.addEventListener('click', (e) => {
-            //     if (e.target.classList.contains('add-to-cookbook-btn')) {
-            //         console.log('add to cookbook button clicked')
-            //         e.preventDefault();
-            //         console.log('add to cookbook button clicked')
-            //         const resultIndex = e.target.getAttribute('data-results-index');
-            //         const result = data.results[resultIndex];
-            //         const recipe = {
-            //             recipeDescription: extractSummaryInfo(result.summary),
-            //             recipeImageUrl: result.image,
-            //             recipeIngredients: createIngredientsList(result.extendedIngredients),
-            //             recipeInstructions: createRecipeSteps(result.analyzedInstructions),
-            //             recipeName: result.title
-            //         };
-            //
-            //         console.log(recipe);
-            //         fetch('/recipes/search/create', {
-            //             method: 'POST',
-            //             headers: {
-            //                 'Content-Type': 'application/json',
-            //                 'X-CSRF-TOKEN': document.querySelector('meta[name="_csrf"]').getAttribute('content')
-            //             },
-            //             body: JSON.stringify(recipe)
-            //         })
-            //             .then((response) => {
-            //                 return response.json();
-            //             })
-            //             .then((data) => {
-            //                 console.log(data);
-            //                 // redirect to "/recipes"
-            //                 window.location.href = "/recipes";
-            //             })
-            //             .catch((error) => {
-            //                 console.log(error);
-            //             });
-            //
-            //     }
-            // });
-            // document.querySelector('.add-to-cookbook-btn').addEventListener('click', (e) => {
-            //     e.preventDefault();
-            //     console.log('add to cookbook button clicked')
-            //     const resultIndex = e.target.getAttribute('data-results-index');
-            //     const result = data.results[resultIndex];
-            //     const recipe = {
-            //         recipeDescription: extractSummaryInfo(result.summary),
-            //         recipeImageUrl: result.image,
-            //         recipeIngredients: createIngredientsList(result.extendedIngredients),
-            //         recipeInstructions: createRecipeSteps(result.analyzedInstructions),
-            //         recipeName: result.title
-            //     };
-            //
-            //     console.log(recipe);
-            //     fetch('/recipes/search/create', {
-            //         method: 'POST',
-            //         headers: {
-            //             'Content-Type': 'application/json',
-            //             'X-CSRF-TOKEN': document.querySelector('meta[name="_csrf"]').getAttribute('content')
-            //         },
-            //         body: JSON.stringify(recipe)
-            //     })
-            //         .then((response) => {
-            //             return response.json();
-            //         })
-            //         .then((data) => {
-            //             console.log(data);
-            //             // redirect to "/recipes"
-            //             window.location.href = "/recipes";
-            //         })
-            //         .catch((error) => {
-            //             console.log(error);
-            //         });
-            // });
         })
         .catch((error) => {
             console.log(error);
