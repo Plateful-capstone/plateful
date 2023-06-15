@@ -685,6 +685,7 @@ div.container.login-container {
     border-radius: 10px;
     overflow: hidden;
     min-height: 20vh;
+    min-width: 55vw;
 }
 
 .the-team-image-wrapper {
@@ -798,9 +799,23 @@ div.container.login-container {
     min-width: 179px;
     min-height: 47px;
     border-radius: 25px;
-    background-color: ghostwhite;
     margin-top: 10px;
     margin-left: 52px;
+}
+
+div.container.landingRecipe {
+    color: var(--black-color);
+    font-size: 25px;
+    font-weight: 700;
+}
+
+div.container.landingRecipe .row.recipe-row {
+    min-width: 90vw;
+}
+
+.solo-card {
+    aspect-ratio: 1/2;
+    min-width: 300px;
 }
 
 /*// ======================================= //*/

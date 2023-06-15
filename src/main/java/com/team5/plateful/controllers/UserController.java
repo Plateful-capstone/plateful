@@ -3,6 +3,7 @@ package com.team5.plateful.controllers;
 
 import com.team5.plateful.models.Recipe;
 import com.team5.plateful.models.User;
+import com.team5.plateful.repositories.RecipeRepository;
 import com.team5.plateful.repositories.UserRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -19,18 +20,22 @@ import java.util.List;
 @Controller
 public class UserController {
 
+    private RecipeRepository recipesDao;
+
     private final UserRepository usersDao;
     // Dependency injection for PasswordEncoder
     private final PasswordEncoder passwordEncoder;
 
-    public UserController(UserRepository usersDao, PasswordEncoder passwordEncoder){
+    public UserController(UserRepository usersDao, PasswordEncoder passwordEncoder, RecipeRepository recipesDao) {
         this.passwordEncoder = passwordEncoder;
         this.usersDao = usersDao;
+        this.recipesDao = recipesDao;
     }
 
     // handle GET request for the landing page
     @GetMapping("/")
-    public String home() {
+    public String home(Model model) {
+        model.addAttribute("recipes", recipesDao.findAll());
         return "index";
     }
 
