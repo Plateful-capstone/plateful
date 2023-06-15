@@ -24,7 +24,7 @@
                             <ul class="post-grid">
                                 <li th:each="recipe : ${recipes}" class="column post">
                                     <a th:href="@{/recipes/{id}/view(id=${recipe.id})}">
-                                        <img th:src="@{'https://picsum.photos/id/' + ${recipe.id} + '/340/200'}" alt="Post thumbnail" class="post-thumbnail">
+                                        <img th:src="${recipe.recipeImageUrl}" alt="Post thumbnail" class="post-thumbnail">
                                     </a>
                                     <a th:href="@{/recipes/{id}/view(id=${recipe.id})}">
                                         <h2 th:text="${recipe.recipeName}"></h2>
