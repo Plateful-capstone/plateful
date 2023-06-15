@@ -292,7 +292,69 @@ footer.container .row {
 /*// ======================================= //*/
 /*// ==============   Recipe Grid END   ========= //*/
 /*// ======================================= //*/
+/*// ======================================= //*/
+/*// ==============   Recipe Individual Start   ========= //*/
+/*// ======================================= //*/
 
+.individual-recipe-title {
+    padding: 15px;
+    color: white;
+    border-radius: 10px;
+    min-width: 20vw;
+}
+
+.indiv-card-row{
+    border-radius: 10px;
+    padding-bottom: 20px;
+}
+
+.indiv-recipe-container {
+    padding: 20px;
+}
+
+.indiv-recipe-image-wrapper {
+    min-width: 80vw;
+}
+.indiv-recipe-image-wrapper img {
+    min-width: 100%;
+    object-fit: cover;
+    max-height: 30vh;
+}
+
+.indiv-recipe-btns-row {
+    padding-bottom: 20px;
+}
+.comment-profile-image-wrapper {
+    max-width: 5vw;
+    height: 5vw;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.comment-profile-image-wrapper img {
+    min-width: 100%;
+    object-fit: cover;
+    max-height: 10vh;
+}
+
+#comment-content {
+    max-width: 80vw;
+    align-self: center;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.ghost-div {
+    display: flex;
+    flex-direction: row;
+    flex: 0 1 auto;
+    gap: 20px;
+}
+
+
+/*// ======================================= //*/
+/*// ==============   Recipe Individual End   ========= //*/
+/*// ======================================= //*/
 /*// ======================================= //*/
 /*// ==============   Cookbook / Profile END   ========= //*/
 /*// ======================================= //*/
