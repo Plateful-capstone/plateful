@@ -11,6 +11,9 @@
     --navbar-color: #fff
 }
 
+.main-background {
+    background-color: var(--color);
+}
 
 
 p {
