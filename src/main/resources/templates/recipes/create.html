@@ -5,7 +5,7 @@
 <div th:replace="loading :: loading-animation"></div>
 <div class="page-wrapper">
   <header th:replace="partials/navbar :: navbar"></header>
-  <div class="container grow justify-center">
+  <div class="container grow justify-center main-backgroundg">
     <div class="row justify-center">
       <form th:action="@{/recipes/create}" th:method="post" th:object="${recipe}"  class="column shrink" >
         <h4>Create a recipe</h4>
