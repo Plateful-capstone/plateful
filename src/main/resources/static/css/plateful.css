@@ -612,3 +612,68 @@ div.container.login-container {
 /*// ==============   Recipe List END  ========= //*/
 /*// ======================================= //*/
 
+/*// ======================================= //*/
+/*// ==============   Landing Page Start  ========= //*/
+/*// ======================================= //*/
+
+.landingHero {
+    border-radius: 40px;
+    margin: 10px;
+
+}
+
+.landingChef {
+   aspect-ratio: 1/1;
+    max-width: 595px;
+    margin-bottom: -100px;
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0) 100%);
+
+}
+
+.hero-chef {
+    overflow: hidden;
+    min-width: 650px;
+    min-height: 600px;
+    margin-bottom: -25px;
+}
+
+.hero-left-text {
+    padding-right: 50px;
+    padding-bottom: 50px;
+    font-size: 58px;
+    font-weight: 700;
+    min-width: 510px;
+}
+
+.hero-right {
+    min-width: 436px;
+}
+
+.hero-header-right {
+    padding-left: 75px;
+    font-size: 44px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    font-weight: 900;
+    min-width: 346px;
+    margin-left: -76px;
+}
+
+.hero-para-right {
+    font-size: 26px;
+    font-weight: 600;
+    margin-left: 41px;
+}
+
+.hero-button-right {
+    min-width: 179px;
+    min-height: 47px;
+    border-radius: 25px;
+    background-color: ghostwhite;
+    margin-top: 10px;
+    margin-left: 52px;
+}
+
+/*// ======================================= //*/
+/*// ==============   Landing Page END  ========= //*/
+/*// ======================================= //*/
