@@ -6,10 +6,26 @@
 <div th:replace="loading :: loading-animation"></div>
 <div class="page-wrapper">
     <header th:replace="partials/navbar :: navbar"></header>
-    <div class="container grow justify-center">
+    <div class="container grow justify-center landingHero">
+        <div class="row justify-center">
+            <div class="column grow">
+                <p class="hero-left-text">Discover Simple, Delicious, and Fast Recipes!</p>
+            </div>
+            <div class="column align-center grow hero-chef">
+                <img class="landingChef" src="/css/img/chefNoBG.png">
+            </div>
+            <div class="column grow hero-right">
+                <h1 class="hero-header-right">Top Recipes</h1>
+                <p class="hero-para-right">A recipe is soulless. The essence of the recipe must come from you, the cook.</p>
+                <a th:href="@{/recipes}">
+                <button class="hero-button-right">Check our Recipes!</button></a>
+            </div>
+        </div>
+    </div>
+    <div class="container grow justify-center landingRecipe">
         <div class="row justify-center">
             <div class="column shrink">
-                <h1>LANDING PAGE</h1>
+                <h1>Recipe Container</h1>
             </div>
         </div>
     </div>
