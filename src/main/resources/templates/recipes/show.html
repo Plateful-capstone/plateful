@@ -15,7 +15,7 @@
             <div class="column  card-divider indiv-recipe-image-wrapper shrink main-background gap-20">
                 <img th:src="${recipe.recipeImageUrl}" alt="recipe image">
 
-            <div class="column  gap-20">
+            <div class="column  gap-20 recipe-content">
                 <p th:utext="'<b>' + 'Ingredients: ' +' </b>' + ${recipe.recipeIngredients}"></p>
                 <p th:utext="'<b>' + 'Description: ' +' </b>' + ${recipe.recipeDescription}"></p>
                 <p th:utext="'<b>' + 'Instructions: '+ '</b>' + ${recipe.recipeInstructions}"></p>
@@ -89,20 +89,16 @@
             <!--                comments start-->
             <div id="comments-row" style="display: none">
                 <div class="ghost-div grow">
-                    <div class="column shrink gap-20">
-                        <div class="row grow no-padding d-flex gap-10">
-                            <div class="column shrink">
-                                <form action="#" class="row grow d-flex justify-center">
-                                    <textarea name="comment" id="comment-content" cols="150" rows="2"
-                                              placeholder="Post Something..."></textarea>
-                                    <button class="cta" id="comment-content-btn" style="display: none">Comment</button>
-                                </form>
-                            </div>
-                        </div>
+                    <div class="column gap-20">
+                        <form action="#" class="row grow d-flex justify-center">
+                            <textarea name="comment" id="comment-content"
+                                      placeholder="Post Something..."></textarea>
+                            <button class="cta" id="comment-content-btn" style="display: none">Comment</button>
+                        </form>
 
 
                         <!--                        display comments-->
-                        <div class="row grow gap-10">
+                        <div class="row gap-10">
                             <div class="column comment-profile-image-wrapper">
                                 <img src="https://cdn.filestackcontent.com/aeqBY1PeSt2I0CHZnsuE" alt="profile image">
                             </div>
@@ -115,7 +111,7 @@
                                     maxime odio repellat repudiandae soluta vitae?</p>
                             </div>
                         </div>
-                        <div class="row grow gap-10">
+                        <div class="row gap-10">
                             <div class="column comment-profile-image-wrapper">
                                 <img src="https://cdn.filestackcontent.com/aeqBY1PeSt2I0CHZnsuE" alt="profile image">
                             </div>
@@ -128,7 +124,7 @@
                                     maxime odio repellat repudiandae soluta vitae?</p>
                             </div>
                         </div>
-                        <div class="row grow gap-10">
+                        <div class="row gap-10">
                             <div class="column comment-profile-image-wrapper">
                                 <img src="https://cdn.filestackcontent.com/aeqBY1PeSt2I0CHZnsuE" alt="profile image">
                             </div>
