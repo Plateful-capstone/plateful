@@ -21,21 +21,15 @@
         </div>
     </div>
 
-    <div class="container justify-center">
+    <div class="container justify-center all-recipe-background">
         <h3>All Recipes</h3>
-        <div class="grid-container">
+        <p></p>
+        <div class="grid-container all-recipe-background">
             <a th:each="recipe : ${recipes}" th:href="@{/recipes/{id}/view(id=${recipe.id})}">
                 <div class="grid-item row" th:style="'background-image: url(' + ${recipe.recipeImageUrl} + '); background-size: cover;'">
-                    <div class="column recipe-title">
-                        <div class="row justify-center">
-                            <!-- Placeholder image if recipe.recipeImageUrl is not available -->
-                            <img th:if="${not #strings.isEmpty(recipe.recipeImageUrl)}" th:src="${recipe.recipeImageUrl}" alt="Recipe Image" style="display: none;">
-                            <div class="recipe-image"></div>
-                        </div>
-                        <div class="row recipe-title">
-                            <p th:text="${recipe.recipeName}" class="text-outline"></p>
-                        </div>
-                    </div>
+                </div>
+                <div class="row recipe-title grow">
+                    <p class="grow column" th:text="${recipe.recipeName}"></p>
                 </div>
             </a>
         </div>
