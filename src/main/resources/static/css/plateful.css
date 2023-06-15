@@ -189,7 +189,7 @@ div.row.align-bottom {
 }
 
 footer.container {
-    height: 20vh;
+    /*min-height: 20vh;*/
 }
 
 footer.container .row {
@@ -361,12 +361,18 @@ footer.container .row {
 }
 
 .indiv-recipe-image-wrapper {
-    min-width: 80vw;
+    /*min-width: 80vw;*/
+    border-radius: 20px;
+    overflow: hidden;
 }
 .indiv-recipe-image-wrapper img {
     min-width: 100%;
     object-fit: cover;
-    max-height: 30vh;
+    aspect-ratio: 8/3;
+}
+.recipe-content {
+    padding: 40px;
+    color: #fff;
 }
 
 .indiv-recipe-btns-row {
@@ -382,7 +388,11 @@ footer.container .row {
 .comment-profile-image-wrapper img {
     min-width: 100%;
     object-fit: cover;
-    max-height: 10vh;
+    aspect-ratio: 1/1;
+}
+
+form#comment-form {
+    padding: 0 20px;
 }
 
 #comment-content {
@@ -390,6 +400,7 @@ footer.container .row {
     align-self: center;
     border-radius: 20px;
     padding: 10px;
+    flex: 1 0 0;
 }
 
 .ghost-div {
