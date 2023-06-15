@@ -11,6 +11,10 @@
     --navbar-color: #fff
 }
 
+.text-outline {
+    text-shadow: 3px 4px 7px black;
+}
+
 .main-background {
     background-color: var(--color);
 }
@@ -265,9 +269,46 @@ footer.container .row {
 /*// ==============   Recipe Grid Start   ========= //*/
 /*// ======================================= //*/
 
+
+
+/*.recipe-card {*/
+/*    border: 1px solid #ccc;*/
+/*    border-radius: 4px;*/
+/*    padding: 10px;*/
+/*    background-color: #fff;*/
+/*    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
+/*    transition: transform 0.3s ease; !* Add transition for smooth hover effect *!*/
+/*}*/
+
+/*.recipe-card:hover {*/
+/*    transform: translateY(-5px); !* Apply a slight translation on hover *!*/
+/*}*/
+
+/*.recipe-card-link {*/
+/*    text-decoration: none;*/
+/*    color: #333;*/
+/*}*/
+
+/*.recipe-card-background {*/
+/*    height: 200px;*/
+/*    background-size: cover;*/
+/*    background-position: center;*/
+/*    border-radius: 4px;*/
+/*}*/
+
+/*.recipe-card-content {*/
+/*    padding: 10px;*/
+/*}*/
+
+/*.recipe-title {*/
+/*    margin: 0;*/
+/*    font-size: 18px;*/
+/*    font-weight: bold;*/
+/*}*/
+
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-gap: 10px;
     padding: 10px;
     width: 80vw;
@@ -279,6 +320,7 @@ footer.container .row {
     padding: 10px;
     background-position: center;
     background-repeat: no-repeat;
+    height: 40vh;
 }
 
 .grid-item h4 {
@@ -289,12 +331,18 @@ footer.container .row {
     background-color: #f5f5f5;
     cursor: pointer;
 }
+
+.grid-item p {
+    font-weight: 800;
+    font-size: 20px;
+}
+
 /*// ======================================= //*/
 /*// ==============   Recipe Grid END   ========= //*/
 /*// ======================================= //*/
 
 /*// ======================================= //*/
-/*// ==============   Cookbook / Profile END   ========= //*/
+/*// ==============   Cookbook / Profile START   ========= //*/
 /*// ======================================= //*/
 .cookbook-column {
     background-color: white;
@@ -336,6 +384,14 @@ footer.container .row {
     background-size: cover;
     background-position: center;
     border-radius: 4px;
+}
+
+.recipe-title {
+    text-align: start;
+    display: flex;
+    justify-content: flex-start;
+    align-items: end;
+    flex-direction: column-reverse;
 }
 
 .user-card-content {
@@ -548,11 +604,13 @@ div.container.login-container {
     max-width: 50vw;
     border-radius: 10px;
 }
+
 .mission-statement-content {
     background: var(--color);
     padding: 20px;
     border-radius: 10px;
 }
+
 .the-team-content {
     background: var(--color);
     max-width: 50vw;
@@ -579,6 +637,7 @@ div.container.login-container {
     object-fit: cover;
     height: 100%;
 }
+
 .border-row{
     max-width: 80vw;
     border-top: 2px solid var(--that-pink);
@@ -604,6 +663,41 @@ div.container.login-container {
     color: white;
     font-weight: 700;
 }
+
+/* Add your custom styles here */
+
+
+/*h3 {*/
+/*    font-size: 24px;*/
+/*}*/
+
+/*.recipe-card {*/
+/*    width: 100%;*/
+/*    margin-bottom: 20px;*/
+/*}*/
+
+/*.recipe-card-link {*/
+/*    display: block;*/
+/*    text-decoration: none;*/
+/*    color: inherit;*/
+/*}*/
+
+/*.recipe-card-background {*/
+/*    width: 100%;*/
+/*    height: 200px;*/
+/*    background-size: cover;*/
+/*    background-position: center;*/
+/*}*/
+
+/*.recipe-card-content {*/
+/*    padding: 10px;*/
+/*    background-color: #fff;*/
+/*}*/
+
+/*.recipe-title {*/
+/*    margin-top: 0;*/
+/*}*/
+
 
 
 
