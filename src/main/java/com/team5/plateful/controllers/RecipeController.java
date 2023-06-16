@@ -32,9 +32,6 @@ public class RecipeController {
     @GetMapping("/recipes/{id}/view")
     public String viewIndividualRecipe(@PathVariable long id, Model model) {
         if (recipesDao.findById(id) == null) {
-            // make API call to spoonacular
-            // save recipe to database
-            // return recipe
             Recipe recipe = new Recipe( );
             recipe.setRecipeName(recipe.getRecipeName());
             recipe.setRecipeDescription(recipe.getRecipeDescription());
@@ -58,19 +55,10 @@ public class RecipeController {
 
     @PostMapping("/recipes/create")
     public String createRecipe(@ModelAttribute Recipe recipe) {
-
-        // Get the current authenticated user
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-        // Set the user on the recipe
         recipe.setUser(user);
-
-        // Save the recipe to the database
-
         System.out.println("Received Recipe: " + recipe.toString()); // Debugging statement
-
         recipesDao.save(recipe);
-
         return "redirect:/recipes";
     }
 
@@ -103,18 +91,9 @@ public class RecipeController {
     @GetMapping("/recipes/search")
     public String searchRecipeForm(Model model) {
         model.addAttribute("recipe", new Recipe());
-//        model.addAttribute("recipes", recipesDao.findAll());
         return "recipes/search";
     }
 
-    // Route for searching for a recipe
-//    @PostMapping("/recipes/search")
-//    public String searchRecipeFromAPI(@RequestParam(name = "search") String search, Model model, @ModelAttribute Recipe recipe) {
-//        recipesDao.save(recipe);
-////        model.addAttribute("recipes", recipesDao.findByRecipeNameContaining(search));
-//        return "recipes/search";
-//    }
-    // Route for searching for multiple recipes from database
 
     @GetMapping("api/recipes/search")
     @ResponseBody
@@ -143,13 +122,6 @@ public class RecipeController {
         return recipe;
     }
 
-
-//
-//    @GetMapping("/recipes/{id}/view")
-//    public String viewRecipeForm(Model model) {
-//        model.addAttribute("recipes", recipesDao.findAll());
-//        return
-//    }
 
 }
 
