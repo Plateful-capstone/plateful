@@ -6,25 +6,34 @@
 <div th:replace="loading :: loading-animation"></div>
 <div class="page-wrapper">
 
-  <header th:replace="partials/navbar :: navbar"></header>
-  <div class="container grow justify-center body-text">
-    <div class="row justify-center">
-      <div class="column align shrink">
-        <h1>Search Page</h1>
-        <form th:action="@{/recipes/search}" th:method="get">
-          <div class="input-wrapper">
-            <label for="searchInput">Search:</label>
-            <input type="text" id="searchInput" name="search" th:value="${search}">
-          </div>
-          <button class="btn primary" id="searchButton">Search</button>
-         </form>
-      </div>
+    <header th:replace="partials/navbar :: navbar"></header>
+    <div class="container grow justify-center searchbar-container">
+        <div class="row main-background main-searchbar-row">
+            <div class="column ">
+                <div class="row justify-center searchbar-row">
+                    <h1>Search our Plateful Library</h1>
+                </div>
+                <div class="row justify-center searchbar-row">
+                    <form th:action="@{/recipes/search}" class="column" th:method="get">
+                        <div class="input-wrapper row justify-center align-center no-gap no-padding">
+                            <label for="searchInput"></label>
+                            <input type="text" class="d-flex grow" id="searchInput" name="search" th:value="${search}">
+                            <div class="searchbar-image-wrapper">
+                                <img src="https://cdn.filestackcontent.com/e9pGJsqnTuTV0q3Y9lxd" alt="magnifying glass on search bar">
+                            </div>
+                            <button class="btn primary cta-custom-search" id="searchButton">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+
+
     <div class="container body-text" id="resultsContainer">
 
     </div>
-  <footer th:replace="partials/footer :: footer"></footer>
+    <footer th:replace="partials/footer :: footer"></footer>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
