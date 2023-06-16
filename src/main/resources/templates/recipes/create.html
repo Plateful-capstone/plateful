@@ -5,6 +5,7 @@
 <div th:replace="loading :: loading-animation"></div>
 <div class="page-wrapper">
   <header th:replace="partials/navbar :: navbar"></header>
+
   <div class="container grow justify-center body-text indiv-recipe-container">
     <div class="row justify-center main-background grow">
       <div class="column shrink justify-center main-background individual-recipe-title align-center">
@@ -33,7 +34,10 @@
       </div>
   </div>
     </form>
+
   </div>
+
+
   <footer th:replace="partials/footer :: footer"></footer>
 </div>
 
@@ -42,7 +46,6 @@
 <script th:replace="loading :: lottie-script"></script>
 <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
 <script type="module" src="/js/create-recipe-filestack.js"></script>
-
 
 </body>
 </html>

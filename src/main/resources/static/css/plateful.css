@@ -56,6 +56,20 @@ div.container.grow.justify-center {
     font-weight: 700;
 }
 
+.cta-custom-search {
+    /*border: 1px solid var(--that-pink)*/
+    color: white;
+    background-color: var(--that-pink);
+    border: unset;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    transition: all ease .3s;
+    font-weight: 700;
+    min-height: 30px;
+}
+
 .cta:hover {
     color: white;
     background-color: var(--button-hover) ;
@@ -582,19 +596,22 @@ div.container.login-container {
 
 .input-wrapper {
     display: flex;
-    flex-direction: column;
     align-items: start;
+    position: relative;
 }
 
 .input-wrapper input {
     width: 100%;
-    flex: 1 0 0;
+    min-height: 30px;
+    padding-left: 35px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
 }
 
 
-.input-wrapper label {
-    flex: 1 0 0;
-}
+/*.input-wrapper label {*/
+/*    flex: 1 0 0;*/
+/*}*/
 
 @media screen and (max-width: 900px) {
     .login-content-wrapper.row {
@@ -833,17 +850,77 @@ div.container.landingRecipe .row.recipe-row {
 /*// ==============   Landing Page END  ========= //*/
 /*// ======================================= //*/
 
+
+
+/*// ======================================= //*/
+/*// ==============   Create Recipe Start  ========= //*/
+/*// ======================================= //*/
+
+.recipe-input {
+    border-radius: 12px;
+    border: unset;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    resize: none;
+}
+
+.recipe-large-text-box {
+    max-height: 500px;
+    height: 100px;
+}
+
+.create-recipe-wrapper {
+    border-radius: 8px;
+    background-color: var(--color);
+}
+
+.recipe-image-wrapper {
+    /*min-width: 80vw;*/
+    border-radius: 20px;
+    overflow: hidden;
+}
+.recipe-image-wrapper.thumbnail {
+    min-width: 100%;
+    object-fit: cover;
+    aspect-ratio: 1/2;
+}
+
+.create-recipe-form {
+
+}
+
 /*// ======================================= //*/
 /*// ==============   Search Page Start  ========= //*/
 /*// ======================================= //*/
 
-.ghost-div {
+.searchbar-row {
+    background: var(--color);
+}
+
+.ghost-div-search {
     display:none;
+}
+
+.searchbar-image-wrapper {
+    position: absolute;
+    height: 20px;
+    aspect-ratio: 1/1;
+    left: 10px;
+    top: 6px;
+}
+.searchbar-image-wrapper img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
 }
 
 .search-results-card {
     overflow:hidden;
     gap: 15px;
+}
+#resultsContainer {
+    padding: 20px;
 }
 .search-recipe-image-wrapper {
     border-radius: 10px;
@@ -853,6 +930,11 @@ div.container.landingRecipe .row.recipe-row {
 .search-recipe-image-wrapper img {
     object-fit: cover;
     height: 100%;
+}
+
+.main-searchbar-row {
+    border-radius: 10px;
+    padding: 30px;
 }
 
 .show-hide {
@@ -875,3 +957,4 @@ div.container.landingRecipe .row.recipe-row {
 /*// ======================================= //*/
 /*// ==============   Search Page END  ========= //*/
 /*// ======================================= //*/
+
