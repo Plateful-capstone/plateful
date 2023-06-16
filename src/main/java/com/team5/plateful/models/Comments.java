@@ -1,6 +1,7 @@
 package com.team5.plateful.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -18,6 +19,7 @@ public class Comments {
     @JoinColumn(name="user_id")
     private User user;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="recipe_id")
     private Recipe recipe;

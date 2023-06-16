@@ -1,6 +1,7 @@
 package com.team5.plateful.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.hibernate.annotations.Type;
 
@@ -36,6 +37,7 @@ public class Recipe {
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "recipe")
     private List<Comments> comments;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "recipes")
     private Set<CookBook> cookbooks;
 

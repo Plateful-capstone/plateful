@@ -24,6 +24,7 @@ public class PlatefulSecurityConfiguration {
                         "/recipes/*/delete",
                         "/profile/update",
                         "/profile",
+                        "/api/recipes/search",
                         "/recipes/search/create",
                         "/profile/changeImage"
                 ).authenticated()
