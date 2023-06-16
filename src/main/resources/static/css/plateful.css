@@ -11,11 +11,14 @@
     --navbar-color: #fff
 }
 
+/*.text-outline {*/
+/*    text-shadow: 3px 4px 7px black;*/
+/*}*/
 
-
-p {
-    color:white;
+.main-background {
+    background-color: var(--color);
 }
+
 
 .body-text {
     color: white;
@@ -186,7 +189,7 @@ div.row.align-bottom {
 }
 
 footer.container {
-    height: 20vh;
+    /*min-height: 20vh;*/
 }
 
 footer.container .row {
@@ -262,20 +265,61 @@ footer.container .row {
 /*// ==============   Recipe Grid Start   ========= //*/
 /*// ======================================= //*/
 
+
+
+/*.recipe-card {*/
+/*    border: 1px solid #ccc;*/
+/*    border-radius: 4px;*/
+/*    padding: 10px;*/
+/*    background-color: #fff;*/
+/*    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
+/*    transition: transform 0.3s ease; !* Add transition for smooth hover effect *!*/
+/*}*/
+
+/*.recipe-card:hover {*/
+/*    transform: translateY(-5px); !* Apply a slight translation on hover *!*/
+/*}*/
+
+/*.recipe-card-link {*/
+/*    text-decoration: none;*/
+/*    color: #333;*/
+/*}*/
+
+/*.recipe-card-background {*/
+/*    height: 200px;*/
+/*    background-size: cover;*/
+/*    background-position: center;*/
+/*    border-radius: 4px;*/
+/*}*/
+
+/*.recipe-card-content {*/
+/*    padding: 10px;*/
+/*}*/
+
+/*.recipe-title {*/
+/*    margin: 0;*/
+/*    font-size: 18px;*/
+/*    font-weight: bold;*/
+/*}*/
+
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 10px;
-    padding: 10px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    padding: 15px;
     width: 80vw;
 }
 
 .grid-item {
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: unset;
+    /*border-top-right-radius: 10px;*/
+    /*border-top-left-radius: 10px ;*/
     padding: 10px;
     background-position: center;
     background-repeat: no-repeat;
+    height: 40vh;
+    transition: all ease .3s;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .grid-item h4 {
@@ -283,15 +327,95 @@ footer.container .row {
 }
 
 .grid-item:hover {
-    background-color: #f5f5f5;
+    opacity: 0.7;
     cursor: pointer;
 }
+
+
+.grid-item p {
+    font-weight: 800;
+    font-size: 20px;
+}
+
 /*// ======================================= //*/
 /*// ==============   Recipe Grid END   ========= //*/
 /*// ======================================= //*/
+/*// ======================================= //*/
+/*// ==============   Recipe Individual Start   ========= //*/
+/*// ======================================= //*/
+
+.individual-recipe-title {
+    padding: 15px;
+    color: white;
+    border-radius: 10px;
+    min-width: 20vw;
+}
+
+.indiv-card-row{
+    border-radius: 10px;
+    padding-bottom: 20px;
+}
+
+.indiv-recipe-container {
+    padding: 20px;
+}
+
+.indiv-recipe-image-wrapper {
+    /*min-width: 80vw;*/
+    border-radius: 20px;
+    overflow: hidden;
+}
+.indiv-recipe-image-wrapper img {
+    min-width: 100%;
+    object-fit: cover;
+    aspect-ratio: 8/3;
+}
+.recipe-content {
+    padding: 40px;
+    color: #fff;
+}
+
+.indiv-recipe-btns-row {
+    padding-bottom: 20px;
+}
+.comment-profile-image-wrapper {
+    max-width: 5vw;
+    height: 5vw;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.comment-profile-image-wrapper img {
+    min-width: 100%;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+}
+
+form#comment-form {
+    padding: 0 20px;
+}
+
+#comment-content {
+    max-width: 80vw;
+    align-self: center;
+    border-radius: 20px;
+    padding: 10px;
+    flex: 1 0 0;
+}
+
+.ghost-div {
+    display: flex;
+    flex-direction: row;
+    flex: 0 1 auto;
+    gap: 20px;
+}
+
 
 /*// ======================================= //*/
-/*// ==============   Cookbook / Profile END   ========= //*/
+/*// ==============   Recipe Individual End   ========= //*/
+/*// ======================================= //*/
+/*// ======================================= //*/
+/*// ==============   Cookbook / Profile START   ========= //*/
 /*// ======================================= //*/
 .cookbook-column {
     background-color: white;
@@ -335,6 +459,19 @@ footer.container .row {
     border-radius: 4px;
 }
 
+.recipe-title {
+    background-color: whitesmoke;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 14vh;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.recipe-title p {
+    font-weight: 700;
+    font-size: 15px;
+}
+
 .user-card-content {
     padding: 10px;
 }
@@ -372,12 +509,6 @@ footer.container .row {
 /*/ ==============   USER LOGIN   ========= /*/
 /*/ ======================================= /*/
 
-
-.login-content-wrapper {
-    /* Remove or adjust the min-width property if necessary */
-    /*min-width: 50vw;*/
-    /*height: auto;*/
-}
 
 .login-image-wrapper {
     min-width: 50vw;
@@ -545,11 +676,13 @@ div.container.login-container {
     max-width: 50vw;
     border-radius: 10px;
 }
+
 .mission-statement-content {
     background: var(--color);
     padding: 20px;
     border-radius: 10px;
 }
+
 .the-team-content {
     background: var(--color);
     max-width: 50vw;
@@ -563,6 +696,7 @@ div.container.login-container {
     border-radius: 10px;
     overflow: hidden;
     min-height: 20vh;
+    min-width: 55vw;
 }
 
 .the-team-image-wrapper {
@@ -576,6 +710,7 @@ div.container.login-container {
     object-fit: cover;
     height: 100%;
 }
+
 .border-row{
     max-width: 80vw;
     border-top: 2px solid var(--that-pink);
@@ -602,10 +737,98 @@ div.container.login-container {
     font-weight: 700;
 }
 
+.all-recipe-background {
+    border-radius: 10px;
+    /*border: 3px solid var(--color);*/
+    padding: 30px;
+    gap: 20px
+}
 
+.light-grey-shade {
+    background-color: #4B5F71;
+}
 
 
 /*// ======================================= //*/
 /*// ==============   Recipe List END  ========= //*/
 /*// ======================================= //*/
 
+/*// ======================================= //*/
+/*// ==============   Landing Page Start  ========= //*/
+/*// ======================================= //*/
+
+.landingHero {
+    border-radius: 40px;
+    margin: 10px;
+
+}
+
+.landingChef {
+   aspect-ratio: 1/1;
+    max-width: 595px;
+    margin-bottom: -100px;
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0) 100%);
+
+}
+
+.hero-chef {
+    overflow: hidden;
+    min-width: 650px;
+    min-height: 600px;
+    margin-bottom: -25px;
+}
+
+.hero-left-text {
+    padding-right: 50px;
+    padding-bottom: 50px;
+    font-size: 58px;
+    font-weight: 700;
+    min-width: 510px;
+}
+
+.hero-right {
+    min-width: 436px;
+}
+
+.hero-header-right {
+    padding-left: 75px;
+    font-size: 44px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    font-weight: 900;
+    min-width: 346px;
+    margin-left: -76px;
+}
+
+.hero-para-right {
+    font-size: 26px;
+    font-weight: 600;
+    margin-left: 41px;
+}
+
+.hero-button-right {
+    min-width: 179px;
+    min-height: 47px;
+    border-radius: 25px;
+    margin-top: 10px;
+    margin-left: 52px;
+}
+
+div.container.landingRecipe {
+    color: var(--black-color);
+    font-size: 25px;
+    font-weight: 700;
+}
+
+div.container.landingRecipe .row.recipe-row {
+    min-width: 90vw;
+}
+
+.solo-card {
+    aspect-ratio: 1/2;
+    min-width: 300px;
+}
+
+/*// ======================================= //*/
+/*// ==============   Landing Page END  ========= //*/
+/*// ======================================= //*/

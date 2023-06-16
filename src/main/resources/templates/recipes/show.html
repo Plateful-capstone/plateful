@@ -5,57 +5,147 @@
 <div th:replace="loading :: loading-animation"></div>
 <div class="page-wrapper">
     <header th:replace="partials/navbar :: navbar"></header>
-  <div class="container grow justify-center">
-    <div class="row justify-center">
-      <div class="column shrink">
-        <div class="card">
-          <div class="card-divider">
-            <h4 th:text="${recipe.recipeName}"></h4>
-          </div>
-          <img th:src="${recipe.recipeImageUrl}" alt="recipe image">
-          <div class="card-section">
-            <p th:text="${recipe.recipeDescription}"></p>
-            <p th:text="${recipe.recipeIngredients}"></p>
-            <p th:text="${recipe.recipeInstructions}"></p>
+    <div class="container indiv-recipe-container grow justify-center">
+        <div class="row grow justify-center">
+            <div class="column shrink justify-center shrink main-background individual-recipe-title align-center">
+                <h4 th:text="${recipe.recipeName}"></h4>
+            </div>
+        </div>
+        <div class="row indiv-card-row ">
+            <div class="column  card-divider indiv-recipe-image-wrapper shrink main-background gap-20">
+                <img th:src="${recipe.recipeImageUrl}" alt="recipe image">
 
-          <!--START MODAL generates unique id for the recipe-->
-            <form th:action="@{/recipes/{id}/edit(id=${recipe.id})}" method="post">
-              <input type="hidden" name="_method" value="put"/>
-              <button class="editModalBtn" th:data-modal-id="'editModal-' + ${recipe.id}" type="button">Edit</button>
-            </form>
+            <div class="column  gap-20 recipe-content">
+                <p th:utext="'<b>' + 'Ingredients: ' +' </b>' + ${recipe.recipeIngredients}"></p>
+                <p th:utext="'<b>' + 'Description: ' +' </b>' + ${recipe.recipeDescription}"></p>
+                <p th:utext="'<b>' + 'Instructions: '+ '</b>' + ${recipe.recipeInstructions}"></p>
+                <p th:utext="'<b>' + 'Created by:  '+ '</b> '+ ${recipe.user.username}"></p>
+            </div>
+            <!--                buttons start-->
+            <div class="row indiv-recipe-btns-row">
+                <div class="column align-center">
+                    <button class="cta"><a th:href="@{/recipes}">Go back</a></button>
+                </div>
+                <div class="column justify-center">
+                    <!--START MODAL generates unique id for the recipe-->
+                    <form class="d-flex justify-center" th:action="@{/recipes/{id}/edit(id=${recipe.id})}"
+                          method="post">
+                        <input type="hidden" name="_method" value="put"/>
+                        <button class="editModalBtn cta" th:data-modal-id="'editModal-' + ${recipe.id}"
+                                type="button">
+                            Edit
+                        </button>
+                    </form>
 
-            <div th:id="'editModal-' + ${recipe.id}" class="modal">
-              <div class="modal-content">
-                <span class="close">&times;</span>
-                <form th:action="@{/recipes/{id}/edit(id=${recipe.id})}" method="post" class="d-flex flex-column gap-10">
-                  <h2>Make changes to your recipe!</h2>
-                    <h3>Title: </h3>
-                    <input type="text" name="recipeName" placeholder="Title" th:value="${recipe.recipeName}" />
-                    <h3>Description: </h3>
-                    <input type="text" name="recipeDescription" placeholder="Description" th:value="${recipe.recipeDescription}" />
-                    <h3>Ingredients: </h3>
-                    <input type="text" name="recipeIngredients" placeholder="Ingredients" th:value="${recipe.recipeIngredients}" />
-                    <h3>Instructions: </h3>
-                    <textarea type="text" name="recipeInstructions" th:text="${recipe.recipeInstructions}"></textarea>
-                    <h3>Image URL: </h3>
-                    <input type="button" id="open" class="image-add" value="Change Image">
-                    <input type="hidden" name="recipeImageUrl" placeholder="Image URL" id="recipeImageURL" th:value="${recipe.recipeImageUrl}" />
-                    <button type="submit">Submit Changes</button>
-                </form>
-              </div>
+                    <div th:id="'editModal-' + ${recipe.id}" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <form th:action="@{/recipes/{id}/edit(id=${recipe.id})}" method="post"
+                                  class="d-flex flex-column gap-10">
+                                <h2>Make changes to your recipe!</h2>
+                                <h3>Title: </h3>
+                                <input type="text" name="recipeName" placeholder="Title"
+                                       th:value="${recipe.recipeName}"/>
+                                <h3>Description: </h3>
+                                <input type="text" name="recipeDescription" placeholder="Description"
+                                       th:value="${recipe.recipeDescription}"/>
+                                <h3>Ingredients: </h3>
+                                <input type="text" name="recipeIngredients" placeholder="Ingredients"
+                                       th:value="${recipe.recipeIngredients}"/>
+                                <h3>Instructions: </h3>
+                                <textarea class="no-padding" type="text" name="recipeInstructions"
+                                          th:text="${recipe.recipeInstructions}"></textarea>
+                                <h3>Image URL: </h3>
+                                <input type="button" id="open" class="image-add cta" value="Change Image">
+                                <input type="hidden" name="recipeImageUrl" placeholder="Image URL"
+                                       id="recipeImageURL"
+                                       th:value="${recipe.recipeImageUrl}"/>
+                                <button type="submit">Submit Changes</button>
+                            </form>
+                        </div>
+                    </div>
+                    <!--END MODAL-->
+                </div>
+                <div class="column">
+                    <form class="d-flex justify-center" th:action="@{/recipes/{id}/delete(id=${recipe.id})}"
+                          method="post">
+                        <button class="cta">Delete recipe</button>
+                    </form>
+                </div>
+                <div class="column">
+                    <div class="comment-wrapper d-flex justify-center">
+                        <button class="cta" id="comment-btn">Comment</button>
+                    </div>
+                </div>
+                <div class="column justify-center">
+                    <form class=" d-flex justify-center" action="#">
+                        <button class="cta">Add to cookbook</button>
+                    </form>
+                </div>
             </div>
 
-          <!--END MODAL-->
-            <form th:action="@{/recipes/{id}/delete(id=${recipe.id})}" method="post">
-            <button>Delete recipe</button>
-            </form>
+            <!--buttons end-->
 
-          </div>
+            <!--                comments start-->
+            <div id="comments-row" style="display: none">
+                <div class="ghost-div grow">
+                    <div class="column gap-20">
+                        <form action="#" class="row grow d-flex justify-center">
+                            <textarea name="comment" id="comment-content"
+                                      placeholder="Post Something..."></textarea>
+                            <button class="cta" id="comment-content-btn" style="display: none">Comment</button>
+                        </form>
+
+
+                        <!--                        display comments-->
+                        <div class="row gap-10">
+                            <div class="column comment-profile-image-wrapper">
+                                <img src="https://cdn.filestackcontent.com/aeqBY1PeSt2I0CHZnsuE" alt="profile image">
+                            </div>
+                            <div class="column comment-content-from-db">
+                                <h5>Marc</h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi architecto aut
+                                    explicabo
+                                    illo in inventore ipsum maxime neque nesciunt, quae? Aspernatur delectus earum
+                                    incidunt
+                                    maxime odio repellat repudiandae soluta vitae?</p>
+                            </div>
+                        </div>
+                        <div class="row gap-10">
+                            <div class="column comment-profile-image-wrapper">
+                                <img src="https://cdn.filestackcontent.com/aeqBY1PeSt2I0CHZnsuE" alt="profile image">
+                            </div>
+                            <div class="column comment-content">
+                                <h5>Marc</h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi architecto aut
+                                    explicabo
+                                    illo in inventore ipsum maxime neque nesciunt, quae? Aspernatur delectus earum
+                                    incidunt
+                                    maxime odio repellat repudiandae soluta vitae?</p>
+                            </div>
+                        </div>
+                        <div class="row gap-10">
+                            <div class="column comment-profile-image-wrapper">
+                                <img src="https://cdn.filestackcontent.com/aeqBY1PeSt2I0CHZnsuE" alt="profile image">
+                            </div>
+                            <div class="column comment-content">
+                                <h5>Marc</h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi architecto aut
+                                    explicabo
+                                    illo in inventore ipsum maxime neque nesciunt, quae? Aspernatur delectus earum
+                                    incidunt
+                                    maxime odio repellat repudiandae soluta vitae?</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <!--            comments end-->
+
         </div>
-      </div>
     </div>
-  </div>
-  <footer th:replace="partials/footer :: footer"></footer>
+    <footer th:replace="partials/footer :: footer"></footer>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -64,6 +154,7 @@
 <script th:src="@{/js/editModal.js}"></script>
 <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
 <script type="module" src="/js/edit-recipe-filestack.js"></script>
+<script type="module" src="/js/comments.js"></script>
 
 </body>
 </html>
