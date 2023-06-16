@@ -834,6 +834,7 @@ div.container.landingRecipe .row.recipe-row {
 /*// ======================================= //*/
 
 
+
 /*// ======================================= //*/
 /*// ==============   Create Recipe Start  ========= //*/
 /*// ======================================= //*/
@@ -871,3 +872,47 @@ div.container.landingRecipe .row.recipe-row {
 .create-recipe-form {
 
 }
+
+/*// ======================================= //*/
+/*// ==============   Search Page Start  ========= //*/
+/*// ======================================= //*/
+
+.ghost-div {
+    display:none;
+}
+
+.search-results-card {
+    overflow:hidden;
+    gap: 15px;
+}
+.search-recipe-image-wrapper {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.search-recipe-image-wrapper img {
+    object-fit: cover;
+    height: 100%;
+}
+
+.show-hide {
+    color: lightskyblue;
+}
+
+.show-hide:hover {
+    cursor: pointer;
+    color: #fff;
+    text-decoration: underline;
+}
+
+.search-results-row {
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+
+
+/*// ======================================= //*/
+/*// ==============   Search Page END  ========= //*/
+/*// ======================================= //*/
+

@@ -11,11 +11,36 @@ const displaySearchResults = (data) => {
     data.forEach(recipe => {
         // Create a template string with the recipe information
         const recipeHTML = `
-      <div>
-        <h2>${recipe.recipeName}</h2>
-        <img src="${recipe.recipeImageUrl}">
-        <p>${recipe.recipeDescription}</p>
-        <p>${recipe.recipeIngredients}</p>
+      <div class="row search-results-row no-padding main-background">
+        <div class="column search-results-card">
+            <div class="row no-padding">
+                <div class="column justify-space-between">
+                    <div class="row">
+                        <h2>${recipe.recipeName}</h2>
+                    </div>
+                    <div class="row">
+                        <p><b>Recipe Description: </b>${recipe.recipeDescription}</p>
+                    </div>
+                    <div class="row">
+                        <p class="show-hide">Show more</p>
+                    </div>
+                </div>
+                <div class="column search-recipe-image-wrapper">
+                        <img src="${recipe.recipeImageUrl}" alt="Image from DB">
+                </div>
+            </div>
+            
+            <div class="ghost-div">
+                <div class="column gap-20">
+                    <div class="row">
+                        <p><b>Recipe Ingredients:</b> ${recipe.recipeIngredients}</p>
+                    </div>
+                    <div class="row">
+                        <p><b>Recipe Directions: </b>${recipe.recipeInstructions}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
       </div>
     `;
 
@@ -86,16 +111,45 @@ const executeSpoonacularSearch = (searchValue) => {
                 const ingredientsList = createIngredientsList(result.extendedIngredients);
                 const recipeStepsParagraph = createRecipeSteps(result.analyzedInstructions);
                 const resultDiv = document.createElement("div");
+
+                resultDiv.classList.add("row");
+                resultDiv.classList.add("no-padding");
+                resultDiv.classList.add("search-results-row")
                 resultDiv.classList.add("resultDiv");
+                resultDiv.classList.add("main-background")
                 resultDiv.innerHTML = `
-          <img class="resultImage" src="${result.image}" alt="result image from spoonacular">
-          <p class="recipeDescription">Recipe Description: ${extractSummaryInfo(result.summary)}</p>
-          <h3 class="resultTitle">Title: ${result.title}</h3>
-          <a href="/recipes/${result.id}">View Recipe</a>
-          <p>recipe ingredients: ${ingredientsList}</p>
-          <p>recipe instructions: ${recipeStepsParagraph}</p>
-          <br>
-          <button class="add-to-cookbook-btn" data-results-index="${index}">Add to cookbook</button>
+        <div class="column search-results-card">
+            <div class="row no-padding">
+                <div class="column justify-space-between">
+                    <div class="row">
+                        <h2>${result.title}</h2>
+                    </div>
+                    <div class="row">
+                        <p> <b> Recipe Description: </b>${extractSummaryInfo(result.summary)}</p>
+                    </div>
+                    <div class="row">
+                        <button class="add-to-cookbook-btn cta" data-results-index="${index}">Add to cookbook</button>
+                    </div>
+                    <div class="row">
+                        <p class="show-hide">Show more</p>
+                    </div>
+                </div>
+                <div class="column search-recipe-image-wrapper">
+                    <img src="${result.image}" alt="result image from spoonacular">
+                </div>
+            </div>
+            <div class="ghost-div">
+                <div class="column gap-20">
+                    <div class="row">
+                        <p> <b> Recipe Ingredients:</b> ${ingredientsList}</p>
+                    </div>
+                    <div class="row">
+                        <p> <b>  Recipe Instructions: </b> ${recipeStepsParagraph}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         `;
 
                 resultDiv.addEventListener('click', (e) => {
@@ -138,3 +192,21 @@ const executeSpoonacularSearch = (searchValue) => {
             console.log(error);
         });
 };
+
+
+// show-hide recipe details
+
+let parentElement = document.querySelector('#resultsContainer');
+
+parentElement.addEventListener('click', (event) => {
+    if (event.target.classList.contains('show-hide')) {
+        let ghostDiv = event.target.closest('.search-results-card').querySelector('.ghost-div');
+        if (ghostDiv.style.display === 'none' || ghostDiv.style.display === '') {
+            ghostDiv.style.display = 'block';
+            event.target.textContent = 'Hide';
+        } else {
+            ghostDiv.style.display = 'none';
+            event.target.textContent = 'Show more';
+        }
+    }
+});
