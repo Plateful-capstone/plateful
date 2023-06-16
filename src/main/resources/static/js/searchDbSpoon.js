@@ -111,6 +111,7 @@ const executeSpoonacularSearch = (searchValue) => {
                 const ingredientsList = createIngredientsList(result.extendedIngredients);
                 const recipeStepsParagraph = createRecipeSteps(result.analyzedInstructions);
                 const resultDiv = document.createElement("div");
+
                 resultDiv.classList.add("row");
                 resultDiv.classList.add("no-padding");
                 resultDiv.classList.add("search-results-row")
@@ -148,6 +149,7 @@ const executeSpoonacularSearch = (searchValue) => {
                 </div>
             </div>
         </div>
+
         `;
 
                 resultDiv.addEventListener('click', (e) => {
@@ -190,6 +192,7 @@ const executeSpoonacularSearch = (searchValue) => {
             console.log(error);
         });
 };
+
 
 // show-hide recipe details
 
