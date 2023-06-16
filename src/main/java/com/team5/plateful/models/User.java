@@ -1,6 +1,7 @@
 package com.team5.plateful.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -20,12 +21,14 @@ public class User {
     private String password;
     @Column(nullable = false)
     private String avatar_url;
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
     private List<Recipe> recipes;
 
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
     private List<CookBook> cookbooks;
 
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
     private List<Comments> comments;
 

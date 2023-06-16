@@ -103,7 +103,7 @@ public class RecipeController {
     @GetMapping("/recipes/search")
     public String searchRecipeForm(Model model) {
         model.addAttribute("recipe", new Recipe());
-        model.addAttribute("recipes", recipesDao.findAll());
+//        model.addAttribute("recipes", recipesDao.findAll());
         return "recipes/search";
     }
 
@@ -119,7 +119,9 @@ public class RecipeController {
     @GetMapping("api/recipes/search")
     @ResponseBody
     public List<Recipe> searchRecipeFromDb(@RequestParam(name = "search") String search, Model model) {
-        return recipesDao.findAllByRecipeNameContaining(search);
+        List<Recipe> searchResults = recipesDao.findAllByRecipeNameContaining(search);
+        System.out.println("Retrieved data from the database: " + searchResults);
+        return searchResults;
     }
 
 
@@ -129,22 +131,14 @@ public class RecipeController {
         System.out.println("Received Recipe: ");
         ObjectMapper objectMapper = new ObjectMapper();
         System.out.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(recipe));
-
-        // Get the current authenticated user
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-        // Set the user on the recipe
         recipe.setUser(user);
-
         // Check if any matching recipes already exist
         List<Recipe> existingRecipes = recipesDao.findAllByRecipeName(recipe.getRecipeName());
         if (!existingRecipes.isEmpty()) {
             // Handle the presence of duplicate recipes as desired
-            // For example, return an error message or update the existing recipe(s)
-            // Here, we choose to skip saving the duplicate recipe
             return existingRecipes.get(0); // Return the first matching recipe
         }
-
         recipesDao.save(recipe);
         return recipe;
     }
