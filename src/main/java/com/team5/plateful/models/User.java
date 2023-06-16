@@ -116,8 +116,6 @@ public class User {
         this.password = password;
         this.avatar_url = avatar_url;
     }
-
-
     public User(List<Comments> comments) {
         this.comments = comments;
     }
