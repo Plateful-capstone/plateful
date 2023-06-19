@@ -424,6 +424,10 @@ form#comment-form {
     gap: 20px;
 }
 
+.hidden {
+    display: none;
+}
+
 
 /*// ======================================= //*/
 /*// ==============   Recipe Individual End   ========= //*/
