@@ -5,9 +5,34 @@
 <div th:replace="loading :: loading-animation"></div>
 <div class="page-wrapper">
     <header th:replace="partials/navbar :: navbar"></header>
+<!--    search bar-->
+    <div class="container grow justify-center searchbar-container">
+        <div class="row main-background main-searchbar-row">
+            <div class="column ">
+                <div class="row justify-center searchbar-row">
+                    <h1>Search our Plateful Library</h1>
+                </div>
+                <div class="row justify-center searchbar-row">
+                    <form th:action="@{/recipes/search}" class="column" th:method="get">
+                        <div class="input-wrapper row justify-center align-center no-gap no-padding">
+                            <label for="searchInput"></label>
+                            <input type="text" class="d-flex grow" id="searchInput" name="search" th:value="${search}">
+                            <div class="searchbar-image-wrapper">
+                                <img src="https://cdn.filestackcontent.com/e9pGJsqnTuTV0q3Y9lxd" alt="magnifying glass on search bar">
+                            </div>
+                            <button class="btn primary cta-custom-search" id="searchButton">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--    All Recipes-->
     <div class="container justify-center all-recipe-background body-text" id="all-recipes-container">
         <div class="row main-background justify-center">
             <h3>All Recipes</h3>
+
         </div>
         <div th:each="recipe : ${recipes}" th:href="@{/recipes/{id}/view(id=${recipe.id})}">
             <div class="row search-results-row no-padding main-background">
@@ -42,9 +67,7 @@
                 </div>
             </div>
         </div>
-        <div class="container" id="result-container">
 
-        </div>
     </div>
     <footer th:replace="partials/footer :: footer"></footer>
 </div>
@@ -53,5 +76,6 @@
 <script th:src="@{/js/loadingAnimation.js}"></script>
 <script th:replace="loading :: lottie-script"></script>
 <script th:src="@{/js/recipeIndex.js}"></script>
+
 </body>
 </html>

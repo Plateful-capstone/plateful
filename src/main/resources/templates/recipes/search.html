@@ -31,6 +31,39 @@
 
 
     <div class="container body-text" id="resultsContainer">
+        <div th:each="recipe : ${recipes}" th:href="@{/recipes/{id}/view(id=${recipe.id})}">
+            <div class="row search-results-row no-padding main-background">
+                <div class="column search-results-card">
+                    <div class="row no-padding">
+                        <div class="column justify-space-between">
+                            <div class="row">
+                                <h2 th:text="${recipe.recipeName}"></h2>
+                            </div>
+                            <div class="row">
+                                <p><b>Recipe Description:</b> <span th:text="${recipe.recipeDescription}"></span></p>
+                            </div>
+                            <div class="row">
+                                <p class="show-hide">Show more</p>
+                            </div>
+                        </div>
+                        <div class="column search-recipe-image-wrapper">
+                            <img th:src="${recipe.recipeImageUrl}" alt="Image from DB">
+                        </div>
+                    </div>
+
+                    <div class="ghost-div-search">
+                        <div class="column gap-20">
+                            <div class="row">
+                                <p><b>Recipe Ingredients:</b> <span th:text="${recipe.recipeIngredients}"></span></p>
+                            </div>
+                            <div class="row">
+                                <p><b>Recipe Directions:</b> <span th:text="${recipe.recipeInstructions}"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
     <footer th:replace="partials/footer :: footer"></footer>

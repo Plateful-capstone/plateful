@@ -196,7 +196,7 @@ const executeSpoonacularSearch = (searchValue) => {
 
 // show-hide recipe details
 
-let parentElement = document.querySelector('.container.all-recipe-background');
+let parentElement = document.querySelector('#resultsContainer');
 
 parentElement.addEventListener('click', (event) => {
     if (event.target.classList.contains('show-hide')) {
