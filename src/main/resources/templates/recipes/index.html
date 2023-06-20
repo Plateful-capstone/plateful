@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/head :: head ('Show all recipes!')"></head>
+<head th:replace="partials/head :: head ('Search Page')"></head>
+
 <body>
 <div th:replace="loading :: loading-animation"></div>
 <div class="page-wrapper">
+
     <header th:replace="partials/navbar :: navbar"></header>
-<!--    search bar-->
     <div class="container grow justify-center searchbar-container">
         <div class="row main-background main-searchbar-row">
             <div class="column ">
@@ -28,12 +29,8 @@
         </div>
     </div>
 
-<!--    All Recipes-->
-    <div class="container justify-center all-recipe-background body-text" id="all-recipes-container">
-        <div class="row main-background justify-center">
-            <h3>All Recipes</h3>
 
-        </div>
+    <div class="container body-text" id="resultsContainer">
         <div th:each="recipe : ${recipes}" th:href="@{/recipes/{id}/view(id=${recipe.id})}">
             <div class="row search-results-row no-padding main-background">
                 <div class="column search-results-card">
@@ -44,6 +41,9 @@
                             </div>
                             <div class="row">
                                 <p><b>Recipe Description:</b> <span th:text="${recipe.recipeDescription}"></span></p>
+                            </div>
+                            <div class="row">
+                                <a th:href="@{/recipes/{id}/view(id=${recipe.id})}" >view recipe</a>
                             </div>
                             <div class="row">
                                 <p class="show-hide">Show more</p>
@@ -75,7 +75,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script th:src="@{/js/loadingAnimation.js}"></script>
 <script th:replace="loading :: lottie-script"></script>
-<script th:src="@{/js/recipeIndex.js}"></script>
-
+<script type="module" th:src="@{/js/searchDbSpoon.js}"></script>
 </body>
 </html>
