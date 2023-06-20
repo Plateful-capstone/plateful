@@ -93,7 +93,6 @@ public class RecipeController {
         return "recipes/index";
     }
 
-
     @GetMapping("api/recipes/search")
     @ResponseBody
     public List<Recipe> searchRecipeFromDb(@RequestParam(name = "search") String search, Model model) {

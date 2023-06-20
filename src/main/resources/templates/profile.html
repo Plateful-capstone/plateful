@@ -38,7 +38,10 @@
                         <h1>Your profile</h1>
                         <p>Username: <span sec:authentication="principal.username"></span></p>
                         <p>Email: <span sec:authentication="principal.email"></span></p>
-                        <p><a th:href="@{/profile/update}"><span class="">Update Account Here!</span></a></p>
+<!--                        <p><a th:href="@{/profile/update}"><span class="">Update Account Here!</span></a></p>-->
+                        <form class="d-flex justify-center" th:action="">
+
+                        </form>
                     </div>
                 </div>
             </div>

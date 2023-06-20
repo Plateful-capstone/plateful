@@ -379,11 +379,13 @@ footer.container .row {
     border-radius: 20px;
     overflow: hidden;
 }
+
 .indiv-recipe-image-wrapper img {
     min-width: 100%;
     object-fit: cover;
     aspect-ratio: 8/3;
 }
+
 .recipe-content {
     padding: 40px;
     color: #fff;
@@ -588,7 +590,6 @@ label {
     background-color: var(--color);
 }
 
-
 .login-container label {
     color:white;
 }
@@ -720,7 +721,20 @@ div.container.login-container {
     min-width: 55vw;
 }
 
+.the-team-picture-container {
+    padding: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    min-height: 20%;
+    min-width: auto;
+}
+.the-team-picture-container img {
+    object-fit: cover;
+}
+
 .the-team-image-wrapper {
+    display: flex;
+    align-items: center;
     min-width: 10vw;
     border-radius: 20px;
     overflow: hidden;
@@ -736,6 +750,93 @@ div.container.login-container {
     max-width: 80vw;
     border-top: 2px solid var(--that-pink);
     border-radius: 10px;
+}
+
+.the-team-picture-container {
+    position: relative;
+    display: inline-block;
+}
+
+.the-team-picture-container img {
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.the-team-picture-container:hover img,
+.the-team-picture-container:hover .middle-text {
+    opacity: 0.5;
+}
+
+.middle-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.the-team-picture-container:hover .middle-text {
+    opacity: 1;
+}
+
+.portrait-text {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+/* Additional styles for the image and logos */
+.the-team-picture-container img {
+    width: 100%;
+    height: auto;
+}
+
+.github-logo,
+.linkedin-logo {
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+}
+
+
+.row.the-team-picture-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px; /* Adjust the height as needed */
+}
+
+.row.the-team-picture-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+    backface-visibility: hidden;
+}
+
+/*.row.the-team-picture-container img:hover {*/
+/*    opacity: .5;*/
+/*}*/
+
+.row.the-team-picture-container .column {
+    margin-top: 10px; /* Adjust the margin as needed */
+}
+
+.column.github-wrapper,
+.column.linkedin-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.github-logo,
+.linkedin-logo {
+    width: 30px;
+    height: 30px;
+    transition: all ease .3s;
 }
 
 
@@ -929,9 +1030,11 @@ div.container.landingRecipe .row.recipe-row {
     overflow:hidden;
     gap: 15px;
 }
+
 #resultsContainer {
     padding: 20px;
 }
+
 .search-recipe-image-wrapper {
     border-radius: 10px;
     overflow: hidden;
@@ -967,4 +1070,5 @@ div.container.landingRecipe .row.recipe-row {
 /*// ======================================= //*/
 /*// ==============   Search Page END  ========= //*/
 /*// ======================================= //*/
+
 
