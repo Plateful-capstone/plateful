@@ -30,7 +30,7 @@ const displaySearchResults = (data) => {
                 </div>
             </div>
             
-            <div class="ghost-div">
+            <div class="ghost-div-search">
                 <div class="column gap-20">
                     <div class="row">
                         <p><b>Recipe Ingredients:</b> ${recipe.recipeIngredients}</p>
@@ -106,7 +106,9 @@ const executeSpoonacularSearch = (searchValue) => {
         })
         .then((data) => {
             const resultsContainer = document.querySelector("#resultsContainer");
+            console.log(data);
             data.results.forEach((result, index) => {
+                console.log(result);
                 // Create recipe information
                 const ingredientsList = createIngredientsList(result.extendedIngredients);
                 const recipeStepsParagraph = createRecipeSteps(result.analyzedInstructions);
@@ -138,7 +140,7 @@ const executeSpoonacularSearch = (searchValue) => {
                     <img src="${result.image}" alt="result image from spoonacular">
                 </div>
             </div>
-            <div class="ghost-div">
+            <div class="ghost-div-search">
                 <div class="column gap-20">
                     <div class="row">
                         <p> <b> Recipe Ingredients:</b> ${ingredientsList}</p>
@@ -156,6 +158,7 @@ const executeSpoonacularSearch = (searchValue) => {
                     e.preventDefault();
                     const resultIndex = e.target.getAttribute('data-results-index');
                     const result = data.results[resultIndex];
+                    console.log(result);
                     const recipe = {
                         recipeDescription: extractSummaryInfo(result.summary),
                         recipeImageUrl: result.image,
@@ -200,7 +203,7 @@ let parentElement = document.querySelector('#resultsContainer');
 
 parentElement.addEventListener('click', (event) => {
     if (event.target.classList.contains('show-hide')) {
-        let ghostDiv = event.target.closest('.search-results-card').querySelector('.ghost-div');
+        let ghostDiv = event.target.closest('.search-results-card').querySelector('.ghost-div-search');
         if (ghostDiv.style.display === 'none' || ghostDiv.style.display === '') {
             ghostDiv.style.display = 'block';
             event.target.textContent = 'Hide';

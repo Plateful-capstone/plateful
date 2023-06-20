@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:replace="partials/head :: head ('landing page')"></head>
+<head th:replace="partials/head :: head ('Plateful')"></head>
 
 <body>
 <div th:replace="loading :: loading-animation"></div>
 <div class="page-wrapper">
     <header th:replace="partials/navbar :: navbar"></header>
     <div class="container grow justify-center landingHero main-background">
-        <div class="row justify-center">
-            <div class="column grow">
+        <div class="row justify-space-between hero-landing-row">
+            <div class="column shrink">
                 <p class="hero-left-text">Discover Simple, Delicious, and Fast Recipes!</p>
             </div>
-            <div class="column align-center grow hero-chef">
+            <div class="column hero-chef">
                 <img class="landingChef" src="/css/img/chefNoBG.png">
             </div>
-            <div class="column grow hero-right">
+            <div class="column shrink hero-right">
                 <h1 class="hero-header-right">Top Recipes</h1>
                 <p class="hero-para-right">A recipe is soulless. The essence of the recipe must come from you, the cook.</p>
                 <a th:href="@{/recipes}">

@@ -1,25 +1,73 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/head :: head ('Show all recipes!')"></head>
+<head th:replace="partials/head :: head ('Recipes page')"></head>
+
 <body>
 <div th:replace="loading :: loading-animation"></div>
 <div class="page-wrapper">
-    <header th:replace="partials/navbar :: navbar"></header>
-    <div class="container justify-center all-recipe-background">
-        <h3>All Recipes</h3>
-        <p></p>
-        <div class="grid-container all-recipe-background">
-            <a th:each="recipe : ${recipes}" th:href="@{/recipes/{id}/view(id=${recipe.id})}">
-                <div class="grid-item row" th:style="'background-image: url(' + ${recipe.recipeImageUrl} + '); background-size: cover;'">
-                </div>
-                <div class="row recipe-title grow">
-                    <p class="grow column" th:text="${recipe.recipeName}"></p>
-                </div>
-            </a>
-        </div>
-        <div class="container" id="result-container">
 
+    <header th:replace="partials/navbar :: navbar"></header>
+    <div class="container grow justify-center searchbar-container">
+        <div class="row main-background main-searchbar-row">
+            <div class="column ">
+                <div class="row justify-center searchbar-row">
+                    <h1>Search our Plateful Library</h1>
+                </div>
+                <div class="row justify-center searchbar-row">
+                    <form th:action="@{/recipes/search}" class="column" th:method="get">
+                        <div class="input-wrapper row justify-center align-center no-gap no-padding">
+                            <label for="searchInput"></label>
+                            <input type="text" class="d-flex grow" id="searchInput" name="search" th:value="${search}">
+                            <div class="searchbar-image-wrapper">
+                                <img src="https://cdn.filestackcontent.com/e9pGJsqnTuTV0q3Y9lxd" alt="magnifying glass on search bar">
+                            </div>
+                            <button class="btn primary cta-custom-search" id="searchButton">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
+    </div>
+
+
+    <div class="container body-text" id="resultsContainer">
+        <div th:each="recipe : ${recipes}" th:href="@{/recipes/{id}/view(id=${recipe.id})}">
+            <div class="row search-results-row no-padding main-background">
+                <div class="column search-results-card">
+                    <div class="row no-padding">
+                        <div class="column justify-space-between">
+                            <div class="row">
+                                <h2 th:text="${recipe.recipeName}"></h2>
+                            </div>
+                            <div class="row">
+                                <p><b>Recipe Description:</b> <span th:text="${recipe.recipeDescription}"></span></p>
+                            </div>
+                            <div class="row">
+                                <a th:href="@{/recipes/{id}/view(id=${recipe.id})}" >view recipe</a>
+                            </div>
+                            <div class="row">
+                                <p class="show-hide">Show more</p>
+                            </div>
+                        </div>
+                        <div class="column search-recipe-image-wrapper">
+                            <img th:src="${recipe.recipeImageUrl}" alt="Image from DB">
+                        </div>
+                    </div>
+
+                    <div class="ghost-div-search">
+                        <div class="column gap-20">
+                            <div class="row">
+                                <p><b>Recipe Ingredients:</b> <span th:text="${recipe.recipeIngredients}"></span></p>
+                            </div>
+                            <div class="row">
+                                <p><b>Recipe Directions:</b> <span th:text="${recipe.recipeInstructions}"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
     <footer th:replace="partials/footer :: footer"></footer>
 </div>
@@ -27,5 +75,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script th:src="@{/js/loadingAnimation.js}"></script>
 <script th:replace="loading :: lottie-script"></script>
+<script type="module" th:src="@{/js/searchDbSpoon.js}"></script>
 </body>
 </html>

@@ -10,9 +10,9 @@
                     <ul th:if="${#authorization.expression('isAuthenticated()')}" class="d-flex align-center">
                         <!-- Authenticated User -->
                         <a th:href="@{/}"><li class="navli">Home</li></a>
-                        <a th:href="@{/recipes}"><li class="navli">All Recipes</li></a>
+<!--                        <a th:href="@{/recipes}"><li class="navli">All Recipes</li></a>-->
                         <a th:href="@{/recipes/create}"><li class="navli">Add Recipe</li></a>
-                        <a th:href="@{/recipes/search}"><li class="navli">Search for recipes</li></a>
+                        <a th:href="@{/recipes}"><li class="navli">All Recipes</li></a>
                         <a th:href="@{/about}"><li class="navli">About Us</li></a>
                         <a th:href="@{/profile}"><li class="navli">Profile</li>
                         <li></a>

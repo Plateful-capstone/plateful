@@ -21,30 +21,28 @@ public class RecipeController {
     }
 
 
-    // Route for displaying all recipes
-    @GetMapping("/recipes")
-    public String recipeIndex(Model model) {
-        model.addAttribute("recipes", recipesDao.findAll());
-        return "recipes/index";
-    }
+//    // Route for displaying all recipes
+//    @GetMapping("/recipes")
+//    public String recipeIndex(Model model) {
+//        model.addAttribute("recipes", recipesDao.findAll());
+//        return "index_archive";
+//    }
 
     // Route for viewing an individual recipe
     @GetMapping("/recipes/{id}/view")
     public String viewIndividualRecipe(@PathVariable long id, Model model) {
-        if (recipesDao.findById(id) == null) {
-            Recipe recipe = new Recipe( );
-            recipe.setRecipeName(recipe.getRecipeName());
-            recipe.setRecipeDescription(recipe.getRecipeDescription());
-            recipe.setRecipeIngredients(recipe.getRecipeIngredients());
-            recipe.setRecipeInstructions(recipe.getRecipeInstructions());
-            recipe.setRecipeImageUrl(recipe.getRecipeImageUrl());
-            recipesDao.save(recipe);
-            return "redirect:/recipes/{id}/view";
-        }
         Recipe recipe = recipesDao.findById(id);
+
+        if (recipe == null) {
+            // Recipe not found, handle the case accordingly
+            // For example, you can redirect to an error page or display a message
+            return "redirect:/error";
+        }
+
         model.addAttribute("recipe", recipe);
         return "recipes/show";
     }
+
 
     // Routes for creating a new recipe
     @GetMapping("/recipes/create")
@@ -88,10 +86,11 @@ public class RecipeController {
     }
 
     // get mapping for search
-    @GetMapping("/recipes/search")
+    @GetMapping("/recipes")
     public String searchRecipeForm(Model model) {
         model.addAttribute("recipe", new Recipe());
-        return "recipes/search";
+        model.addAttribute("recipes", recipesDao.findAll());
+        return "recipes/index";
     }
 
     @GetMapping("api/recipes/search")
