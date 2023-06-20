@@ -1,4 +1,3 @@
-import keys from "./keys.js";
 
 const searchButton = document.querySelector("#searchButton");
 const allRecipesButton = document.querySelector("#allRecipes");
