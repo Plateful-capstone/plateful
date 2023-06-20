@@ -89,6 +89,7 @@ public class RecipeController {
     @GetMapping("/recipes/search")
     public String searchRecipeForm(Model model) {
         model.addAttribute("recipe", new Recipe());
+        model.addAttribute("recipes", recipesDao.findAll());
         return "recipes/search";
     }
 
