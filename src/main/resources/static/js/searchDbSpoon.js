@@ -106,7 +106,9 @@ const executeSpoonacularSearch = (searchValue) => {
         })
         .then((data) => {
             const resultsContainer = document.querySelector("#resultsContainer");
+            console.log(data);
             data.results.forEach((result, index) => {
+                console.log(result);
                 // Create recipe information
                 const ingredientsList = createIngredientsList(result.extendedIngredients);
                 const recipeStepsParagraph = createRecipeSteps(result.analyzedInstructions);
@@ -156,6 +158,7 @@ const executeSpoonacularSearch = (searchValue) => {
                     e.preventDefault();
                     const resultIndex = e.target.getAttribute('data-results-index');
                     const result = data.results[resultIndex];
+                    console.log(result);
                     const recipe = {
                         recipeDescription: extractSummaryInfo(result.summary),
                         recipeImageUrl: result.image,
