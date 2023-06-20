@@ -44,7 +44,7 @@ public class PlatefulSecurityConfiguration {
         );
         http.formLogin((form) -> form
                 .loginPage("/login")
-                .defaultSuccessUrl("/recipes")
+                .defaultSuccessUrl("/profile")
                 .failureUrl("/login?error"));
         //logout redirect to /login
         http.logout((logout) -> logout

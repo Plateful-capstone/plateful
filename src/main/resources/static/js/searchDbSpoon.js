@@ -3,6 +3,7 @@ import keys from "./keys.js";
 const searchButton = document.querySelector("#searchButton");
 const allRecipesButton = document.querySelector("#allRecipes");
 
+
 // Helper function from searchDb
 const displaySearchResults = (data) => {
     const resultContainer = document.getElementById("resultsContainer");
@@ -52,7 +53,11 @@ const displaySearchResults = (data) => {
 // Helper functions for spoonacular
 const createIngredientsList = (ingredients) => {
     let ingredientsNames = ingredients.map((ingredient) => ingredient.original);
-    return ingredientsNames.join(", ");
+    ingredientsNames = ingredientsNames.join(", ");
+    //the last comma i want to replace with "and" and add a period after the last ingredient
+    let lastComma = ingredientsNames.lastIndexOf(",");
+    let ingredientsList = ingredientsNames.substring(0, lastComma) + " and" + ingredientsNames.substring(lastComma + 1) + ".";
+    return ingredientsList;
 };
 
 const createRecipeSteps = (analyzedInstructions) => {
@@ -73,6 +78,7 @@ const extractSummaryInfo = (summary) => {
     }
     return '';
 };
+
 
 // Event listener for search button for searchDb
 searchButton.addEventListener("click", (e) => {
@@ -213,3 +219,4 @@ parentElement.addEventListener('click', (event) => {
         }
     }
 });
+
