@@ -12,25 +12,26 @@
       </div>
     </div>
     <form th:action="@{/recipes/create}" th:method="post" th:object="${recipe}"  class="column shrink" >
-    <div class="row indiv-card-row">
-      <div id="thumbnailContainer" class="column indiv-recipe-image-wrapper shrink main-background gap-20">
-
-        <div class="column gap-20 recipe-content main-background">
-          <label for="recipeName">Recipe name:</label>
-          <input type="text" name="recipeName" id="recipeName" th:field="*{recipeName}">
-          <label for="recipeDescription">Recipe description:</label>
-          <input type="text" name="recipeDescription" id="recipeDescription" th:field="*{recipeDescription}">
-          <label for="recipeIngredients">Recipe ingredients:</label>
-          <input type="text" name="recipeIngredients" id="recipeIngredients" th:field="*{recipeIngredients}">
-          <label for="recipeInstructions">Recipe instructions:</label>
-          <!--        textarea for recipe instructions-->
-          <textarea name="recipeInstructions" id="recipeInstructions" th:field="*{recipeInstructions}" placeholder="Enter something..."></textarea>
-          <!--        <label for="recipeImage">Recipe image:</label>-->
-          <input type="button" name="image" class="image-add cta" id="open" value="Add image"/>
-          <input type="hidden" name="recipeImageUrl" id="recipeImage" th:field="*{recipeImageUrl}" th:value="${recipe.recipeImageUrl}" />
-          <input type="submit" value="Submit" class="button cta">
+    <div class="row indiv-card-row grow">
+        <div class="column shrink individual-recipe-title">
+            <div id="thumbnailContainer" class="column indiv-recipe-image-wrapper shrink main-background gap-20">
+                <div class="column gap-20 recipe-content main-background">
+                    <label for="recipeName">Recipe name:</label>
+                    <input type="text" name="recipeName" id="recipeName" th:field="*{recipeName}">
+                    <label for="recipeDescription">Recipe description:</label>
+                    <input type="text" name="recipeDescription" id="recipeDescription" th:field="*{recipeDescription}">
+                    <label for="recipeIngredients">Recipe ingredients:</label>
+                    <input type="text" name="recipeIngredients" id="recipeIngredients" th:field="*{recipeIngredients}">
+                    <label for="recipeInstructions">Recipe instructions:</label>
+                    <!--        textarea for recipe instructions-->
+                    <textarea name="recipeInstructions" id="recipeInstructions" th:field="*{recipeInstructions}" placeholder="Enter something..."></textarea>
+                    <!--        <label for="recipeImage">Recipe image:</label>-->
+                    <input type="button" name="image" class="image-add cta" id="open" value="Add image"/>
+                    <input type="hidden" name="recipeImageUrl" id="recipeImage" th:field="*{recipeImageUrl}" th:value="${recipe.recipeImageUrl}" />
+                    <input type="submit" value="Submit" class="button cta">
+                </div>
+            </div>
         </div>
-      </div>
   </div>
     </form>
   </div>
