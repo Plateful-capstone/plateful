@@ -19,6 +19,10 @@
     background-color: var(--color);
 }
 
+.margin-10 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 
 .body-text {
     color: white;
@@ -503,14 +507,27 @@ form#comment-form {
 }
 
 .profile-column {
-    background-color: blue;
+    background-color: var(--background);
     min-width: 25vw;
+    min-height: 20vh;
     height: 100%;
 }
 
 .profile-photo-row {
-    background-color: white;
+    background-color: var(--background);
+    padding-bottom: 10px;
+    /*border-radius: 999px;*/
+    /*overflow: hidden;*/
 }
+
+.profile-photo-row img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 999px;
+    border: 3px solid pink;
+}
+
 .avatar {
     vertical-align: middle;
     width: 50px;
@@ -519,7 +536,10 @@ form#comment-form {
 }
 
 .profile-info {
-    background-color: green;
+    background-color: var(--color);
+    color: white;
+    border-radius: 12px;
+    border: 3px solid pink
 }
 
 #modal-user-container {
@@ -545,6 +565,7 @@ form#comment-form {
     position: relative;
     border-radius: 20px;
 }
+
 /*// ======================================= //*/
 /*// ==============   Cookbook / Profile End   ========= //*/
 /*// ======================================= //*/

@@ -6,7 +6,7 @@
 <div class="page-wrapper">
     <header th:replace="partials/navbar :: navbar"></header>
     <div class="container justify-center grow">
-        <h3>Welcome, <span sec:authentication="principal.username"></span></h3>
+        <h2>Welcome, <span sec:authentication="principal.username"></span>!</h2>
         <div class="row grow justify-center">
 <!--            cookbook section-->
             <div class="cookbook-column column shrink align-center">
@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="profile-column column shrink">
-                <div class="profile-photo-row row grow">
+                <div class="profile-photo-row row">
                     <div class="column justify-center">
                         <!-- avatar placeholder -->
                         <form th:action="@{/profile/changeImage}" method="post" id="form-change-avatar">
@@ -32,29 +32,27 @@
                             <input type="hidden" name="avatarImageUrl" id="avatarUrl" th:value="${user.avatar_url}">
                         </form>
                     </div>
-                </div>x
-                <div class="profile-info justify-center row grow">
-                    <div class="column justify-center shrink">
+                </div>
+                <div class="profile-info justify-center row gap-10">
+                    <div class="column justify-center shrink align-center">
                         <h1>Your profile</h1>
                         <p>Username: <span sec:authentication="principal.username"></span></p>
                         <p>Email: <span sec:authentication="principal.email"></span></p>
-
-                        <p><a th:href="@{/profile/update}"><span class="">Update Account Here!</span></a></p>
-                        <button class="cta" id="edit-modal-profile-open">Edit Profile</button>
+                        <button class="cta margin-10" id="edit-modal-profile-open">Edit Profile</button>
 
                         <!-- Modal Start -->
 
-                        <div class="modal-profile-container" id="modal-user-container">
+                        <div class="modal-profile-container pink-border" id="modal-user-container">
                             <div class="modal-content-user main-background">
                             <div class="row justify-space-between">
                                 <div class="column">
-                                <h1>Edit Your Profile:</h1>
+                                    <h1>Edit Your Profile:</h1>
                                 </div>
                                 <div class="column">
                                     <span class="close" id="close-x">&times;</span>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row justify-center align-center">
                                 <form th:action="@{/profile/update}" method="post">
                                     <label for="username">Username:</label>
                                     <input id="username" name="username" class="" type="text" th:value="${user.username}">
