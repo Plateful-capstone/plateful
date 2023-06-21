@@ -2,8 +2,10 @@ package com.team5.plateful.controllers;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.team5.plateful.models.Comment;
 import com.team5.plateful.models.Recipe;
 import com.team5.plateful.models.User;
+import com.team5.plateful.repositories.CommentRepository;
 import com.team5.plateful.repositories.RecipeRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -15,9 +17,11 @@ import java.util.List;
 @Controller
 public class RecipeController {
     private RecipeRepository recipesDao;
+    private CommentRepository commentsDao;
 
-    public RecipeController(RecipeRepository recipesDao) {
+    public RecipeController(RecipeRepository recipesDao, CommentRepository commentsDao) {
         this.recipesDao = recipesDao;
+        this.commentsDao = commentsDao;
     }
 
 
@@ -38,7 +42,8 @@ public class RecipeController {
             // For example, you can redirect to an error page or display a message
             return "redirect:/error";
         }
-
+        List<Comment> comments = commentsDao.findAllByRecipe(recipe);
+        model.addAttribute("comments", comments);
         model.addAttribute("recipe", recipe);
         return "recipes/show";
     }
@@ -81,6 +86,11 @@ public class RecipeController {
     // Route for deleting a recipe
     @PostMapping("/recipes/{id}/delete")
     public String deleteRecipe(@PathVariable long id) {
+        Recipe recipe = recipesDao.findById(id);
+        List<Comment> comments = commentsDao.findAllByRecipe(recipe);
+        for (Comment comment : comments) {
+            commentsDao.deleteById(comment.getId());
+        }
         recipesDao.deleteById(id);
         return "redirect:/recipes";
     }
@@ -119,7 +129,6 @@ public class RecipeController {
         recipesDao.save(recipe);
         return recipe;
     }
-
 
 }
 
