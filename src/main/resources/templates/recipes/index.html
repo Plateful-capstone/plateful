@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/head :: head ('Show all recipes!')"></head>
+<head th:replace="partials/head :: head ('Recipes page')"></head>
+
 <body>
 <div th:replace="loading :: loading-animation"></div>
 <div class="page-wrapper">
+
     <header th:replace="partials/navbar :: navbar"></header>
-<!--    search bar-->
-    <div class="container grow justify-center searchbar-container">
-        <div class="row main-background main-searchbar-row">
+    <div class="container grow justify-center searchbar-container"
+         th:switch="${#authorization.expression('isAuthenticated')}">
+        <div th:case="true" class="row main-background main-searchbar-row pink-border">
             <div class="column ">
                 <div class="row justify-center searchbar-row">
                     <h1>Search our Plateful Library</h1>
@@ -18,7 +20,8 @@
                             <label for="searchInput"></label>
                             <input type="text" class="d-flex grow" id="searchInput" name="search" th:value="${search}">
                             <div class="searchbar-image-wrapper">
-                                <img src="https://cdn.filestackcontent.com/e9pGJsqnTuTV0q3Y9lxd" alt="magnifying glass on search bar">
+                                <img src="https://cdn.filestackcontent.com/e9pGJsqnTuTV0q3Y9lxd"
+                                     alt="magnifying glass on search bar">
                             </div>
                             <button class="btn primary cta-custom-search" id="searchButton">Search</button>
                         </div>
@@ -26,16 +29,60 @@
                 </div>
             </div>
         </div>
+        <div th:case="false" class="row main-background main-searchbar-row">
+            <div class="column ">
+                <div class="row justify-center searchbar-row">
+                    <h1>Search our Plateful Library</h1>
+                </div>
+                <div class="row justify-center searchbar-row">
+                    <form action="#" id="search-form-denial" class="column">
+                        <div class="input-wrapper row justify-center align-center no-gap no-padding">
+                            <label for="searchInput"></label>
+                            <input type="text" class="d-flex grow" id="search-input-modal" name="search">
+                            <div class="searchbar-image-wrapper">
+                                <img src="https://cdn.filestackcontent.com/e9pGJsqnTuTV0q3Y9lxd"
+                                     alt="magnifying glass on search bar">
+                            </div>
+                            <button class="btn primary cta-custom-search" id="searchButtonModal">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+            <!-- modal start -->
+            <div id="modal-search-container">
+                <div class="row modal-content-search justify-center">
+                    <div class="column shrink gap-10">
+                        <div class="row justify-center align-center">
+                            <div class="column align-right">
+                                <span id="close-search">&times;</span>
+                            </div>
+                        </div>
+                        <div class="row  justify-center">
+                            <div class="column align-center">
+                                <p>Sorry, you must be logged in to search our database.</p>
+                            </div>
+                        </div>
+                        <div class="row  justify-center">
+                            <form th:action="@{/login}" class="column align-center">
+                                <button class="cta">Login now</button>
+                            </form>
+                            <div class="column align-center">
+                                <button id="close-modal-btn" class="cta">Close window</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- modal end -->
+        </div>
     </div>
 
-<!--    All Recipes-->
-    <div class="container justify-center all-recipe-background body-text" id="all-recipes-container">
-        <div class="row main-background justify-center">
-            <h3>All Recipes</h3>
 
-        </div>
+    <div class="container body-text" id="resultsContainer">
         <div th:each="recipe : ${recipes}" th:href="@{/recipes/{id}/view(id=${recipe.id})}">
-            <div class="row search-results-row no-padding main-background">
+            <div class="row search-results-row no-padding main-background pink-border">
                 <div class="column search-results-card">
                     <div class="row no-padding">
                         <div class="column justify-space-between">
@@ -45,6 +92,9 @@
                             <div class="row">
                                 <p><b>Recipe Description:</b> <span th:text="${recipe.recipeDescription}"></span></p>
                             </div>
+                            <form th:action="@{/recipes/{id}/view(id=${recipe.id})}" method="get" class="row">
+                                <button class="cta">View Recipe</button>
+                            </form>
                             <div class="row">
                                 <p class="show-hide">Show more</p>
                             </div>
@@ -75,7 +125,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script th:src="@{/js/loadingAnimation.js}"></script>
 <script th:replace="loading :: lottie-script"></script>
-<script th:src="@{/js/recipeIndex.js}"></script>
 
+<script th:if="${#authorization.expression('isAuthenticated')}" type="module" th:src="@{/js/searchDbSpoon.js}"></script>
+<script th:unless="${#authorization.expression('isAuthenticated')}" th:src="@{/js/searchDenial.js}"></script>
 </body>
 </html>

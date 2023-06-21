@@ -42,11 +42,11 @@ public class PlatefulSecurityConfiguration {
                         "/loading",
                         "/"
                 ).permitAll()
-                .requestMatchers("/css/**", "/js/**").permitAll()
+                .requestMatchers("/css/**", "/js/**", "/keys.js").permitAll()
         );
         http.formLogin((form) -> form
                 .loginPage("/login")
-                .defaultSuccessUrl("/recipes")
+                .defaultSuccessUrl("/profile")
                 .failureUrl("/login?error"));
         //logout redirect to /login
         http.logout((logout) -> logout

@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="row indiv-card-row ">
-            <div class="column  card-divider indiv-recipe-image-wrapper shrink main-background gap-20">
+            <div class="column card-divider indiv-recipe-image-wrapper shrink main-background justify-center gap-20">
                 <img th:src="${recipe.recipeImageUrl}" alt="recipe image">
 
                 <div class="column  gap-20 recipe-content">
@@ -22,71 +22,6 @@
                     <p th:utext="'<b>' + 'Created by:  '+ '</b> '+ ${recipe.user.username}"></p>
                 </div>
 
-
-                <!--                &lt;!&ndash;buttons start rought draft&ndash;&gt;-->
-                <!--                <div class="row indiv-recipe-btns-row">-->
-                <!--                    <div class="column justify-center align-center">-->
-                <!--                        &lt;!&ndash; Go Back Button (Visible to all users) &ndash;&gt;-->
-                <!--                        <button class="cta"><a th:href="@{/recipes}">Go back</a></button>-->
-                <!--                    </div>-->
-                <!--                    &lt;!&ndash;LOGGED IN USER&ndash;&gt;-->
-                <!--                    &lt;!&ndash; Edit Button (Visible to authenticated users if the recipe belongs to them) &ndash;&gt;-->
-
-                <!--                    <div class="column justify-center" th:if="${#authentication.principal.id == recipe.user.id && #authorization.expression('isAuthenticated')}">-->
-                <!--                        <form class="d-flex justify-center" th:action="@{/recipes/{id}/edit(id=${recipe.id})}" method="post">-->
-                <!--                            <input type="hidden" name="_method" value="put"/>-->
-                <!--                            <button class="editModalBtn cta" th:data-modal-id="'editModal-' + ${recipe.id}" type="button">Edit</button>-->
-                <!--                        </form>-->
-
-                <!--                        &lt;!&ndash; Edit Modal &ndash;&gt;-->
-                <!--                        <div th:id="'editModal-' + ${recipe.id}" class="modal">-->
-                <!--                            <div class="modal-content">-->
-                <!--                                <span class="close">&times;</span>-->
-                <!--                                &lt;!&ndash; Edit Form &ndash;&gt;-->
-                <!--                                <form th:action="@{/recipes/{id}/edit(id=${recipe.id})}" method="post" class="d-flex flex-column gap-10">-->
-                <!--                                    <h2>Make changes to your recipe!</h2>-->
-                <!--                                    <h3>Title: </h3>-->
-                <!--                                    <input type="text" name="recipeName" placeholder="Title" th:value="${recipe.recipeName}"/>-->
-                <!--                                    <h3>Description: </h3>-->
-                <!--                                    <input type="text" name="recipeDescription" placeholder="Description" th:value="${recipe.recipeDescription}"/>-->
-                <!--                                    <h3>Ingredients: </h3>-->
-                <!--                                    <input type="text" name="recipeIngredients" placeholder="Ingredients" th:value="${recipe.recipeIngredients}"/>-->
-                <!--                                    <h3>Instructions: </h3>-->
-                <!--                                    <textarea class="no-padding" type="text" name="recipeInstructions" th:text="${recipe.recipeInstructions}"></textarea>-->
-                <!--                                    <h3>Image URL: </h3>-->
-                <!--                                    <input type="button" id="open" class="image-add cta" value="Change Image">-->
-                <!--                                    <input type="hidden" name="recipeImageUrl" placeholder="Image URL" id="recipeImageURL" th:value="${recipe.recipeImageUrl}"/>-->
-                <!--                                    <button type="submit">Submit Changes</button>-->
-                <!--                                </form>-->
-                <!--                            </div>-->
-                <!--                        </div>-->
-                <!--                    </div>-->
-                <!--                    <div th:unless="${#authentication.expression('isAuthenticated')}"></div>-->
-
-                <!--                    &lt;!&ndash; Delete Button (Visible to authenticated users if the recipe belongs to them) &ndash;&gt;-->
-                <!--                    <div class="column justify-center" th:if="${#authentication.principal.id == recipe.user.id && #authorization.expression('isAuthenticated')}">-->
-                <!--                        <form class="d-flex justify-center" th:action="@{/recipes/{id}/delete(id=${recipe.id})}" method="post">-->
-                <!--                            <button class="cta">Delete recipe</button>-->
-                <!--                        </form>-->
-                <!--                    </div>-->
-                <!--                    <div th:unless="${#authentication.expression('isAuthenticated')}"></div>-->
-
-                <!--                    &lt;!&ndash;delete button end&ndash;&gt;-->
-
-                <!--                        <div class="column justify-center" th:if="${#authorization.expression('isAuthenticated')}">-->
-                <!--                            &lt;!&ndash; Comment Button (Visible to authenticated users) &ndash;&gt;-->
-                <!--                            <div class="comment-wrapper d-flex justify-center row">-->
-                <!--                                <button class="cta" id="comment-btn">Comment</button>-->
-                <!--                            </div>-->
-                <!--                        </div>-->
-                <!--                        <div class="column justify-center"  th:if="${#authorization.expression('isAuthenticated')}">-->
-                <!--                            &lt;!&ndash; Add to Cookbook Button (Visible to authenticated users) &ndash;&gt;-->
-                <!--                            <form class="d-flex justify-center row" action="#">-->
-                <!--                                <button class="cta">Add to Cookbook</button>-->
-                <!--                            </form>-->
-                <!--                        </div>-->
-                <!--                </div>-->
-                <!--                &lt;!&ndash;buttons end rough draft&ndash;&gt;-->
 
                 <!--buttons start-->
                 <div class="div" th:switch="${#authorization.expression('isAuthenticated')}" >
@@ -137,7 +72,7 @@
                     </div>
 
                     <!-- Delete Button -->
-                    <form class="column justify-center" th:if="${#authentication.principal.id == recipe.user.id}"
+                    <form class="column justify-center align-center" th:if="${#authentication.principal.id == recipe.user.id}"
                           th:action="@{/recipes/{id}/delete(id=${recipe.id})}" method="post">
                         <button class="cta">Delete recipe</button>
                     </form>

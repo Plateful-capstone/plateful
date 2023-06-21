@@ -25,12 +25,12 @@ public class RecipeController {
     }
 
 
-    // Route for displaying all recipes
-    @GetMapping("/recipes")
-    public String recipeIndex(Model model) {
-        model.addAttribute("recipes", recipesDao.findAll());
-        return "recipes/index";
-    }
+//    // Route for displaying all recipes
+//    @GetMapping("/recipes")
+//    public String recipeIndex(Model model) {
+//        model.addAttribute("recipes", recipesDao.findAll());
+//        return "index_archive";
+//    }
 
     // Route for viewing an individual recipe
     @GetMapping("/recipes/{id}/view")
@@ -90,13 +90,12 @@ public class RecipeController {
     }
 
     // get mapping for search
-    @GetMapping("/recipes/search")
+    @GetMapping("/recipes")
     public String searchRecipeForm(Model model) {
         model.addAttribute("recipe", new Recipe());
         model.addAttribute("recipes", recipesDao.findAll());
-        return "recipes/search";
+        return "recipes/index";
     }
-
 
     @GetMapping("api/recipes/search")
     @ResponseBody
