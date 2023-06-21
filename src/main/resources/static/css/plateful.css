@@ -975,6 +975,10 @@ div.container.landingRecipe .row.recipe-row {
     aspect-ratio: 1/2;
     min-width: 300px;
 }
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
 
 /*// ======================================= //*/
 /*// ==============   Landing Page END  ========= //*/

@@ -29,66 +29,33 @@
             </div>
         </div>
         <div class="row recipe-cards-row">
-            <a class="row" th:each="recipe : ${recipes}" th:href="@{/recipes/{id}/view(id=${recipe.id})}">
-                <div class="column recipe-cards">
+            <div class="column recipe-cards">
+                <div class="row card-grid">
+                    <div class="card" th:each="recipe, iteration : ${recipes}" th:if="${iteration.index < 4}" th:href="@{/recipes/{id}/view(id=${recipe.id})}">
+                        <div class="row justify-center">
+                            <img th:src="${recipe.recipeImageUrl}" alt="">
+                        </div>
                         <div class="row">
-                            <div class="column">
-                                <div class="row justify-center">
-                                    <img src="https://picsum.photos/200/300" alt="">
-                                </div>
-                                <div class="row">
-                                    <h3 th:text="${recipe.recipeName}"></h3>
-                                </div>
-                            </div>
-                        </div>
-                    <div class="row">
-                        <div class="column">
-                            <div class="row justify-center">
-                                <img src="https://picsum.photos/200/300" alt="">
-                            </div>
-                            <div class="row">
-                                <h3 th:text="${recipe.recipeName}"></h3>
-                            </div>
+                            <h3 th:text="${recipe.recipeName}"></h3>
                         </div>
                     </div>
                 </div>
-                <div class="column recipe-cards">
-                    <div class="row">
-                        <div class="column">
-                            <div class="row justify-center">
-                                <img src="https://picsum.photos/200/300" alt="">
-                            </div>
-                            <div class="row">
-                                <h3 th:text="${recipe.recipeName}"></h3>
-                            </div>
+            </div>
+            <div class="column recipe-cards justify-center">
+                <div class="row">
+                    <div class="card large-card" th:if="${recipes.size() >= 5}" th:href="@{/recipes/{id}/view(id=${recipes[4].id})}">
+                        <div class="row justify-center">
+                            <img th:src="${recipes[4].recipeImageUrl}" alt="">
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="column">
-                            <div class="row justify-center">
-                                <img src="https://picsum.photos/200/300" alt="">
-                            </div>
-                            <div class="row">
-                                <h3 th:text="${recipe.recipeName}"></h3>
-                            </div>
+                        <div class="row">
+                            <h3 th:text="${recipes[4].recipeName}"></h3>
                         </div>
                     </div>
                 </div>
-                <div class="column recipe-cards">
-                    <div class="row solo-card">
-                        <div class="column">
-                            <div class="row justify-center">
-                                <img class="solo-card" src="https://picsum.photos/200/300" alt="">
-                            </div>
-                            <div class="row">
-                                <h3 th:text="${recipe.recipeName}"></h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
+            </div>
         </div>
     </div>
+
     <footer th:replace="partials/footer :: footer"></footer>
 </div>
 

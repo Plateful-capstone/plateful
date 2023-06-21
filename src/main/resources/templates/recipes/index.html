@@ -15,7 +15,7 @@
                     <h1>Search our Plateful Library</h1>
                 </div>
                 <div class="row justify-center searchbar-row">
-                    <form th:action="@{/recipes/searcfh}" class="column" th:method="get">
+                    <form th:action="@{/recipes/search}" class="column" th:method="get">
                         <div class="input-wrapper row justify-center align-center no-gap no-padding">
                             <label for="searchInput"></label>
                             <input type="text" class="d-flex grow" id="searchInput" name="search" th:value="${search}">

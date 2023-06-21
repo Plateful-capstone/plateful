@@ -1,4 +1,3 @@
-import keys from "./keys.js";
 
 window.addEventListener('DOMContentLoaded', function() {
     console.log("DOM content loaded");
