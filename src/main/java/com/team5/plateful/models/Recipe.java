@@ -3,7 +3,6 @@ package com.team5.plateful.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import org.hibernate.annotations.Type;
 
 import java.util.List;
 import java.util.Set;
@@ -35,7 +34,7 @@ public class Recipe {
     private User user;
 
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "recipe")
-    private List<Comments> comments;
+    private List<Comment> comments;
 
     @JsonIgnore
     @ManyToMany(mappedBy = "recipes")
@@ -144,15 +143,15 @@ public class Recipe {
         this.recipeImageUrl = recipeImageUrl;
     }
 
-    public List<Comments> getComments() {
+    public List<Comment> getComments() {
         return comments;
     }
 
-    public void setComments(List<Comments> comments) {
+    public void setComments(List<Comment> comments) {
         this.comments = comments;
     }
 
-    public Recipe(List<Comments> comments) {
+    public Recipe(List<Comment> comments) {
         this.comments = comments;
     }
 
