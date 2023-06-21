@@ -809,6 +809,7 @@ div.container.login-container {
     min-height: 20%;
     min-width: auto;
 }
+
 .the-team-picture-container img {
     object-fit: cover;
 }
@@ -855,6 +856,7 @@ div.container.login-container {
     transform: translate(-50%, -50%);
     opacity: 0;
     transition: opacity 0.3s;
+    text-align: center;
 }
 
 .the-team-picture-container:hover .middle-text {

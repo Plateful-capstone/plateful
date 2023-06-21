@@ -30,8 +30,8 @@
                         <form th:action="@{/profile/changeImage}" method="post" id="form-change-avatar">
                             <div class="image-container">
                                 <img id="openImage" class="changeAvatar" th:src="${user.avatar_url}">
-                                <div class="middle-text">
-                                    <div class="portrait-text">Change Image</div>
+                                <div class="middle-text" id="change-image-text">
+                                    <div class="portrait-text" >Change Image</div>
                                 </div>
                             </div>
                             <input type="hidden" name="avatarImageUrl" id="avatarUrl" th:value="${user.avatar_url}">
