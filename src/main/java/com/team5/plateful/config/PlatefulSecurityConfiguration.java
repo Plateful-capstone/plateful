@@ -19,6 +19,8 @@ public class PlatefulSecurityConfiguration {
                 .requestMatchers(
                         "/recipes/create",
                         "/recipes/comment/",
+                        "/recipes/create/comment",
+                        "/comments/*/create",
                         "/recipes/*/edit",
                         "/recipes/*/delete",
                         "/profile/update",

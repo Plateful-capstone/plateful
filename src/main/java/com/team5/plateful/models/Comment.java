@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name="comments")
-public class Comments {
+public class Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -56,12 +56,15 @@ public class Comments {
         this.recipe = recipe;
     }
 
-    public Comments() {
+    public Comment() {
     }
 
-    public Comments(String body, User user, Recipe recipe) {
+    public Comment(String body, User user, Recipe recipe) {
         this.body = body;
         this.user = user;
         this.recipe = recipe;
+    }
+
+    public void setComment(String newComment) {
     }
 }

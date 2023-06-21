@@ -30,7 +30,7 @@ public class User {
 
     @JsonIgnore
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
-    private List<Comments> comments;
+    private List<Comment> comments;
 
     public List<Recipe> getRecipes() {
         return recipes;
@@ -91,11 +91,11 @@ public class User {
         this.cookbooks = cookbooks;
     }
 
-    public List<Comments> getComments() {
+    public List<Comment> getComments() {
         return comments;
     }
 
-    public void setComments(List<Comments> comments) {
+    public void setComments(List<Comment> comments) {
         this.comments = comments;
     }
 
@@ -116,7 +116,7 @@ public class User {
         this.password = password;
         this.avatar_url = avatar_url;
     }
-    public User(List<Comments> comments) {
+    public User(List<Comment> comments) {
         this.comments = comments;
     }
 }

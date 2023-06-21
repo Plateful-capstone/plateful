@@ -8,11 +8,12 @@ import java.util.List;
 public interface RecipeRepository extends JpaRepository<Recipe, Long> {
     Recipe findById(long id);
     void deleteById(long id);
-//    Recipe findByRecipeNameContaining(String recipeName);
     List<Recipe> findAllByRecipeNameContaining(String recipeName);
     List<Recipe> findAll();
 
     Recipe findByRecipeName(String recipeName);
 
     List<Recipe> findAllByRecipeName(String recipeName);
+
+
 }

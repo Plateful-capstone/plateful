@@ -2,8 +2,10 @@ package com.team5.plateful.controllers;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.team5.plateful.models.Comment;
 import com.team5.plateful.models.Recipe;
 import com.team5.plateful.models.User;
+import com.team5.plateful.repositories.CommentRepository;
 import com.team5.plateful.repositories.RecipeRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -15,9 +17,11 @@ import java.util.List;
 @Controller
 public class RecipeController {
     private RecipeRepository recipesDao;
+    private CommentRepository commentsDao;
 
-    public RecipeController(RecipeRepository recipesDao) {
+    public RecipeController(RecipeRepository recipesDao, CommentRepository commentsDao) {
         this.recipesDao = recipesDao;
+        this.commentsDao = commentsDao;
     }
 
 
@@ -121,6 +125,12 @@ public class RecipeController {
         return recipe;
     }
 
-
+    @PostMapping("/recipes/create/comment")
+    @ResponseBody
+    public Comment createComment(@RequestParam(name = "comment-recipe-id") long recipeId, @RequestParam(name = "comment") String commentBody) {
+        Recipe recipe = recipesDao.findById(recipeId);
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Comment comment = new Comment(commentBody, user, recipe);
+        return commentsDao.save(comment);
+    }
 }
-

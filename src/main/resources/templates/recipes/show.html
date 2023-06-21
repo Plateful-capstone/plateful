@@ -167,9 +167,9 @@
                 <div id="comments-row" style="display: none">
                     <div class="ghost-div-indiv-recipe grow">
                         <div class="column gap-20">
-                            <form action="#" class="row grow d-flex justify-center">
-                            <textarea name="comment" id="comment-content"
-                                      placeholder="Post Something..."></textarea>
+                            <form th:action="@{|/comments/${recipe.id}/create|}" method="post" class="row grow d-flex justify-center">
+                            <textarea name="comment" id="comment-content" placeholder="Post Something..."></textarea>
+                                <input type="hidden" name="comment-recipe-id" th:value="${recipe.id}">
                                 <button class="cta" id="comment-content-btn" style="display: none">Comment</button>
                             </form>
 
