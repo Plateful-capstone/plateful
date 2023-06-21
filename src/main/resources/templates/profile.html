@@ -9,12 +9,12 @@
         <h2>Welcome, <span sec:authentication="principal.username"></span>!</h2>
         <div class="row grow justify-center">
 <!--            cookbook section-->
-            <div class="cookbook-column column shrink align-center">
+            <div class="cookbook-column column shrink align-center border-radius-12 main-background pink-border">
                 <h1 class="user-cookbook">Cookbook</h1>
                 <!-- Displaying recipes created by a user -->
                 <div class="user-recipes-grid">
                     <div class="user-recipe-card" th:each="recipe : ${userRecipes}">
-                        <a th:href="@{/recipes/{id}/view(id=${recipe.id})}" class="user-card-link">
+                        <a th:href="@{/recipes/3{id}/view(id=${recipe.id})}" class="user-card-link">
                             <div class="user-card-background" th:style="'background-image: url(' + ${recipe.recipeImageUrl} + ')'" ></div>
                             <div class="user-card-content">
                                 <h3 class="user-recipe-title" th:text="${recipe.recipeName}"></h3>
@@ -28,14 +28,19 @@
                     <div class="column justify-center">
                         <!-- avatar placeholder -->
                         <form th:action="@{/profile/changeImage}" method="post" id="form-change-avatar">
-                            <img id="openImage" class="changeAvatar" th:src="${user.avatar_url}">
+                            <div class="image-container">
+                                <img id="openImage" class="changeAvatar" th:src="${user.avatar_url}">
+                                <div class="middle-text">
+                                    <div class="portrait-text">Change Image</div>
+                                </div>
+                            </div>
                             <input type="hidden" name="avatarImageUrl" id="avatarUrl" th:value="${user.avatar_url}">
                         </form>
                     </div>
                 </div>
                 <div class="profile-info justify-center row gap-10">
                     <div class="column justify-center shrink align-center">
-                        <h1>Your profile</h1>
+                        <h1>Your Profile</h1>
                         <p>Username: <span sec:authentication="principal.username"></span></p>
                         <p>Email: <span sec:authentication="principal.email"></span></p>
                         <button class="cta margin-10" id="edit-modal-profile-open">Edit Profile</button>
