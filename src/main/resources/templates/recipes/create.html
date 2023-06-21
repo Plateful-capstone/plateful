@@ -7,8 +7,8 @@
   <header th:replace="partials/navbar :: navbar"></header>
 
   <div class="container grow justify-center body-text indiv-recipe-container">
-    <div class="row justify-center main-background grow">
-      <div class="column shrink justify-center main-background individual-recipe-title align-center">
+    <div class="row justify-center main-background grow pink-border">
+      <div class="column shrink justify-center main-background individual-recipe-title align-center pink-border3">
         <h4>Create a Recipe</h4>
       </div>
     </div>
@@ -16,7 +16,7 @@
     <div class="column justify-center indiv-card-row">
       <div id="thumbnailContainer" class="column indiv-recipe-image-wrapper shrink main-background gap-20">
 
-        <div class="column gap-20 recipe-content main-background">
+        <div class="column gap-20 recipe-content main-background pink-border">
           <label for="recipeName">Recipe name:</label>
           <input type="text" name="recipeName" id="recipeName" th:field="*{recipeName}">
           <label for="recipeDescription">Recipe description:</label>
