@@ -9,7 +9,7 @@
     <header th:replace="partials/navbar :: navbar"></header>
     <div class="container grow justify-center searchbar-container"
          th:switch="${#authorization.expression('isAuthenticated')}">
-        <div th:case="true" class="row main-background main-searchbar-row">
+        <div th:case="true" class="row main-background main-searchbar-row pink-border">
             <div class="column ">
                 <div class="row justify-center searchbar-row">
                     <h1>Search our Plateful Library</h1>
@@ -82,7 +82,7 @@
 
     <div class="container body-text" id="resultsContainer">
         <div th:each="recipe : ${recipes}" th:href="@{/recipes/{id}/view(id=${recipe.id})}">
-            <div class="row search-results-row no-padding main-background">
+            <div class="row search-results-row no-padding main-background pink-border">
                 <div class="column search-results-card">
                     <div class="row no-padding">
                         <div class="column justify-space-between">

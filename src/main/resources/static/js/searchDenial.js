@@ -18,6 +18,7 @@ const closeModalBtn = document.querySelector('#close-modal-btn');
 closeModalBtn.addEventListener('click', function () {
     closeModal();
 });
+
 // Close the modal when the user clicks outside of it
 window.addEventListener('click', function (event) {
     if (event.target === modalContainer) {

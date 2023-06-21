@@ -32,16 +32,50 @@
                             <input type="hidden" name="avatarImageUrl" id="avatarUrl" th:value="${user.avatar_url}">
                         </form>
                     </div>
-                </div>
+                </div>x
                 <div class="profile-info justify-center row grow">
                     <div class="column justify-center shrink">
                         <h1>Your profile</h1>
                         <p>Username: <span sec:authentication="principal.username"></span></p>
                         <p>Email: <span sec:authentication="principal.email"></span></p>
-<!--                        <p><a th:href="@{/profile/update}"><span class="">Update Account Here!</span></a></p>-->
-<!--                        <form class="d-flex justify-center" th:action="">-->
 
-<!--                        </form>-->
+                        <p><a th:href="@{/profile/update}"><span class="">Update Account Here!</span></a></p>
+                        <button class="cta" id="edit-modal-profile-open">Edit Profile</button>
+
+                        <!-- Modal Start -->
+
+                        <div class="modal-profile-container" id="modal-user-container">
+                            <div class="modal-content-user main-background">
+                            <div class="row justify-space-between">
+                                <div class="column">
+                                <h1>Edit Your Profile:</h1>
+                                </div>
+                                <div class="column">
+                                    <span class="close" id="close-x">&times;</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <form th:action="@{/profile/update}" method="post">
+                                    <label for="username">Username:</label>
+                                    <input id="username" name="username" class="" type="text" th:value="${user.username}">
+
+                                    <label for="email">Email:</label>
+                                    <input type="email" name="email" id="email" th:value="${user.email}">
+
+                                    <label for="password">Password:</label>
+                                    <input id="password" name="password" type="password">
+
+                                    <label for="confirm_password">Confirm Password:</label>
+                                    <input id="confirm_password" name="confirm_password" type="password">
+
+                                    <input name="user-id" hidden="hidden" th:value="${user.id}">
+                                    <input type="submit" class="button" value="Update">
+                                </form>
+                            </div>
+                        </div>
+                        </div>
+<!-- Modal End -->
+
                     </div>
                 </div>
             </div>
@@ -55,6 +89,7 @@
 <script th:replace="loading :: lottie-script"></script>
 <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
 <script th:type="module" th:src="@{/js/url_avatar_filestack.js}"></script>
+<script th:src="@{/js/edit-Profile-Modal.js}"></script>
 
 </body>
 </html>
