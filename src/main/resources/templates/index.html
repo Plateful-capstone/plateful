@@ -32,24 +32,32 @@
             <div class="column recipe-cards">
                 <div class="row card-grid">
                     <div class="card" th:each="recipe, iteration : ${recipes}" th:if="${iteration.index < 4}" th:href="@{/recipes/{id}/view(id=${recipe.id})}">
-                        <div class="row justify-center">
-                            <img th:src="${recipe.recipeImageUrl}" alt="">
-                        </div>
-                        <div class="row">
-                            <h3 th:text="${recipe.recipeName}"></h3>
-                        </div>
+                        <a th:href="@{/recipes/{id}/view(id=${recipe.id})}">
+                            <div class="row justify-center">
+                                <a th:href="@{/recipes/{id}/view(id=${recipe.id})}" class="recipe-clickable"><img th:src="${recipe.recipeImageUrl}" alt=""></a>
+                            </div>
+                        </a>
+                        <a th:href="@{/recipes/{id}/view(id=${recipe.id})}">
+                            <div class="row">
+                                <h3 th:text="${recipe.recipeName}"></h3>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
             <div class="column recipe-cards justify-center">
-                <div class="row">
-                    <div class="card large-card" th:if="${recipes.size() >= 5}" th:href="@{/recipes/{id}/view(id=${recipes[4].id})}">
-                        <div class="row justify-center">
-                            <img th:src="${recipes[4].recipeImageUrl}" alt="">
-                        </div>
+               <div class="row">
+                   <div class="card large-card" th:if="${recipes.size() >= 5}" th:href="@{/recipes/{id}/view(id=${recipes[4].id})}">
+                       <a th:href="@{/recipes/{id}/view(id=${recipe.id})}">
+                           <div class="row justify-center">
+                                <img th:src="${recipes[4].recipeImageUrl}" alt="">
+                           </div>
+                       </a>
+                       <a th:href="@{/recipes/{id}/view(id=${recipe.id})}">
                         <div class="row">
                             <h3 th:text="${recipes[4].recipeName}"></h3>
                         </div>
+                       </a>
                     </div>
                 </div>
             </div>

@@ -14,7 +14,7 @@
                 <!-- Displaying recipes created by a user -->
                 <div class="user-recipes-grid">
                     <div class="user-recipe-card" th:each="recipe : ${userRecipes}">
-                        <a th:href="@{/recipes/3{id}/view(id=${recipe.id})}" class="user-card-link">
+                        <a th:href="@{/recipes/{id}/view(id=${recipe.id})}" class="user-card-link">
                             <div class="user-card-background" th:style="'background-image: url(' + ${recipe.recipeImageUrl} + ')'" ></div>
                             <div class="user-card-content">
                                 <h3 class="user-recipe-title" th:text="${recipe.recipeName}"></h3>
