@@ -47,14 +47,14 @@
             </div>
             <div class="column recipe-cards justify-center">
                <div class="row">
-                   <div class="card large-card" th:if="${recipes.size() >= 5}" th:href="@{/recipes/{id}/view(id=${recipes[4].id})}">
-                       <a th:href="@{/recipes/{id}/view(id=${recipe.id})}">
-                           <div class="row justify-center">
-                                <img th:src="${recipes[4].recipeImageUrl}" alt="">
+                   <div class="card large-card" th:if="${recipes.size() >= 5}" >
+                       <a th:href="@{/recipes/{id}/view(id=${recipes[4].id})}">
+                       <div class="row justify-center">
+                            <img th:src="${recipes[4].recipeImageUrl}" alt="recipe image">
                            </div>
                        </a>
-                       <a th:href="@{/recipes/{id}/view(id=${recipe.id})}">
-                        <div class="row">
+                       <a th:href="@{/recipes/{id}/view(id=${recipes[4].id})}">
+                       <div class="row">
                             <h3 th:text="${recipes[4].recipeName}"></h3>
                         </div>
                        </a>
