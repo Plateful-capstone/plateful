@@ -73,8 +73,22 @@
                     <!-- Delete Button -->
                     <form class="column justify-center align-center" th:if="${#authentication.principal.id == recipe.user.id}"
                           th:action="@{/recipes/{id}/delete(id=${recipe.id})}" method="post">
-                        <button class="cta">Delete recipe</button>
+                        <button class="cta" id="delete-modal-btn">Delete recipe</button>
                     </form>
+
+                    <!-- Delete Modal -->
+                    <div th:id="'deleteModal-' + ${recipe.id}" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <!-- Delete Form -->
+                            <form th:action="@{/recipes/{id}/delete(id=${recipe.id})}" method="post" class="d-flex flex-column gap-10">
+                                <h2>Are you sure you want to delete this recipe?</h2>
+                                <button type="submit">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+
+
 
                     <!-- Comment Button (Visible to authenticated users) -->
                     <div class="comment-wrapper column justify-center align-center">
@@ -132,6 +146,7 @@
 <script th:src="@{/js/loadingAnimation.js}"></script>
 <script th:replace="loading :: lottie-script"></script>
 <script th:src="@{/js/editModal.js}"></script>
+<script th:src="@{/js/delete-Recipe-Modal.js}"></script>
 <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
 <script type="module" src="/js/edit-recipe-filestack.js"></script>
 <script type="module" src="/js/comments.js"></script>
