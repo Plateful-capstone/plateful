@@ -290,6 +290,12 @@ footer.container .row {
     border: unset;
 }
 
+.modal input, .modal textarea {
+    border-radius: 12px;
+    border: unset;
+    padding: 5px
+}
+
 /*// ======================================= //*/
 /*// ==============   Modal End   ========= //*/
 /*// ======================================= //*/
@@ -392,6 +398,19 @@ footer.container .row {
 
 .indiv-recipe-container {
     padding: 20px;
+}
+
+.recipe-content label {
+    font-weight: 700;
+}
+
+.recipe-content input {
+    border: unset;
+    padding: 5px;
+}
+
+.searchbar-row input {
+    border: unset;
 }
 
 .indiv-recipe-image-wrapper {

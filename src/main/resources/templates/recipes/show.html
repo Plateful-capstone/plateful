@@ -8,7 +8,7 @@
     <div class="container indiv-recipe-container grow justify-center">
         <div class="row grow justify-center">
             <div class="column shrink justify-center shrink main-background individual-recipe-title align-center">
-                <h4 th:text="${recipe.recipeName}"></h4>
+                <h1 th:text="${recipe.recipeName}"></h1>
             </div>
         </div>
         <div class="row indiv-card-row ">
@@ -48,7 +48,9 @@
                             <!-- Edit Form -->
                             <form th:action="@{/recipes/{id}/edit(id=${recipe.id})}" method="post"
                                   class="d-flex flex-column gap-10">
-                                <h2>Make changes to your recipe!</h2>
+                                <div class="row justify-center align-center">
+                                    <h2>Make Changes to Your Recipe!</h2>
+                                </div>
                                 <h3>Title: </h3>
                                 <input type="text" name="recipeName" placeholder="Title"
                                        th:value="${recipe.recipeName}"/>
@@ -61,11 +63,13 @@
                                 <h3>Instructions: </h3>
                                 <textarea class="no-padding" type="text" name="recipeInstructions"
                                           th:text="${recipe.recipeInstructions}"></textarea>
-                                <h3>Image URL: </h3>
-                                <button type="button" id="open" class="image-add cta" value="Change Image">Change Image</button>
+                                <h3>Add a Recipe Image: </h3>
+                                <button type="button" id="open" class="image-add cta" value="Change Image">Add Image</button>
                                 <input type="hidden" name="recipeImageUrl" placeholder="Image URL" id="recipeImageURL"
                                        th:value="${recipe.recipeImageUrl}"/>
-                                <button type="submit" class="cta">Submit Changes</button>
+                                <div class="row justify-right align-center">
+                                    <button type="submit" class="cta">Submit Changes</button>
+                                </div>
                             </form>
                         </div>
                     </div>
