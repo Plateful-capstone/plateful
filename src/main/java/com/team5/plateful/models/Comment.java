@@ -65,6 +65,11 @@ public class Comment {
         this.recipe = recipe;
     }
 
-    public void setComment(String newComment) {
+    public Comment(long id, String body, User user, Recipe recipe) {
+        this.id = id;
+        this.body = body;
+        this.user = user;
+        this.recipe = recipe;
     }
+
 }

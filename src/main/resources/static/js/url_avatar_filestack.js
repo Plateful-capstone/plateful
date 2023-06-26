@@ -10,6 +10,11 @@ window.addEventListener('DOMContentLoaded', function(){
         e.preventDefault();
         picker.open();
     });
+    const changeImageText = document.querySelector('#change-image-text')
+    changeImageText.addEventListener('click', (e)=> {
+        e.preventDefault();
+        picker.open();
+    })
 });
 
 const options = {

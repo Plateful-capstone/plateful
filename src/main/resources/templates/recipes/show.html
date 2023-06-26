@@ -41,9 +41,8 @@
                             Edit
                         </button>
                     </form>
-
                     <!-- Edit Modal -->
-                    <div th:id="'editModal-' + ${recipe.id}" class="modal">
+                    <div th:id="'editModal-' + ${recipe.id}" class="modal main-background">
                         <div class="modal-content">
                             <span class="close">&times;</span>
                             <!-- Edit Form -->
@@ -99,60 +98,26 @@
                 <!--buttons end-->
 
                 <!--                comments start-->
-                <div id="comments-row" style="display: none">
+                <div id="comments-row" class="row gap-10" style="display: none">
                     <div class="ghost-div-indiv-recipe grow">
                         <div class="column gap-20">
-                            <form th:action="@{|/comments/${recipe.id}/create|}" method="post" class="row grow d-flex justify-center">
-                            <textarea name="comment" id="comment-content" placeholder="Post Something..."></textarea>
-                                <input type="hidden" name="comment-recipe-id" th:value="${recipe.id}">
+                            <form th:action="@{/recipes/{id}/comments/create(id=${recipe.id})}" method="post" class="row grow d-flex justify-center">
+                                <textarea name="comment-body" id="comment-content" placeholder="Post Something..."></textarea>
                                 <button class="cta" id="comment-content-btn" style="display: none">Comment</button>
                             </form>
-
-
-                            <!--                        display comments-->
-                            <div class="row gap-10">
-                                <div class="column comment-profile-image-wrapper">
-                                    <img src="https://cdn.filestackcontent.com/aeqBY1PeSt2I0CHZnsuE"
-                                         alt="profile image">
-                                </div>
-                                <div class="column comment-content-from-db body-text">
-                                    <h5>Marc</h5>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi architecto aut
-                                        explicabo
-                                        illo in inventore ipsum maxime neque nesciunt, quae? Aspernatur delectus earum
-                                        incidunt
-                                        maxime odio repellat repudiandae soluta vitae?</p>
-                                </div>
-                            </div>
-                            <div class="row gap-10">
-                                <div class="column comment-profile-image-wrapper">
-                                    <img src="https://cdn.filestackcontent.com/aeqBY1PeSt2I0CHZnsuE"
-                                         alt="profile image">
-                                </div>
-                                <div class="column comment-content body-text">
-                                    <h5>Marc</h5>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi architecto aut
-                                        explicabo
-                                        illo in inventore ipsum maxime neque nesciunt, quae? Aspernatur delectus earum
-                                        incidunt
-                                        maxime odio repellat repudiandae soluta vitae?</p>
-                                </div>
-                            </div>
-                            <div class="row gap-10">
-                                <div class="column comment-profile-image-wrapper">
-                                    <img src="https://cdn.filestackcontent.com/aeqBY1PeSt2I0CHZnsuE"
-                                         alt="profile image">
-                                </div>
-                                <div class="column comment-content body-text">
-                                    <h5>Marc</h5>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi architecto aut
-                                        explicabo
-                                        illo in inventore ipsum maxime neque nesciunt, quae? Aspernatur delectus earum
-                                        incidunt
-                                        maxime odio repellat repudiandae soluta vitae?</p>
-                                </div>
-                            </div>
                         </div>
+                            <!--                        display comments-->
+                            <div class="column" th:each="comment : ${comments}" th:href="@{/recipes/{id}/view(id=${recipe.id})}" >
+                                <div class="row gap-10">
+                                    <div class="column comment-profile-image-wrapper">
+                                        <img th:src="${comment.user.avatar_url}" alt="profile image">
+                                    </div>
+                                    <div class="column comment-content-from-db body-text">
+                                        <h5 th:text="${comment.user.username}"></h5>
+                                        <p th:text="${comment.body}"></p>
+                                    </div>
+                                </div>
+                            </div>
                     </div>
                 </div>
             </div>

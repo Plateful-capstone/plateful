@@ -81,7 +81,7 @@
 
 
     <div class="container body-text" id="resultsContainer">
-        <div th:each="recipe : ${recipes}" th:href="@{/recipes/{id}/view(id=${recipe.id})}">
+        <div th:each="recipe : ${recipes}">
             <div class="row search-results-row no-padding main-background pink-border">
                 <div class="column search-results-card">
                     <div class="row no-padding">

@@ -42,7 +42,8 @@ public class RecipeController {
             // For example, you can redirect to an error page or display a message
             return "redirect:/error";
         }
-
+        List<Comment> comments = commentsDao.findAllByRecipe(recipe);
+        model.addAttribute("comments", comments);
         model.addAttribute("recipe", recipe);
         return "recipes/show";
     }
@@ -85,6 +86,11 @@ public class RecipeController {
     // Route for deleting a recipe
     @PostMapping("/recipes/{id}/delete")
     public String deleteRecipe(@PathVariable long id) {
+        Recipe recipe = recipesDao.findById(id);
+        List<Comment> comments = commentsDao.findAllByRecipe(recipe);
+        for (Comment comment : comments) {
+            commentsDao.deleteById(comment.getId());
+        }
         recipesDao.deleteById(id);
         return "redirect:/recipes";
     }
@@ -124,12 +130,5 @@ public class RecipeController {
         return recipe;
     }
 
-    @PostMapping("/recipes/create/comment")
-    @ResponseBody
-    public Comment createComment(@RequestParam(name = "comment-recipe-id") long recipeId, @RequestParam(name = "comment") String commentBody) {
-        Recipe recipe = recipesDao.findById(recipeId);
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        Comment comment = new Comment(commentBody, user, recipe);
-        return commentsDao.save(comment);
-    }
 }
+

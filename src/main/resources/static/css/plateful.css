@@ -19,6 +19,10 @@
     background-color: var(--color);
 }
 
+.margin-10 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 
 .body-text {
     color: white;
@@ -26,6 +30,10 @@
 
 button {
     width: fit-content;
+}
+
+.border-radius-12 {
+    border-radius: 12px;
 }
 
 body {
@@ -111,6 +119,7 @@ nav ul {
 }
 
 .navli:hover {
+    /*color: var(--that-pink);*/
     color: var(--that-pink);
     background-color: var(--black-color);
     border: 1px solid black;
@@ -127,7 +136,7 @@ nav ul li {
 
 nav {
     background: white;
-    border: 1px solid var(--that-pink);
+    border: 3px solid pink;
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
     padding-bottom: 12px;
@@ -247,11 +256,11 @@ footer.container .row {
 .modal-content {
     margin: 15% auto;
     padding: 20px;
-    border: 1px solid #888;
+    border: 3px solid pink;
     width: 80%;
-    color: #C53683;
-    background: linear-gradient(to bottom, #FEF0F2, #C53683);
-    border-radius: 5px;
+    color: white;
+    background-color: var(--color);
+    border-radius: 12px;
 }
 
 /* Close Button */
@@ -270,6 +279,17 @@ footer.container .row {
     cursor: pointer;
     transform: scale(1.1);
 }
+
+#modal-user-container label {
+    font-weight: 700;
+}
+
+#modal-user-container input {
+    border-radius: 12px;
+    padding: 5px;
+    border: unset;
+}
+
 /*// ======================================= //*/
 /*// ==============   Modal End   ========= //*/
 /*// ======================================= //*/
@@ -438,9 +458,10 @@ form#comment-form {
 /*// ==============   Cookbook / Profile START   ========= //*/
 /*// ======================================= //*/
 .cookbook-column {
-    background-color: white;
+    background-color: var(--color);
     min-width: 70vw;
     height: 100%;
+    padding: 20px;
 }
 .user-cookbook {
     font-size: 24px;
@@ -503,14 +524,56 @@ form#comment-form {
 }
 
 .profile-column {
-    background-color: blue;
+    background-color: var(--background);
     min-width: 25vw;
+    min-height: 20vh;
     height: 100%;
 }
 
 .profile-photo-row {
-    background-color: white;
+    background-color: var(--background);
+    padding-bottom: 10px;
+    /*border-radius: 999px;*/
+    /*overflow: hidden;*/
 }
+
+.profile-photo-row img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 999px;
+    border: 3px solid pink;
+    cursor: pointer;
+    transition: all ease .3s;
+}
+
+.profile-photo-row img:hover {
+    opacity: 0.7;
+}
+
+.profile-photo-row .middle-text {
+    z-index: 1;
+    cursor: pointer;
+}
+
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.changeAvatar {
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.image-container:hover .changeAvatar {
+    opacity: 0.7;
+}
+
+.image-container:hover .middle-text {
+    opacity: 1;
+}
+
 .avatar {
     vertical-align: middle;
     width: 50px;
@@ -519,7 +582,10 @@ form#comment-form {
 }
 
 .profile-info {
-    background-color: green;
+    background-color: var(--color);
+    color: white;
+    border-radius: 12px;
+    border: 3px solid pink
 }
 
 #modal-user-container {
@@ -545,6 +611,7 @@ form#comment-form {
     position: relative;
     border-radius: 20px;
 }
+
 /*// ======================================= //*/
 /*// ==============   Cookbook / Profile End   ========= //*/
 /*// ======================================= //*/
@@ -672,11 +739,12 @@ div.container.login-container {
 .register-inner {
     /* Remove or adjust the min-width property if necessary */
     min-width: 70vw;
-    max-height: 70vh;
+    /*max-height: 100vh;*/
     border: 1px solid pink;
     border-radius: 10px;
     background-color: var(--color);
     overflow: scroll;
+    padding:20px;
 }
 
 .register-form {
@@ -752,6 +820,7 @@ div.container.login-container {
     min-height: 20%;
     min-width: auto;
 }
+
 .the-team-picture-container img {
     object-fit: cover;
 }
@@ -798,6 +867,7 @@ div.container.login-container {
     transform: translate(-50%, -50%);
     opacity: 0;
     transition: opacity 0.3s;
+    text-align: center;
 }
 
 .the-team-picture-container:hover .middle-text {
@@ -904,15 +974,17 @@ div.container.login-container {
 /*// ======================================= //*/
 
 .hero-landing-row {
-    position: relative;
+    /*position: relative;*/
     min-height: 350px;
     gap: 350px;
+    max-width: unset;
+    min-width: 768px;
 }
 
 .landingHero {
     border-radius: 40px;
     margin: 10px;
-
+    position: relative;
 }
 
 .landingChef {
@@ -928,8 +1000,9 @@ div.container.login-container {
     position: absolute;
     aspect-ratio: 1/1;
     max-width: 299px;
-    left: 340px;
-    top: 60px;
+    left: 50%;
+    top: 70.5%;
+    transform: translate(-50%, -50%);
 }
 
 .hero-left-text {
@@ -1020,8 +1093,10 @@ div.container.landingRecipe .row.recipe-row {
     aspect-ratio: 1/2;
 }
 
-.create-recipe-form {
-
+.recipe-content input,
+.recipe-content textarea {
+    border-radius: 12px;
+    padding: 5px;
 }
 
 

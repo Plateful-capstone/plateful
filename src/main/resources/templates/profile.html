@@ -6,10 +6,10 @@
 <div class="page-wrapper">
     <header th:replace="partials/navbar :: navbar"></header>
     <div class="container justify-center grow">
-        <h3>Welcome, <span sec:authentication="principal.username"></span></h3>
+        <h2>Welcome, <span sec:authentication="principal.username"></span>!</h2>
         <div class="row grow justify-center">
 <!--            cookbook section-->
-            <div class="cookbook-column column shrink align-center">
+            <div class="cookbook-column column shrink align-center border-radius-12 main-background pink-border">
                 <h1 class="user-cookbook">Cookbook</h1>
                 <!-- Displaying recipes created by a user -->
                 <div class="user-recipes-grid">
@@ -24,38 +24,33 @@
                 </div>
             </div>
             <div class="profile-column column shrink">
-                <div class="profile-photo-row row grow">
+                <div class="profile-photo-row row">
                     <div class="column justify-center">
                         <!-- avatar placeholder -->
                         <form th:action="@{/profile/changeImage}" method="post" id="form-change-avatar">
-                            <img id="openImage" class="changeAvatar" th:src="${user.avatar_url}">
+                            <div class="image-container">
+                                <img id="openImage" class="changeAvatar" th:src="${user.avatar_url}">
+                                <div class="middle-text" id="change-image-text">
+                                    <div class="portrait-text" >Change Image</div>
+                                </div>
+                            </div>
                             <input type="hidden" name="avatarImageUrl" id="avatarUrl" th:value="${user.avatar_url}">
                         </form>
                     </div>
-                </div>x
-                <div class="profile-info justify-center row grow">
-                    <div class="column justify-center shrink">
-                        <h1>Your profile</h1>
+                </div>
+                <div class="profile-info justify-center row gap-10">
+                    <div class="column justify-center shrink align-center">
+                        <h1>Your Profile</h1>
                         <p>Username: <span sec:authentication="principal.username"></span></p>
                         <p>Email: <span sec:authentication="principal.email"></span></p>
-
-                        <p><a th:href="@{/profile/update}"><span class="">Update Account Here!</span></a></p>
-                        <button class="cta" id="edit-modal-profile-open">Edit Profile</button>
+                        <button class="cta margin-10" id="edit-modal-profile-open">Edit Profile</button>
 
                         <!-- Modal Start -->
 
-                        <div class="modal-profile-container" id="modal-user-container">
-                            <div class="modal-content-user main-background">
-                            <div class="row justify-space-between">
-                                <div class="column">
-                                <h1>Edit Your Profile:</h1>
-                                </div>
-                                <div class="column">
-                                    <span class="close" id="close-x">&times;</span>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <form th:action="@{/profile/update}" method="post">
+                        <div class="modal" id="modal-user-container">
+                            <div class="modal-content">
+                                <span class="close" id="close-x">x</span>
+                                <form th:action="@{/profile/update}" method="post" class="d-flex flex-column gap-10">
                                     <label for="username">Username:</label>
                                     <input id="username" name="username" class="" type="text" th:value="${user.username}">
 
@@ -63,17 +58,18 @@
                                     <input type="email" name="email" id="email" th:value="${user.email}">
 
                                     <label for="password">Password:</label>
-                                    <input id="password" name="password" type="password">
+                                    <input id="password" name="password" type="password" onkeyup="passConfirm()">
 
                                     <label for="confirm_password">Confirm Password:</label>
                                     <input id="confirm_password" name="confirm_password" type="password">
 
                                     <input name="user-id" hidden="hidden" th:value="${user.id}">
-                                    <input type="submit" class="button" value="Update">
+                                    <div class="justify-center align-center text-center" id="message"></div>
+                                    <input type="submit" class="button cta" value="Update">
                                 </form>
                             </div>
                         </div>
-                        </div>
+
 <!-- Modal End -->
 
                     </div>
@@ -90,6 +86,7 @@
 <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
 <script th:type="module" th:src="@{/js/url_avatar_filestack.js}"></script>
 <script th:src="@{/js/edit-Profile-Modal.js}"></script>
+<script src="/js/passwordMatcher.js"></script>
 
 </body>
 </html>
