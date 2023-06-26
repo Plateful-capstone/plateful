@@ -8,7 +8,7 @@
     <div class="container indiv-recipe-container grow justify-center">
         <div class="row grow justify-center">
             <div class="column shrink justify-center shrink main-background individual-recipe-title align-center">
-                <h4 th:text="${recipe.recipeName}"></h4>
+                <h1 th:text="${recipe.recipeName}"></h1>
             </div>
         </div>
         <div class="row indiv-card-row ">
@@ -24,13 +24,57 @@
 
 
                 <!--buttons start-->
-                <div class="div" th:switch="${#authorization.expression('isAuthenticated')}">
-                    <div class="row indiv-recipe-btns-row" th:case="true">
-                        <!-- Case 1: Authenticated User -->
-                        <div class="column justify-center align-center">
-                            <!-- Go Back Button (Visible to all users) -->
-                            <button class="cta"><a th:href="@{/recipes}">Go back</a></button>
+
+                <div class="div" th:switch="${#authorization.expression('isAuthenticated')}" >
+                <div class="row indiv-recipe-btns-row" th:case="true">
+                    <!-- Case 1: Authenticated User -->
+                    <div class="column justify-center align-center">
+                        <!-- Go Back Button (Visible to all users) -->
+                        <button class="cta"><a th:href="@{/recipes}">Go back</a></button>
+                    </div>
+
+                    <!-- Edit Button (Visible to authenticated users if the recipe belongs to them) -->
+                    <form class="column justify-center align-center"
+                          th:if="${#authentication.principal.id == recipe.user.id}"
+                          th:action="@{/recipes/{id}/edit(id=${recipe.id})}" method="post">
+                        <input type="hidden" name="_method" value="put"/>
+                        <button class="editModalBtn cta" th:data-modal-id="'editModal-' + ${recipe.id}" type="button">
+                            Edit
+                        </button>
+                    </form>
+                    <!-- Edit Modal -->
+                    <div th:id="'editModal-' + ${recipe.id}" class="modal main-background">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <!-- Edit Form -->
+                            <form th:action="@{/recipes/{id}/edit(id=${recipe.id})}" method="post"
+                                  class="d-flex flex-column gap-10">
+                                <div class="row justify-center align-center">
+                                    <h2>Make Changes to Your Recipe!</h2>
+                                </div>
+                                <h3>Title: </h3>
+                                <input type="text" name="recipeName" placeholder="Title"
+                                       th:value="${recipe.recipeName}"/>
+                                <h3>Description: </h3>
+                                <input type="text" name="recipeDescription" placeholder="Description"
+                                       th:value="${recipe.recipeDescription}"/>
+                                <h3>Ingredients: </h3>
+                                <input type="text" name="recipeIngredients" placeholder="Ingredients"
+                                       th:value="${recipe.recipeIngredients}"/>
+                                <h3>Instructions: </h3>
+                                <textarea class="no-padding" type="text" name="recipeInstructions"
+                                          th:text="${recipe.recipeInstructions}"></textarea>
+                                <h3>Add a Recipe Image: </h3>
+                                <button type="button" id="open" class="image-add cta" value="Change Image">Add Image</button>
+                                <input type="hidden" name="recipeImageUrl" placeholder="Image URL" id="recipeImageURL"
+                                       th:value="${recipe.recipeImageUrl}"/>
+                                <div class="row justify-right align-center">
+                                    <button type="submit" class="cta">Submit Changes</button>
+                                </div>
+                            </form>
+
                         </div>
+
 
                         <!-- Edit Button (Visible to authenticated users if the recipe belongs to them) -->
                         <form class="column justify-center align-center"
