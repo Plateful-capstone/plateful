@@ -47,18 +47,10 @@
 
                         <!-- Modal Start -->
 
-                        <div class="modal-profile-container pink-border" id="modal-user-container">
-                            <div class="modal-content-user main-background">
-                            <div class="row justify-space-between">
-                                <div class="column">
-                                    <h1>Edit Your Profile:</h1>
-                                </div>
-                                <div class="column">
-                                    <span class="close" id="close-x">&times;</span>
-                                </div>
-                            </div>
-                            <div class="row justify-center align-center">
-                                <form th:action="@{/profile/update}" method="post">
+                        <div class="modal" id="modal-user-container">
+                            <div class="modal-content">
+                                <span class="close" id="close-x">x</span>
+                                <form th:action="@{/profile/update}" method="post" class="d-flex flex-column gap-10">
                                     <label for="username">Username:</label>
                                     <input id="username" name="username" class="" type="text" th:value="${user.username}">
 
@@ -66,17 +58,18 @@
                                     <input type="email" name="email" id="email" th:value="${user.email}">
 
                                     <label for="password">Password:</label>
-                                    <input id="password" name="password" type="password">
+                                    <input id="password" name="password" type="password" onkeyup="passConfirm()">
 
                                     <label for="confirm_password">Confirm Password:</label>
                                     <input id="confirm_password" name="confirm_password" type="password">
 
                                     <input name="user-id" hidden="hidden" th:value="${user.id}">
-                                    <input type="submit" class="button" value="Update">
+                                    <div class="justify-center align-center text-center" id="message"></div>
+                                    <input type="submit" class="button cta" value="Update">
                                 </form>
                             </div>
                         </div>
-                        </div>
+
 <!-- Modal End -->
 
                     </div>
@@ -93,6 +86,7 @@
 <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
 <script th:type="module" th:src="@{/js/url_avatar_filestack.js}"></script>
 <script th:src="@{/js/edit-Profile-Modal.js}"></script>
+<script src="/js/passwordMatcher.js"></script>
 
 </body>
 </html>
