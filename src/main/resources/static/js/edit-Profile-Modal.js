@@ -1,13 +1,12 @@
 const editProfileBtnOpen = document.querySelector("#edit-modal-profile-open")
 const modalContainer = document.querySelector('#modal-user-container');
 
+// Removes default function
 editProfileBtnOpen.addEventListener('click',function(e) {
     e.preventDefault();
     modalContainer.style.display = 'block';
     console.log("modal button clicked")
 })
-
-
 
 // Close the modal when the user clicks outside of it
 window.addEventListener('click', function (event) {
