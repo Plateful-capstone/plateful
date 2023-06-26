@@ -20,3 +20,9 @@ function closeModal() {
 
 const deleteModalCloseButton = document.querySelector('#delete-modal-close');
 deleteModalCloseButton.addEventListener('click', closeModal);
+
+const deleteModalNoButton = document.querySelector('#delete-modal-close-btn');
+deleteModalNoButton.addEventListener('click', function(e) {
+    e.preventDefault();
+    closeModal();
+});
