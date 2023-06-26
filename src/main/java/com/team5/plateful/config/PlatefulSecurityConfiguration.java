@@ -29,6 +29,8 @@ public class PlatefulSecurityConfiguration {
                         "/recipes/*/comments/create"
                 ).authenticated()
                 .requestMatchers(
+                        "/recipes/*/comments/*/edit",
+                        "/recipes/*/comments/*/delete",
                         "/recipes/*/view",
                         "/recipes",
                         "/recipes/{id}",

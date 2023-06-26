@@ -50,4 +50,12 @@ public class CommentController {
         return "redirect:/recipes/" + recipeId + "/view";
     }
 
+    @PostMapping("/recipes/{recipeId}/comments/{commentId}/edit")
+    public String editComment(@PathVariable long recipeId, @PathVariable long commentId, @RequestParam(name = "change-comment") String commentBody) {
+        Comment comment = commentsDao.findById(commentId);
+        comment.setBody(commentBody);
+        commentsDao.save(comment);
+        return "redirect:/recipes/" + recipeId + "/view";
+    }
+
 }

@@ -414,13 +414,17 @@ footer.container .row {
 .indiv-recipe-btns-row {
     padding-bottom: 20px;
 }
+
 .comment-profile-image-wrapper {
     max-width: 5vw;
     height: 5vw;
     border-radius: 50%;
     overflow: hidden;
+    margin-top: 5px;
 }
-
+.row.gap-10.border {
+  border: 1px solid #ccc;
+}
 .comment-profile-image-wrapper img {
     min-width: 100%;
     object-fit: cover;
