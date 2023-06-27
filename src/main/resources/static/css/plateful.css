@@ -739,11 +739,6 @@ div.container.login-container {
     border-bottom-left-radius: 30px;
 }
 
-
-/*.input-wrapper label {*/
-/*    flex: 1 0 0;*/
-/*}*/
-
 @media screen and (max-width: 900px) {
     .login-content-wrapper.row {
         gap: 37px;
@@ -753,6 +748,19 @@ div.container.login-container {
         padding-bottom: 11px;
         padding-top: 64px;
     }
+}
+
+@media screen and (max-width: 800px) {
+    .row.login-inner.no-padding {
+        display: flex;
+        flex-direction: column;
+    }
+    .login-inner {
+        max-height: unset;
+    }
+    /*#login-image {*/
+    /*    border: 3px solid pink;*/
+    /*}*/
 }
 
 /*// ======================================= //*/
