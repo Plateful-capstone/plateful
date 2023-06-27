@@ -1,42 +1,42 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/head :: head ('Plateful login page')" ></head>
-<body>
-<div th:replace="loading :: loading-animation"></div>
-<div class="page-wrapper">
-  <header th:replace="partials/navbar :: navbar"></header>
-  <div class="container">
-    <h1>Editing Your Profile:</h1>
-    <form th:action="@{/profile/update}" th:method="post" class="">
-      <div class="">
-        <label for="username">Username:</label>
-        <input id="username" name="username" class="" type="text" th:value="${user.username}">
-      </div>
-      <div>
-        <label for="email">Email:</label>
-        <input type="email" name="email" id="email" th:value="${user.email}">
-      </div>
-      <div>
-        <label for="password">Password:</label>
-        <input id="password" name="password" type="password">
-      </div>
-      <div>
-        <label for="confirm_password">Confirm Password:</label>
-        <input id="confirm_password" name="confirm_password" type="password">
-      </div>
-      <input name="user-id" hidden="hidden" th:value="${user.id}">
-      <input type="submit" class="button" value="Update">
-    </form>
-    <div class="justify-center align-center text-center" id="message"></div>
-  </div>
-  <footer th:replace="partials/footer :: footer"></footer>
-</div>
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head th:replace="partials/head :: head ('Plateful login page')" ></head>-->
+<!--<body>-->
+<!--<div th:replace="loading :: loading-animation"></div>-->
+<!--<div class="page-wrapper">-->
+<!--  <header th:replace="partials/navbar :: navbar"></header>-->
+<!--  <div class="container">-->
+<!--    <h1>Editing Your Profile:</h1>-->
+<!--    <form th:action="@{/profile/update}" th:method="post" class="">-->
+<!--      <div class="">-->
+<!--        <label for="username">Username:</label>-->
+<!--        <input id="username" name="username" class="" type="text" th:value="${user.username}">-->
+<!--      </div>-->
+<!--      <div>-->
+<!--        <label for="email">Email:</label>-->
+<!--        <input type="email" name="email" id="email" th:value="${user.email}">-->
+<!--      </div>-->
+<!--      <div>-->
+<!--        <label for="password">Password:</label>-->
+<!--        <input id="password" name="password" type="password">-->
+<!--      </div>-->
+<!--      <div>-->
+<!--        <label for="confirm_password">Confirm Password:</label>-->
+<!--        <input id="confirm_password" name="confirm_password" type="password">-->
+<!--      </div>-->
+<!--      <input name="user-id" hidden="hidden" th:value="${user.id}">-->
+<!--      <input type="submit" class="button" value="Update">-->
+<!--    </form>-->
+<!--    <div class="justify-center align-center text-center" id="message"></div>-->
+<!--  </div>-->
+<!--  <footer th:replace="partials/footer :: footer"></footer>-->
+<!--</div>-->
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script th:src="@{/js/loadingAnimation.js}"></script>
-<script type="module" th:src="@{/js/passwordMatcher.js}"></script>
-<script th:replace="loading :: lottie-script"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+<!--<script th:src="@{/js/loadingAnimation.js}"></script>-->
+<!--<script type="module" th:src="@{/js/passwordMatcher.js}"></script>-->
+<!--<script th:replace="loading :: lottie-script"></script>-->
 
 
-</body>
-</html>
+<!--</body>-->
+<!--</html>-->
