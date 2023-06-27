@@ -123,7 +123,6 @@ public class UserController {
         user.setUsername(username);
         user.setEmail(email);
         user.setPassword(password);
-//        user.setAvatar_url(avatar_url);
         usersDao.save(user);
         return "redirect:/profile";
     }
