@@ -54,16 +54,16 @@
                                 </div>
                                 <h3>Title: </h3>
                                 <input type="text" name="recipeName" placeholder="Title"
-                                       th:value="${recipe.recipeName}"/>
+                                       th:value="${recipe.recipeName}" required/>
                                 <h3>Description: </h3>
                                 <input type="text" name="recipeDescription" placeholder="Description"
-                                       th:value="${recipe.recipeDescription}"/>
+                                       th:value="${recipe.recipeDescription}" required/>
                                 <h3>Ingredients: </h3>
                                 <input type="text" name="recipeIngredients" placeholder="Ingredients"
-                                       th:value="${recipe.recipeIngredients}"/>
+                                       th:value="${recipe.recipeIngredients}" required/>
                                 <h3>Instructions: </h3>
                                 <textarea class="no-padding" type="text" name="recipeInstructions"
-                                          th:text="${recipe.recipeInstructions}"></textarea>
+                                          th:text="${recipe.recipeInstructions}" required></textarea>
                                 <h3>Add a Recipe Image: </h3>
                                 <button type="button" id="open" class="image-add cta" value="Change Image">Add Image</button>
                                 <input type="hidden" name="recipeImageUrl" placeholder="Image URL" id="recipeImageURL"
