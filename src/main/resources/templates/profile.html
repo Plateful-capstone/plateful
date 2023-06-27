@@ -29,7 +29,7 @@
                         <!-- avatar placeholder -->
                         <form th:action="@{/profile/changeImage}" method="post" id="form-change-avatar">
                             <div class="image-container">
-                                <img id="openImage" class="changeAvatar" th:src="${user.avatar_url}">
+                                <img id="openImage" class="changeAvatar" th:src="${user.avatar_url} "  onerror="setDefaultAvatar(this)">
                                 <div class="middle-text" id="change-image-text">
                                     <div class="portrait-text" >Change Image</div>
                                 </div>
@@ -88,6 +88,12 @@
     </div>
     <footer th:replace="partials/footer :: footer"></footer>
 </div>
+<script type="text/javascript">
+    function setDefaultAvatar(image) {
+        image.onerror = null; // Prevent infinite loop if the placeholder image is also not found
+        image.src = 'https://picsum.photos/200/300';
+    }
+</script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script th:src="@{/js/loadingAnimation.js}"></script>
