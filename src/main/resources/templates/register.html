@@ -5,15 +5,18 @@
 <div th:replace="loading :: loading-animation"></div>
 <div class="page-wrapper">
   <header th:replace="partials/navbar :: navbar"></header>
-  <div class="container grow justify-center register-container body-text">
+  <div class="container grow justify-center body-text">
     <div class="row justify-center register-inner align-center">
-      <div class="column register-content-wrapper justify-center align-center shrink">
-        <div class="row grow justify-center header-format register_header">
+      <div class="column justify-center align-center shrink">
+
+        <div class="row grow justify-center register_header">
           <h1>Welcome to Plateful!</h1>
         </div>
+
         <div class="row grow justify-center register-p">
-          <p>Create an account or <span class="anch"><a href="/login">log in</a></span></p>
+          <p>Already have an account? <span class="anch"><a href="/login">Log in</a></span></p>
         </div>
+
         <form th:action="@{/register}" th:method="post" class="register-form row form justify-space-between">
           <div class="input-wrapper">
             <label class="card-title" for="username">Username:</label>
@@ -34,7 +37,7 @@
           <div class="input-wrapper">
             <div class="form-group">
               <label class="card-title" for="open">Add profile picture: </label>
-              <input type="button" name="image" class="image-add" id="open" value="Add image"/>
+              <button type="button" name="image" class="image-add cta" id="open" value="Add image">Add Image</button>
               <input type="hidden" name="avatarImageUrl" id="avatarImage" value="avatarImage" />
               <div id="thumbnailContainer"></div>
             </div>
@@ -42,6 +45,7 @@
           <div class="justify-center align-center text-center" id="message"></div>
           <input class="btn cta" type="submit" value="Register">
         </form>
+
       </div>
     </div>
   </div>

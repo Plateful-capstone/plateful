@@ -26,9 +26,13 @@
           <label for="recipeInstructions">Recipe instructions:</label>
           <!--        textarea for recipe instructions-->
           <textarea name="recipeInstructions" id="recipeInstructions" th:field="*{recipeInstructions}" placeholder="Enter something..."></textarea>
-          <h3>Add a Recipe Image: </h3>
-          <button type="button" name="image" class="image-add cta" id="open" value="Add image">Add Image</button>
-          <input type="hidden" name="recipeImageUrl" id="recipeImage" th:field="*{recipeImageUrl}" th:value="${recipe.recipeImageUrl}" />
+          <div class="input-wrapper">
+            <div class="form-group recipe-image">
+              <h3>Add a Recipe Image: </h3>
+              <button type="button" name="image" class="image-add cta" id="open" value="Add image">Add Image</button>
+              <input type="hidden" name="recipeImageUrl" id="recipeImage" th:field="*{recipeImageUrl}" th:value="${recipe.recipeImageUrl}" />
+            </div>
+          </div>
           <div class="row justify-right align-center">
             <button type="submit" value="Submit" class="button cta">Submit</button>
           </div>
