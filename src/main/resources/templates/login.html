@@ -7,7 +7,7 @@
     <div class="container login-container grow justify-center">
         <div class="row login-inner no-padding">
             <div class="column login-image-wrapper">
-                <img src="/css/img/wings.jpg" alt="Fruit Smoothie">
+                <img id="login-image" src="/css/img/wings.jpg" alt="Fruit Smoothie">
             </div>
             <div class="column login-content-wrapper justify-center align-center shrink">
                 <div class="row grow logo-wrapper">
@@ -37,5 +37,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script th:src="@{/js/loadingAnimation.js}"></script>
 <script th:replace="loading :: lottie-script"></script>
+<script src="/js/image-swap-login.js"></script>
 </body>
 </html>
