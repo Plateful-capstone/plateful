@@ -740,7 +740,6 @@ div.container.login-container {
     display: flex;
     align-items: start;
     position: relative;
-    flex-direction: column;
 }
 
 .recipe-image {
