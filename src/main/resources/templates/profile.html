@@ -91,10 +91,9 @@
 <script type="text/javascript">
     function setDefaultAvatar(image) {
         image.onerror = null; // Prevent infinite loop if the placeholder image is also not found
-        image.src = 'https://picsum.photos/200/300';
+        image.src = 'css/img/profile-placeholder.png';
     }
 </script>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script th:src="@{/js/loadingAnimation.js}"></script>
 <script th:replace="loading :: lottie-script"></script>
@@ -102,6 +101,7 @@
 <script th:type="module" th:src="@{/js/url_avatar_filestack.js}"></script>
 <script th:src="@{/js/edit-Profile-Modal.js}"></script>
 <script src="/js/passwordMatcher.js"></script>
+<!--<script th:src="@{/js/defaultAvatar.js}"></script>-->
 
 </body>
 </html>
