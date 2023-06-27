@@ -50,26 +50,30 @@
                         <div class="modal" id="modal-user-container">
                             <div class="modal-content">
                                 <span class="close" id="close-x">x</span>
-                                <form th:action="@{/profile/update}" method="post" id="edit-profile-form" class="d-flex flex-column gap-10">
+
+                                <form th:action="@{/profile/update}" th:method="post" class="d-flex flex-column gap-10">
+
                                     <div class="row justify-center align-center">
                                         <h2>Make Changes to Your Account!</h2>
                                     </div>
                                     <label for="username">Username:</label>
-                                    <input id="username" name="username" class="" type="text" th:value="${user.username}">
+                                    <input id="username" name="username" class="" type="text" th:value="${user.username}" required>
 
                                     <label for="email">Email:</label>
-                                    <input type="email" name="email" id="email" th:value="${user.email}">
+                                    <input type="email" name="email" id="email" th:value="${user.email}" required>
 
                                     <label for="password">Password:</label>
-                                    <input id="password" name="password" type="password" onkeyup="passConfirm()">
+                                    <input id="password" name="password" type="password" onkeyup="passConfirm()" required>
 
                                     <label for="confirm_password">Confirm Password:</label>
-                                    <input id="confirm_password" name="confirm_password" type="password">
+                                    <input id="confirm_password" name="confirm_password" type="password" required>
 
                                     <input name="user-id" hidden="hidden" th:value="${user.id}">
                                     <div class="justify-center align-center text-center" id="message"></div>
                                     <div class="row justify-right align-center">
-                                        <button type="submit" id="update-profile-btn" class="button cta justify-center align-center">Update</button>
+
+                                        <button type="submit" class="button cta justify-center align-center" value="Update">Update</button>
+
                                     </div>
                                 </form>
                             </div>
