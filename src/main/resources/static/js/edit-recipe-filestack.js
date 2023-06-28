@@ -1,4 +1,3 @@
-
 window.addEventListener('DOMContentLoaded', function() {
     console.log("DOM content loaded");
     const client = filestack.init(keys.filestackAPIKey);
@@ -28,3 +27,4 @@ const options = {
 
     }
 }
+

@@ -5,10 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const commentsRow = document.querySelector('#comments-row');
     const commentContent = document.querySelector('#comment-content');
     const commentContentBtn = document.querySelector('#comment-content-btn');
-    const deleteModalBtnOpen = document.querySelector("#delete-modal-btn");
-    const deleteModalContainer = document.querySelector("#delete-modal-container");
-    const deleteModalCloseButton = document.querySelector('#delete-modal-close');
-    const deleteModalNoButton = document.querySelector('#delete-modal-close-btn');
     const modalBtns = document.querySelectorAll(".editModalBtn");
 
     // Comment Button Click Event
@@ -30,25 +26,41 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Delete Modal Button Click Event
-    deleteModalBtnOpen.addEventListener('click', function(e) {
-        e.preventDefault();
-        deleteModalContainer.style.display = 'block';
-    });
 
-    // Close Modal
-    function closeModal() {
-        deleteModalContainer.style.display = 'none';
+    if(document.querySelector("#delete-modal-btn") !== null) {
+        const deleteRecipeModalBtnOpen = document.querySelector("#delete-modal-btn");
+        const deleteRecipeModalContainer = document.querySelector("#delete-modal-container");
+        const deleteRecipeModalCloseButton = document.querySelector('#delete-modal-close');
+        const deleteRecipeModalNoButton = document.querySelector('#delete-modal-close-btn');
+        // Delete Recipe Modal Button Click Event
+        deleteRecipeModalBtnOpen.addEventListener('click', function(e) {
+            e.preventDefault();
+            deleteRecipeModalContainer.style.display = 'block';
+        });
+
+        // Close Modal
+        function closeModal() {
+            deleteRecipeModalContainer.style.display = 'none';
+        }
+
+        // Delete Recipe Modal Close Button Click Event
+        deleteRecipeModalCloseButton.addEventListener('click', closeModal);
+
+        // Delete Recipe Modal No Button Click Event
+        deleteRecipeModalNoButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            closeModal();
+        });
+
+        // Window Click Event
+        window.addEventListener('click', function(event) {
+            if (event.target === deleteRecipeModalContainer) {
+                closeModal();
+            }
+        });
     }
 
-    // Delete Modal Close Button Click Event
-    deleteModalCloseButton.addEventListener('click', closeModal);
 
-    // Delete Modal No Button Click Event
-    deleteModalNoButton.addEventListener('click', function(e) {
-        e.preventDefault();
-        closeModal();
-    });
 
     // Edit Modal Button Click Event
     modalBtns.forEach(function(modalBtn) {

@@ -3,10 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const commentsRow = document.querySelector('#comments-row');
     const commentContent = document.querySelector('#comment-content');
     const commentContentBtn = document.querySelector('#comment-content-btn');
-    const deleteRecipeModalBtnOpen = document.querySelector("#delete-modal-btn");
-    const deleteRecipeModalContainer = document.querySelector("#delete-modal-container");
-    const deleteRecipeModalCloseButton = document.querySelector('#delete-modal-close');
-    const deleteRecipeModalNoButton = document.querySelector('#delete-modal-close-btn');
     const modalBtns = document.querySelectorAll(".editModalBtn");
     const editCommentBtns = document.querySelectorAll('.edit-comment-modal-btn');
     const deleteCommentBtns = document.querySelectorAll('.delete-comment-modal-button');
@@ -30,7 +26,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    function setupDeleteRecipeModal() {
+    if(document.querySelector("#delete-modal-btn") !== null) {
+        const deleteRecipeModalBtnOpen = document.querySelector("#delete-modal-btn");
+        const deleteRecipeModalContainer = document.querySelector("#delete-modal-container");
+        const deleteRecipeModalCloseButton = document.querySelector('#delete-modal-close');
+        const deleteRecipeModalNoButton = document.querySelector('#delete-modal-close-btn');
         // Delete Recipe Modal Button Click Event
         deleteRecipeModalBtnOpen.addEventListener('click', function(e) {
             e.preventDefault();
@@ -59,8 +59,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-// Call the function to set up the delete recipe modal
-    setupDeleteRecipeModal();
 
     // Edit Modal Button Click Event
     modalBtns.forEach(function(modalBtn) {
