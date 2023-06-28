@@ -140,7 +140,7 @@
                                     <h5 th:text="${comment.user.username}"></h5>
                                     <p th:text="${comment.body}"></p>
                                 </div>
-                                <div class="comment-btns d-flex body-text" th:if="${#authentication.principal.id == comment.user.id}">
+                                <div class="comment-btns d-flex body-text" th:if="${#authorization.expression('isAuthenticated') && #authentication.principal.id == comment.user.id}">
                                     <button class="edit-comment-modal-btn cta-custom-comments">Edit</button>
                                     <!-- edit modal -->
                                     <div class="edit-comment-modal-container">
@@ -189,7 +189,7 @@
 <script th:src="@{/js/loadingAnimation.js}"></script>
 <script th:replace="loading :: lottie-script"></script>
 <script th:if="${#authorization.expression('isAuthenticated') && comments.isEmpty()}" th:src="@{/js/view-indiv-recipe.js}"></script>
-<script th:unless="${#authorization.expression('isAuthenticated') && comments.isEmpty()}" th:src="@{/js/comm-view-indiv-recipe.js}"></script>
+<script th:if="${#authorization.expression('isAuthenticated') && !comments.isEmpty()}" th:src="@{/js/comm-view-indiv-recipe.js}"></script>
 
 <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
 <script type="module" src="/js/edit-recipe-filestack.js"></script>
