@@ -8,7 +8,7 @@
     <div class="container justify-center grow">
         <h2>Welcome, <span sec:authentication="principal.username"></span>!</h2>
         <div class="row grow justify-center">
-<!--            cookbook section-->
+            <!-- cookbook section -->
             <div class="cookbook-column column shrink align-center border-radius-12 main-background pink-border">
                 <h1 class="user-cookbook">Cookbook</h1>
                 <!-- Displaying recipes created by a user -->
@@ -21,6 +21,20 @@
                             </div>
                         </a>
                     </div>
+                    <!-- Add recipe card -->
+                    <div class="user-recipe-card add-recipe-card">
+                        <a th:href="@{/recipes}" class="user-card-link add-recipe-link">
+                            <div class="user-card-background add-recipe-background">
+                                <!-- Placeholder background image -->
+                                <img src="css/img/plateful-logo.png" alt="Placeholder Image">
+                            </div>
+                            <div class="user-card-content add-recipe-content">
+                                <h3 class="user-recipe-title">Add Recipe</h3>
+                                <span class="add-recipe-icon">+</span>
+                            </div>
+                        </a>
+                    </div>
+
                 </div>
             </div>
             <div class="profile-column column shrink">
@@ -29,7 +43,7 @@
                         <!-- avatar placeholder -->
                         <form th:action="@{/profile/changeImage}" method="post" id="form-change-avatar">
                             <div class="image-container">
-                                <img id="openImage" class="changeAvatar" th:src="${user.avatar_url} "  onerror="setDefaultAvatar(this)">
+                                <img id="openImage" class="changeAvatar" th:src="${user.avatar_url}" onerror="setDefaultAvatar(this)">
                                 <div class="middle-text" id="change-image-text">
                                     <div class="portrait-text" >Change Image</div>
                                 </div>
@@ -46,41 +60,30 @@
                         <button class="cta margin-10" id="edit-modal-profile-open">Edit Profile</button>
 
                         <!-- Modal Start -->
-
                         <div class="modal" id="modal-user-container">
                             <div class="modal-content">
                                 <span class="close" id="close-x">x</span>
-
                                 <form th:action="@{/profile/update}" th:method="post" class="d-flex flex-column gap-10">
-
                                     <div class="row justify-center align-center">
                                         <h2>Make Changes to Your Account!</h2>
                                     </div>
                                     <label for="username">Username:</label>
                                     <input id="username" name="username" class="" type="text" th:value="${user.username}" required>
-
                                     <label for="email">Email:</label>
                                     <input type="email" name="email" id="email" th:value="${user.email}" required>
-
                                     <label for="password">Password:</label>
                                     <input id="password" name="password" type="password" onkeyup="passConfirm()" required>
-
                                     <label for="confirm_password">Confirm Password:</label>
                                     <input id="confirm_password" name="confirm_password" type="password" required>
-
                                     <input name="user-id" hidden="hidden" th:value="${user.id}">
                                     <div class="justify-center align-center text-center" id="message"></div>
                                     <div class="row justify-right align-center">
-
                                         <button type="submit" class="button cta justify-center align-center" value="Update">Update</button>
-
                                     </div>
                                 </form>
                             </div>
                         </div>
-
-<!-- Modal End -->
-
+                        <!-- Modal End -->
                     </div>
                 </div>
             </div>
@@ -88,12 +91,6 @@
     </div>
     <footer th:replace="partials/footer :: footer"></footer>
 </div>
-<script type="text/javascript">
-    function setDefaultAvatar(image) {
-        image.onerror = null; // Prevent infinite loop if the placeholder image is also not found
-        image.src = 'css/img/profile-placeholder.png';
-    }
-</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script th:src="@{/js/loadingAnimation.js}"></script>
 <script th:replace="loading :: lottie-script"></script>
@@ -101,7 +98,6 @@
 <script th:type="module" th:src="@{/js/url_avatar_filestack.js}"></script>
 <script th:src="@{/js/edit-Profile-Modal.js}"></script>
 <script src="/js/passwordMatcher.js"></script>
-<!--<script th:src="@{/js/defaultAvatar.js}"></script>-->
-
+<script th:src="@{/js/defaultAvatar.js}"></script>
 </body>
 </html>
