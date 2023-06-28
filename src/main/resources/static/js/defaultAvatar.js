@@ -1,6 +1,6 @@
 function setDefaultAvatar(image) {
     image.onerror = null; // Prevent infinite loop if the placeholder image is also not found
-    image.src = "css/img/profile-placeholder.png";
+    image.src = "css/img/profilePlaceholder.png";
 }
 
 document.addEventListener("DOMContentLoaded", function () {
