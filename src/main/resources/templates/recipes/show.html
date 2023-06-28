@@ -188,8 +188,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script th:src="@{/js/loadingAnimation.js}"></script>
 <script th:replace="loading :: lottie-script"></script>
-<script th:if="${comment != null}" th:src="@{/js/view-indiv-recipe.js}" ></script>
-<script th:unless="${comment != null}" th:src="@{/js/comm-view-indiv-recipe.js}" ></script>
+<script th:if="${#authorization.expression('isAuthenticated') && comments.isEmpty()}" th:src="@{/js/view-indiv-recipe.js}"></script>
+<script th:unless="${#authorization.expression('isAuthenticated') && comments.isEmpty()}" th:src="@{/js/comm-view-indiv-recipe.js}"></script>
+
 <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
 <script type="module" src="/js/edit-recipe-filestack.js"></script>
 
