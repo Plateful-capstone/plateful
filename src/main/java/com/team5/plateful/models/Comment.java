@@ -24,6 +24,7 @@ public class Comment {
     @JoinColumn(name="recipe_id")
     private Recipe recipe;
 
+
     public long getId() {
         return id;
     }

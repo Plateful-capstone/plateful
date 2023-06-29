@@ -261,8 +261,26 @@ footer.container .row {
     border-radius: 12px;
 }
 
+.rfc-modal-content {
+    margin: 15% auto;
+    padding: 20px;
+    border: 3px solid pink;
+    width: 80%;
+    color: white;
+    background-color: var(--color);
+    border-radius: 12px;
+}
+
 /* Close Button */
 .close {
+
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    transition: all ease .3s;
+}
+
+.rfc-close {
 
     float: right;
     font-size: 28px;
@@ -522,11 +540,11 @@ form#comment-form {
     padding: 10px;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease; /* Add transition for smooth hover effect */
+    /*transition: transform 0.3s ease; !* Add transition for smooth hover effect *!*/
 }
 
 .user-recipe-card:hover {
-    transform: translateY(-5px); /* Apply a slight translation on hover */
+    /*transform: translateY(-5px); !* Apply a slight translation on hover *!*/
 }
 
 .user-card-link {
@@ -657,6 +675,34 @@ form#comment-form {
     text-align: center;
     position: relative;
     border-radius: 20px;
+}
+
+.delete-recipe-image-wrapper {
+    min-width: 5vw;
+    min-height: 5vh;
+    border-radius: 10px;
+    max-width: 25px;
+    max-height: 25px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.delete-recipe-image-wrapper img {
+    object-fit: cover;
+    aspect-ratio: 1/1;
+}
+
+.rfc-modal-container {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 /*// ======================================= //*/

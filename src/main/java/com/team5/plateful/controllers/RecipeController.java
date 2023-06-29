@@ -3,10 +3,13 @@ package com.team5.plateful.controllers;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.team5.plateful.models.Comment;
+import com.team5.plateful.models.Cookbook;
 import com.team5.plateful.models.Recipe;
 import com.team5.plateful.models.User;
 import com.team5.plateful.repositories.CommentRepository;
+import com.team5.plateful.repositories.CookbookRepository;
 import com.team5.plateful.repositories.RecipeRepository;
+import com.team5.plateful.repositories.UserRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,12 +19,16 @@ import java.util.List;
 
 @Controller
 public class RecipeController {
-    private RecipeRepository recipesDao;
-    private CommentRepository commentsDao;
+    private final RecipeRepository recipesDao;
+    private final CommentRepository commentsDao;
+    private final CookbookRepository cookbooksDao;
+    private final UserRepository usersDao;
 
-    public RecipeController(RecipeRepository recipesDao, CommentRepository commentsDao) {
+    public RecipeController(RecipeRepository recipesDao, CommentRepository commentsDao, CookbookRepository cookbooksDao, UserRepository usersDao) {
         this.recipesDao = recipesDao;
         this.commentsDao = commentsDao;
+        this.cookbooksDao = cookbooksDao;
+        this.usersDao = usersDao;
     }
 
 
@@ -36,6 +43,12 @@ public class RecipeController {
     @GetMapping("/recipes/{id}/view")
     public String viewIndividualRecipe(@PathVariable long id, Model model) {
         Recipe recipe = recipesDao.findById(id);
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        user = usersDao.findUserById(user.getId());
+        Cookbook cookbookRecipe = cookbooksDao.findByRecipeIdAndUserId(recipe.getId(), user.getId());
+        if (cookbookRecipe != null) {
+            model.addAttribute("cookbook", cookbookRecipe);
+        }
 
         if (recipe == null) {
             // Recipe not found, handle the case accordingly
@@ -62,6 +75,8 @@ public class RecipeController {
         recipe.setUser(user);
         System.out.println("Received Recipe: " + recipe.toString()); // Debugging statement
         recipesDao.save(recipe);
+        Cookbook cookbook = new Cookbook(user, recipe);
+        cookbooksDao.save(cookbook);
         return "redirect:/recipes";
     }
 
@@ -120,6 +135,7 @@ public class RecipeController {
         System.out.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(recipe));
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         recipe.setUser(user);
+        Cookbook cookbook = new Cookbook(user, recipe);
         // Check if any matching recipes already exist
         List<Recipe> existingRecipes = recipesDao.findAllByRecipeName(recipe.getRecipeName());
         if (!existingRecipes.isEmpty()) {
@@ -127,6 +143,7 @@ public class RecipeController {
             return existingRecipes.get(0); // Return the first matching recipe
         }
         recipesDao.save(recipe);
+        cookbooksDao.save(cookbook);
         return recipe;
     }
 
