@@ -10,11 +10,13 @@ import com.team5.plateful.repositories.CommentRepository;
 import com.team5.plateful.repositories.CookbookRepository;
 import com.team5.plateful.repositories.RecipeRepository;
 import com.team5.plateful.repositories.UserRepository;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Security;
 import java.util.List;
 
 @Controller
@@ -39,13 +41,22 @@ public class RecipeController {
 //        return "index_archive";
 //    }
 
-    // Route for viewing an individual recipe
     @GetMapping("/recipes/{id}/view")
     public String viewIndividualRecipe(@PathVariable long id, Model model) {
         Recipe recipe = recipesDao.findById(id);
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        user = usersDao.findUserById(user.getId());
-        Cookbook cookbookRecipe = cookbooksDao.findByRecipeIdAndUserId(recipe.getId(), user.getId());
+        User user = null; // Declare the user object
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null && authentication.isAuthenticated() && !authentication.getName().equals("anonymousUser")) {
+            user = (User) authentication.getPrincipal();
+            user = usersDao.findUserById(user.getId());
+        }
+
+        Cookbook cookbookRecipe = null;
+        if (user != null) { // Check if user is not null before accessing its properties
+            cookbookRecipe = cookbooksDao.findByRecipeIdAndUserId(recipe.getId(), user.getId());
+        }
+
         if (cookbookRecipe != null) {
             model.addAttribute("cookbook", cookbookRecipe);
         }
@@ -55,11 +66,13 @@ public class RecipeController {
             // For example, you can redirect to an error page or display a message
             return "redirect:/error";
         }
+
         List<Comment> comments = commentsDao.findAllByRecipe(recipe);
         model.addAttribute("comments", comments);
         model.addAttribute("recipe", recipe);
         return "recipes/show";
     }
+
 
 
     // Routes for creating a new recipe
