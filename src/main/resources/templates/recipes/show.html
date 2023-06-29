@@ -100,7 +100,7 @@
                 <!-- Case 2: Not Authenticated User -->
                 <div class="row indiv-recipe-btns-row" th:case="false" >
                     <div class="column justify-center align-center">
-                        <button class="cta"><a th:href="@{/recipes}">Go back</a></button>
+                        <button id="go-back-button" class="cta">Go back</button>
                     </div>
                 </div>
                 </div>
@@ -179,6 +179,8 @@
 <script th:if="${#authorization.expression('isAuthenticated') && !comments.isEmpty()}" th:src="@{/js/comm-view-indiv-recipe.js}"></script>
 <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
 <script type="module" th:if="${#authorization.expression('isAuthenticated') && #authentication.principal.id == recipe.user.id}" th:src="@{/js/edit-recipe-filestack.js}"></script>
+<script src="/js/go-back.js"></script>
+
 
 </body>
 </html>

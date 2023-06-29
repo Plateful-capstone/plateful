@@ -17,8 +17,8 @@
                             <a th:href="@{/recipes/{id}/view(id=${cookbook.recipe.id})}"> <div class="user-card-background" th:style="'background-image: url(' + ${cookbook.recipe.recipeImageUrl} + ')'" ></div></a>
                             <div class="user-card-content d-flex justify-space-between">
                                 <a th:href="@{/recipes/{id}/view(id=${cookbook.recipe.id})}"><h3 class="user-recipe-title" th:text="${cookbook.recipe.recipeName}"></h3></a>
-                                <div class="delete-recipe-image-wrapper">
-                                    <img th:src="@{${cookbook.recipe.recipeImageUrl}}" alt="Remove from cookbook">
+                                <div class="delete-recipe-image-wrapper justify-center align-center">
+                                    <h3 class="justify-center align-center">Delete</h3>
                                 </div>
                                 <div class="rfc-modal-container">
                                     <div class="rfc-modal-content">
