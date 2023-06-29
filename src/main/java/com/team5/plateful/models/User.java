@@ -26,7 +26,7 @@ public class User {
     private List<Recipe> recipes;
 
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
-    private List<CookBook> cookbooks;
+    private List<Cookbook> cookbook;
 
     @JsonIgnore
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
@@ -83,20 +83,20 @@ public class User {
         this.avatar_url = avatar_url;
     }
 
-    public List<CookBook> getCookbooks() {
-        return cookbooks;
-    }
-
-    public void setCookbooks(List<CookBook> cookbooks) {
-        this.cookbooks = cookbooks;
-    }
-
     public List<Comment> getComments() {
         return comments;
     }
 
     public void setComments(List<Comment> comments) {
         this.comments = comments;
+    }
+
+    public List<Cookbook> getCookbook() {
+        return cookbook;
+    }
+
+    public void setCookbook(List<Cookbook> cookbook) {
+        this.cookbook = cookbook;
     }
 
     public User() {

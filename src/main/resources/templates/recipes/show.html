@@ -74,39 +74,26 @@
                         </div>
                     </div>
 
-                    <!-- Delete Button -->
-                    <form class="column justify-center align-center" th:if="${#authentication.principal.id == recipe.user.id}" th:action="@{/recipes/{id}/delete(id=${recipe.id})}" method="post">
-                        <button class="cta" id="delete-modal-btn">Delete recipe</button>
-                    </form>
-
-                    <!-- Delete Modal -->
-                    <div id="delete-modal-container" class="delete-recipe-modal">
-                        <div class="modal-content">
-                            <span class="close" id="delete-modal-close">&times;</span>
-                            <!-- Delete Form -->
-                            <form th:action="@{/recipes/{id}/delete(id=${recipe.id})}" method="post" class="d-flex flex-column gap-10 align-center">
-                                <div class="row justify-center">
-                                    <h2>Are you sure you want to delete this recipe?</h2>
-                                </div>
-                               <div class="row justify-center">
-                                   <button class="cta" type="submit">Yes</button>
-                                   <button class="cta" id="delete-modal-close-btn">No</button>
-                               </div>
-                            </form>
-                        </div>
-                    </div>
-
-
-
 
                     <!-- Comment Button (Visible to authenticated users) -->
                     <div class="comment-wrapper column justify-center align-center">
                         <button class="cta" id="comment-btn">Comment</button>
                     </div>
 
-                    <!-- Add to Cookbook Button (Visible to authenticated users) -->
-                    <form class="d-flex justify-center column align-center" action="#">
+                    <!-- Add from Cookbook -->
+                    <form th:if="${cookbook?.recipe?.id == null}"
+                          class="d-flex justify-center align-center column"
+                          th:action="@{/recipes/{id}/add-to-cookbook(id=${recipe.id})}"
+                          method="post">
+
                         <button class="cta">Add to Cookbook</button>
+                    </form>
+                    <!-- Remove to Cookbook -->
+                    <form th:if="${cookbook?.recipe?.id != null && recipe.id == cookbook.recipe.id}"
+                          class="d-flex justify-center align-center column"
+                          th:action="@{/recipes/{id}/remove-from-cookbook(id=${recipe.id})}"
+                          method="post">
+                        <button class="cta">Remove from Cookbook</button>
                     </form>
                 </div>
 
@@ -181,6 +168,8 @@
 
         </div>
     </div>
+    </div>
+</div>
     <footer th:replace="partials/footer :: footer"></footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

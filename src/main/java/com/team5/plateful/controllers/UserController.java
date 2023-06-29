@@ -1,8 +1,10 @@
 // Import necessary dependencies
 package com.team5.plateful.controllers;
 
+import com.team5.plateful.models.Cookbook;
 import com.team5.plateful.models.Recipe;
 import com.team5.plateful.models.User;
+import com.team5.plateful.repositories.CookbookRepository;
 import com.team5.plateful.repositories.RecipeRepository;
 import com.team5.plateful.repositories.UserRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -23,13 +25,15 @@ public class UserController {
     private RecipeRepository recipesDao;
 
     private final UserRepository usersDao;
+    private final CookbookRepository cookbooksDao;
     // Dependency injection for PasswordEncoder
     private final PasswordEncoder passwordEncoder;
 
-    public UserController(UserRepository usersDao, PasswordEncoder passwordEncoder, RecipeRepository recipesDao) {
+    public UserController(UserRepository usersDao, PasswordEncoder passwordEncoder, RecipeRepository recipesDao, CookbookRepository cookbooksDao) {
         this.passwordEncoder = passwordEncoder;
         this.usersDao = usersDao;
         this.recipesDao = recipesDao;
+        this.cookbooksDao = cookbooksDao;
     }
 
     // handle GET request for the landing page
@@ -84,8 +88,10 @@ public class UserController {
         long userId = user.getId();
         user = usersDao.findUserById(userId);
         model.addAttribute("user", user);
-        List<Recipe> userRecipes = user.getRecipes();
-        model.addAttribute("userRecipes", userRecipes);
+//        List<Recipe> userRecipes = user.getRecipes();
+//        model.addAttribute("userRecipes", userRecipes);
+        List<Cookbook> userCookbook = user.getCookbook();
+        model.addAttribute("userCookbook", userCookbook);
         return "profile";
     }
 

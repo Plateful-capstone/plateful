@@ -1,7 +1,6 @@
 package com.team5.plateful.models;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -34,18 +33,21 @@ public class Recipe {
     private User user;
 
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "recipe")
+    private List<Cookbook> cookbooks;
+
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "recipe")
     private List<Comment> comments;
 
-    @JsonIgnore
-    @ManyToMany(mappedBy = "recipes")
-    private Set<CookBook> cookbooks;
-
-    public Set<CookBook> getCookbooks() {
-        return cookbooks;
-    }
-
-    public void setCookbooks(Set<CookBook> cookbooks) {
+    public Recipe(long id, String recipeName, String recipeDescription, String recipeIngredients, String recipeInstructions, String recipeImageUrl, User user, List<Cookbook> cookbooks, List<Comment> comments) {
+        this.id = id;
+        this.recipeName = recipeName;
+        this.recipeDescription = recipeDescription;
+        this.recipeIngredients = recipeIngredients;
+        this.recipeInstructions = recipeInstructions;
+        this.recipeImageUrl = recipeImageUrl;
+        this.user = user;
         this.cookbooks = cookbooks;
+        this.comments = comments;
     }
 
     public User getUser() {
@@ -155,7 +157,11 @@ public class Recipe {
         this.comments = comments;
     }
 
-    public Recipe(Set<CookBook> cookbooks) {
+    public List<Cookbook> getCookbooks() {
+        return cookbooks;
+    }
+
+    public void setCookbooks(List<Cookbook> cookbooks) {
         this.cookbooks = cookbooks;
     }
 }

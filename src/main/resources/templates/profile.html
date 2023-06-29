@@ -13,13 +13,29 @@
                 <h1 class="user-cookbook">Cookbook</h1>
                 <!-- Displaying recipes created by a user -->
                 <div class="user-recipes-grid">
-                    <div class="user-recipe-card" th:each="recipe : ${userRecipes}">
-                        <a th:href="@{/recipes/{id}/view(id=${recipe.id})}" class="user-card-link">
-                            <div class="user-card-background" th:style="'background-image: url(' + ${recipe.recipeImageUrl} + ')'" ></div>
-                            <div class="user-card-content">
-                                <h3 class="user-recipe-title" th:text="${recipe.recipeName}"></h3>
+                    <div class="user-recipe-card" th:each="cookbook : ${userCookbook}">
+                            <a th:href="@{/recipes/{id}/view(id=${cookbook.recipe.id})}"> <div class="user-card-background" th:style="'background-image: url(' + ${cookbook.recipe.recipeImageUrl} + ')'" ></div></a>
+                            <div class="user-card-content d-flex justify-space-between">
+                                <a th:href="@{/recipes/{id}/view(id=${cookbook.recipe.id})}"><h3 class="user-recipe-title" th:text="${cookbook.recipe.recipeName}"></h3></a>
+                                <div class="delete-recipe-image-wrapper">
+                                    <img th:src="@{${cookbook.recipe.recipeImageUrl}}" alt="Remove from cookbook">
+                                </div>
+                                <div class="rfc-modal-container">
+                                    <div class="rfc-modal-content">
+                                        <span class="rfc-close" id="delete-comment-modal-close">&times;</span>
+                                        <!-- Delete Form -->
+                                        <form th:action="@{/recipes/{recipeId}/remove-from-cookbook(recipeId=${cookbook.recipe.id})}"
+                                              method="post" class="d-flex flex-column gap-10 align-center">
+                                            <h2>Are you sure you want to remove this from your cookbook?</h2>
+                                            <div class="row justify-center">
+                                                <button class="cta" type="submit">Yes</button>
+                                                <button class="cta do-not-rfc">No</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
-                        </a>
+
                     </div>
                     <!-- Add recipe card -->
                     <div class="user-recipe-card add-recipe-card">
@@ -95,7 +111,7 @@
 <script th:replace="loading :: lottie-script"></script>
 <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
 <script th:type="module" th:src="@{/js/url_avatar_filestack.js}"></script>
-<script th:src="@{/js/edit-Profile-Modal.js}"></script>
+<script th:src="@{/js/profile-page.js}"></script>
 <script src="/js/passwordMatcher.js"></script>
 <script th:src="@{/js/defaultAvatar.js}"></script>
 </body>

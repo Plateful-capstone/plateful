@@ -26,39 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    if(document.querySelector("#delete-modal-btn") !== null) {
-        const deleteRecipeModalBtnOpen = document.querySelector("#delete-modal-btn");
-        const deleteRecipeModalContainer = document.querySelector("#delete-modal-container");
-        const deleteRecipeModalCloseButton = document.querySelector('#delete-modal-close');
-        const deleteRecipeModalNoButton = document.querySelector('#delete-modal-close-btn');
-        // Delete Recipe Modal Button Click Event
-        deleteRecipeModalBtnOpen.addEventListener('click', function(e) {
-            e.preventDefault();
-            deleteRecipeModalContainer.style.display = 'block';
-        });
-
-        // Close Modal
-        function closeModal() {
-            deleteRecipeModalContainer.style.display = 'none';
-        }
-
-        // Delete Recipe Modal Close Button Click Event
-        deleteRecipeModalCloseButton.addEventListener('click', closeModal);
-
-        // Delete Recipe Modal No Button Click Event
-        deleteRecipeModalNoButton.addEventListener('click', function(e) {
-            e.preventDefault();
-            closeModal();
-        });
-
-        // Window Click Event
-        window.addEventListener('click', function(event) {
-            if (event.target === deleteRecipeModalContainer) {
-                closeModal();
-            }
-        });
-    }
-
 
     // Edit Modal Button Click Event
     modalBtns.forEach(function(modalBtn) {
