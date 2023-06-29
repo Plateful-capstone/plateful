@@ -1397,6 +1397,20 @@ div.container.landingRecipe .row.recipe-row {
     margin-top: 15px;
 }
 
+.error-image-wrapper {
+    max-width: 200px;
+    max-height: 200vh;
+    padding-top: 30px;
+}
+
+.error-image-wrapper img {
+    color: white;
+}
+
+.button-error-container {
+    padding-bottom: 30px;
+}
+
 /*// ======================================= //*/
 /*// ==============   ERROR Page END  ========= //*/
 /*// ======================================= //*/
