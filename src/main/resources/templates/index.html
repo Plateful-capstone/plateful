@@ -25,16 +25,18 @@
     <div class="container landingRecipe">
         <div class="row recipe-row">
             <div class="column">
-                <h2>Top 5 User Created Recipes</h2>
+                <h2>Top User Created Recipes</h2>
             </div>
         </div>
+<!--    8 RECIPES    -->
         <div class="row recipe-cards-row">
             <div class="column recipe-cards">
                 <div class="row card-grid">
-                    <div class="card" th:each="recipe, iteration : ${recipes}" th:if="${iteration.index < 4}" th:href="@{/recipes/{id}/view(id=${recipe.id})}">
+                    <div class="card" th:each="recipe, iteration : ${recipes}" th:if="${iteration.index < 8}" th:href="@{/recipes/{id}/view(id=${recipe.id})}">
                         <a th:href="@{/recipes/{id}/view(id=${recipe.id})}">
-                            <div class="row justify-center recipe-picture-container grow">
-                                <a th:href="@{/recipes/{id}/view(id=${recipe.id})}" class="recipe-clickable"><img th:src="${recipe.recipeImageUrl}" alt="">
+                            <div class="recipe-picture-container grow">
+                                <a th:href="@{/recipes/{id}/view(id=${recipe.id})}" class="recipe-clickable">
+                                    <img th:src="${recipe.recipeImageUrl}" alt="">
                                     <div class="recipe-middle-text grow">
                                         <h4 class="recipe-text" th:text="${recipe.recipeName}"></h4>
                                     </div>
@@ -45,24 +47,27 @@
                 </div>
             </div>
         </div>
-        <div class="row recipe-cards-row">
-            <div class="column recipe-cards justify-center">
-                <div class="row justify-center align-center">
-                    <div class="card large-recipe-card" th:if="${recipes.size() >= 5}" >
-                        <a th:href="@{/recipes/{id}/view(id=${recipes[4].id})}">
-                            <div class="row justify-center recipe-card-content grow recipe-picture-container">
-                                <img th:src="${recipes[4].recipeImageUrl}" alt="recipe image">
-                                <div class="large-recipe-text grow recipe-middle-text">
-                                    <h3 class="recipe-text" th:text="${recipes[4].recipeName}"></h3>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<!--        <div class="row recipe-cards-row">-->
+<!--            <div class="column recipe-cards">-->
+<!--                <div class="row card-grid">-->
+<!--                    <div class="card" th:each="recipe, iteration : ${recipes}" th:if="${iteration.index < 10}" th:href="@{/recipes/{id}/view(id=${recipe.id})}">-->
+<!--                        <a th:href="@{/recipes/{id}/view(id=${recipe.id})}">-->
+<!--                            <div class="recipe-picture-container grow">-->
+<!--                                <a th:href="@{/recipes/{id}/view(id=${recipe.id})}" class="recipe-clickable">-->
+<!--                                    <img th:src="${recipe.recipeImageUrl}" alt="">-->
+<!--                                    <div class="recipe-middle-text grow">-->
+<!--                                        <h4 class="recipe-text" th:text="${recipe.recipeName}"></h4>-->
+<!--                                    </div>-->
+<!--                                </a>-->
+<!--                            </div>-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
 
+
+    </div>
     <footer th:replace="partials/footer :: footer"></footer>
 </div>
 

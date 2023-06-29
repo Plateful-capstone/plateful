@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="partials/head :: head ('Plateful Error Page')"></head>
+
+<body>
+<div th:replace="loading :: loading-animation"></div>
+<div class="page-wrapper">
+    <header th:replace="partials/navbar :: navbar"></header>
+    <div class="container grow justify-center body-text">
+        <div class="row justify-center main-background grow error-container">
+            <div class="column justify-center align-center grow">
+                <div class="row justify-center align-center">
+                    <h1>404</h1>
+                </div>
+                <div class="row justify-center align-center">
+                    <h3>Oops, this page is totally cooked :(.</h3>
+                </div>
+                <div class="row justify-center align-center button-error-container">
+                    <button id="go-back-button" class="cta">Go Back!</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <footer th:replace="partials/footer :: footer"></footer>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script th:src="@{/js/loadingAnimation.js}"></script>
+<script th:replace="loading :: lottie-script"></script>
+<script src="/js/go-back.js"></script>
+
+</body>
+</html>

@@ -41,7 +41,8 @@ public class PlatefulSecurityConfiguration {
                         "/recipes/search",
                         "/logout",
                         "/loading",
-                        "/"
+                        "/",
+                        "/error"
                 ).permitAll()
                 .requestMatchers("/css/**", "/js/**", "/keys.js").permitAll()
         );
