@@ -11,9 +11,9 @@
     --navbar-color: #fff
 }
 
-/*.text-outline {*/
-/*    text-shadow: 3px 4px 7px black;*/
-/*}*/
+.text-outline {
+    text-shadow: 3px 4px 7px black;
+}
 
 .main-background {
     background-color: var(--color);
@@ -659,6 +659,19 @@ form#comment-form {
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.4);
 }
+
+/*@media (max-width: 768px) {*/
+/*    .user-recipes-grid {*/
+/*        grid-template-columns: repeat(2, 1fr);*/
+/*    }*/
+/*}*/
+
+@media (min-width: 20rem) and (max-width: 30rem) {
+    .user-recipes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 
 /*// ======================================= //*/
 /*// ==============   Cookbook / Profile End   ========= //*/
@@ -1459,4 +1472,62 @@ div.container.landingRecipe .row.recipe-row {
 
 /*// ======================================= //*/
 /*// ==============   ERROR Page END  ========= //*/
+/*// ======================================= //*/
+
+
+/*// ======================================= //*/
+/*// ==============   CONTACT Page START  ========= //*/
+/*// ======================================= //*/
+.container {
+    text-align: center;
+}
+
+.contact-image-wrapper {
+    position: relative;
+    display: inline-block;
+    text-align: left;
+}
+
+.contact-image-content {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.contact-header {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(55, 69, 82, 0.7);
+    border: 3px solid var(--border);
+;
+    color: white;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    text-align: center;
+}
+
+/*.contact-wrapper {*/
+/*    width: 100vw;*/
+/*    overflow-x: hidden;*/
+/*}*/
+
+/*.contact-image-wrapper {*/
+/*    position: relative;*/
+/*    width: 100vw;*/
+/*    text-align: center;*/
+/*    margin-left: calc((100% - 100vw) / 2);*/
+/*    margin-right: calc((100% - 100vw) / 2);*/
+/*}*/
+
+/*.contact-image-content {*/
+/*    width: 100%;*/
+/*    height: auto;*/
+/*    display: block;*/
+/*}*/
+
+/*// ======================================= //*/
+/*// ==============   CONTACT Page END  ========= //*/
 /*// ======================================= //*/

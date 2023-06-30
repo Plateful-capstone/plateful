@@ -1,92 +1,41 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:replace="partials/head :: head ('landing page')"></head>
+<head th:replace="partials/head :: head ('Plateful Contact Page')"></head>
 
 <body>
 <div th:replace="loading :: loading-animation"></div>
-<div class="page-wrapper">
+<div class="page-wrapper grow">
   <header th:replace="partials/navbar :: navbar"></header>
-  <div class="container grow justify-center landingHero main-background">
-    <div class="row justify-center">
-      <div class="column grow">
-        <p class="hero-left-text">Discover Simple, Delicious, and Fast Recipes!</p>
-      </div>
-      <div class="column align-center grow hero-chef">
-        <img class="landingChef" src="/css/img/chefNoBG.png">
-      </div>
-      <div class="column grow hero-right">
-        <h1 class="hero-header-right">Top Recipes</h1>
-        <p class="hero-para-right">A recipe is soulless. The essence of the recipe must come from you, the cook.</p>
-        <a th:href="@{/recipes}">
-          <button class="hero-button-right cta">Check our Recipes!</button></a>
+  <div class="container grow justify-center contact-wrapper">
+    <div class="row justify-center grow">
+      <div class="column grow justify-center align-center">
+        <div class="contact-image-wrapper shrink">
+          <img class="contact-image-content pink-border" src="/css/img/happy-lady-1.jpg" alt="Woman cooking">
+          <div class="contact-header">
+            <h1 class="text-outline">Contact Us!</h1>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="container landingRecipe">
-    <div class="row recipe-row">
-      <div class="column">
-        <h2>Top 5 User Created Recipes</h2>
+    <div class="row justify-center main-background contact-content-wrapper">
+      <div class="column grow justify-center align-center">
+        <div class="contact-form-wrapper">
+          <form th:action="@{/contact}" th:method="post" class="register-form row form justify-space-between">
+            <div class="input-wrapper">
+
+            </div>
+            <div class="input-wrapper">
+
+            </div>
+            <div class="input-wrapper">
+
+            </div>
+            <div class="input-wrapper">
+              <input class="cta justify-center align-center text-center" type="submit" value="Send it!">
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
-    <div class="row recipe-cards-row">
-      <a class="row" th:each="recipe : ${recipes}" th:href="@{/recipes/{id}/view(id=${recipe.id})}">
-        <div class="column recipe-cards">
-          <div class="row">
-            <div class="column">
-              <div class="row justify-center">
-                <img src="https://picsum.photos/200/300" alt="">
-              </div>
-              <div class="row">
-                <h3 th:text="${recipe.recipeName}"></h3>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="column">
-              <div class="row justify-center">
-                <img src="https://picsum.photos/200/300" alt="">
-              </div>
-              <div class="row">
-                <h3 th:text="${recipe.recipeName}"></h3>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="column recipe-cards">
-          <div class="row">
-            <div class="column">
-              <div class="row justify-center">
-                <img src="https://picsum.photos/200/300" alt="">
-              </div>
-              <div class="row">
-                <h3 th:text="${recipe.recipeName}"></h3>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="column">
-              <div class="row justify-center">
-                <img src="https://picsum.photos/200/300" alt="">
-              </div>
-              <div class="row">
-                <h3 th:text="${recipe.recipeName}"></h3>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="column recipe-cards">
-          <div class="row solo-card">
-            <div class="column">
-              <div class="row justify-center">
-                <img class="solo-card" src="https://picsum.photos/200/300" alt="">
-              </div>
-              <div class="row">
-                <h3 th:text="${recipe.recipeName}"></h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </a>
     </div>
   </div>
   <footer th:replace="partials/footer :: footer"></footer>
