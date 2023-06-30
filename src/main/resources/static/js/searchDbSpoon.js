@@ -33,7 +33,6 @@ const displaySearchResults = (data) => {
                 </div>
             </div>
             
-            
             <div class="ghost-div-search">
                 <div class="column gap-20">
                     <div class="row">

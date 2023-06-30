@@ -16,7 +16,9 @@
                 <img th:src="${recipe.recipeImageUrl}" alt="recipe image">
 
                 <div class="column  gap-20 recipe-content">
-                    <p th:utext="'<b>' + 'Ingredients: ' +' </b>' + ${recipe.recipeIngredients}"></p>
+                    <div class="row no-padding" id="ingredients-list"><b>Ingredients:</b>
+                        <div class="row" id="ingredients-content" th:text=" ${recipe.recipeIngredients}"></div>
+                    </div>
                     <p th:utext="'<b>' + 'Description: ' +' </b>' + ${recipe.recipeDescription}"></p>
                     <p th:utext="'<b>' + 'Instructions: '+ '</b>' + ${recipe.recipeInstructions}"></p>
                     <p th:utext="'<b>' + 'Created by:  '+ '</b> '+ ${recipe.user.username}"></p>
