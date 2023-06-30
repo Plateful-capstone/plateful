@@ -29,6 +29,9 @@ public class Recipe {
     @Column(nullable = false)
     private String recipeImageUrl;
 
+    @Column
+    private String spoonacularId;
+
     @ManyToOne
     @JoinColumn(name="user_id")
     private User user;
@@ -40,6 +43,15 @@ public class Recipe {
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "recipe")
     private List<Comment> comments;
 
+    public Recipe(String recipeName, String recipeDescription, String recipeIngredients, String recipeInstructions, String recipeImageUrl, String spoonacularId) {
+        this.recipeName = recipeName;
+        this.recipeDescription = recipeDescription;
+        this.recipeIngredients = recipeIngredients;
+        this.recipeInstructions = recipeInstructions;
+        this.recipeImageUrl = recipeImageUrl;
+        this.spoonacularId = spoonacularId;
+    }
+
     public Recipe(long id, String recipeName, String recipeDescription, String recipeIngredients, String recipeInstructions, String recipeImageUrl, User user, List<Cookbook> cookbooks, List<Comment> comments) {
         this.id = id;
         this.recipeName = recipeName;
@@ -50,6 +62,29 @@ public class Recipe {
         this.user = user;
         this.cookbooks = cookbooks;
         this.comments = comments;
+    }
+
+    public Recipe(long id, String recipeName, String recipeDescription, String recipeIngredients, String recipeInstructions, String recipeImageUrl, String spoonacularId, User user, List<Cookbook> cookbooks, List<Comment> comments) {
+        this.id = id;
+        this.recipeName = recipeName;
+        this.recipeDescription = recipeDescription;
+        this.recipeIngredients = recipeIngredients;
+        this.recipeInstructions = recipeInstructions;
+        this.recipeImageUrl = recipeImageUrl;
+        this.spoonacularId = spoonacularId;
+        this.user = user;
+        this.cookbooks = cookbooks;
+        this.comments = comments;
+    }
+
+    public Recipe(String recipeName, String recipeDescription, String recipeIngredients, String recipeInstructions, String recipeImageUrl, String spoonacularId, User user) {
+        this.recipeName = recipeName;
+        this.recipeDescription = recipeDescription;
+        this.recipeIngredients = recipeIngredients;
+        this.recipeInstructions = recipeInstructions;
+        this.recipeImageUrl = recipeImageUrl;
+        this.spoonacularId = spoonacularId;
+        this.user = user;
     }
 
     public User getUser() {
@@ -165,5 +200,13 @@ public class Recipe {
 
     public void setCookbooks(List<Cookbook> cookbooks) {
         this.cookbooks = cookbooks;
+    }
+
+    public String getSpoonacularId() {
+        return spoonacularId;
+    }
+
+    public void setSpoonacularId(String spoonacularId) {
+        this.spoonacularId = spoonacularId;
     }
 }
