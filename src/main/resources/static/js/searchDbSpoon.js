@@ -22,6 +22,9 @@ const displaySearchResults = (data) => {
                         <p><b>Recipe Description: </b>${recipe.recipeDescription}</p>
                     </div>
                     <div class="row">
+                        <button class="view-cookbook-button cta" ><a href="recipes/${recipe.id}/view">View Recipe</a></button>
+                    </div>
+                    <div class="row">
                         <p class="show-hide">Show more</p>
                     </div>
                 </div>
@@ -29,6 +32,7 @@ const displaySearchResults = (data) => {
                         <img src="${recipe.recipeImageUrl}" alt="Image from DB">
                 </div>
             </div>
+            
             
             <div class="ghost-div-search">
                 <div class="column gap-20">
