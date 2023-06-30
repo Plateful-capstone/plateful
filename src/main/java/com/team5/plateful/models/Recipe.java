@@ -1,6 +1,7 @@
 package com.team5.plateful.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -32,6 +33,7 @@ public class Recipe {
     @JoinColumn(name="user_id")
     private User user;
 
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "recipe")
     private List<Cookbook> cookbooks;
 

@@ -25,6 +25,7 @@ public class User {
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
     private List<Recipe> recipes;
 
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
     private List<Cookbook> cookbook;
 
