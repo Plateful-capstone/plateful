@@ -883,18 +883,18 @@ div.container.login-container {
 
 .the-team-content {
     background: var(--color);
-    max-width: 50vw;
+    max-width: 30vw;
     border-radius: 10px;
     color: white;
 }
 
 .the-team-pictures-row {
     background: var(--color);
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
     overflow: hidden;
     min-height: 20vh;
-    min-width: 55vw;
+    min-width: 80%;
 }
 
 .the-team-picture-container {
@@ -996,10 +996,6 @@ div.container.login-container {
     backface-visibility: hidden;
 }
 
-/*.row.the-team-picture-container img:hover {*/
-/*    opacity: .5;*/
-/*}*/
-
 .row.the-team-picture-container .column {
     margin-top: 10px; /* Adjust the margin as needed */
 }
@@ -1015,6 +1011,66 @@ div.container.login-container {
     width: 30px;
     height: 30px;
     transition: all ease .3s;
+}
+
+.team-content-wrapper {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+@media (min-width: 30rem) and (max-width: 65rem) {
+    .the-team-pictures-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        flex-direction: column;
+        max-width: 80%;
+    }
+
+    .row.the-team-picture-container {
+        width: 90%; /* Adjust the width as desired */
+        max-width: 400px; /* Adjust the max-width as desired */
+        margin: 10px;
+    }
+
+    .the-team-picture-container img {
+        width: 100%;
+        height: auto;
+    }
+
+    .team-content-wrapper {
+        width: 70%; /* Adjust the width as desired */
+        max-width: 500px; /* Adjust the max-width as desired */
+        margin: 10px auto;
+    }
+}
+
+@media (min-width: 20rem) and (max-width: 30rem) {
+    .the-team-pictures-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .the-team-picture-container {
+        width: 90%; /* Adjust the width as desired */
+        max-width: 300px; /* Adjust the max-width as desired */
+        margin: 10px;
+    }
+
+    .the-team-picture-container img {
+        width: 100%;
+        height: auto;
+    }
+
+    .team-content-wrapper {
+        width: 90%; /* Adjust the width as desired */
+        max-width: 300px; /* Adjust the max-width as desired */
+        margin: 10px auto;
+    }
 }
 
 
