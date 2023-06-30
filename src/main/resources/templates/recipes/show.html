@@ -29,7 +29,9 @@
                     <!-- Case 1: Authenticated User -->
                     <div class="column justify-center align-center">
                         <!-- Go Back Button (Visible to all users) -->
-                        <button class="cta"><a th:href="@{/recipes}">Go back</a></button>
+<!--                        <button class="cta"><a th:href="@{/recipes}">Go back</a></button>-->
+                        <button id="go-back-button" class="cta">Go back</button>
+
                     </div>
 
                     <!-- Edit Button (Visible to authenticated users if the recipe belongs to them) -->
@@ -179,8 +181,7 @@
 <script th:if="${#authorization.expression('isAuthenticated') && !comments.isEmpty()}" th:src="@{/js/comm-view-indiv-recipe.js}"></script>
 <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
 <script type="module" th:if="${#authorization.expression('isAuthenticated') && #authentication.principal.id == recipe.user.id}" th:src="@{/js/edit-recipe-filestack.js}"></script>
-<script src="/js/go-back.js"></script>
-
+<script th:src="@{/js/go-back.js}"></script>
 
 </body>
 </html>

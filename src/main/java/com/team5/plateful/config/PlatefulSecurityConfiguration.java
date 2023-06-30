@@ -44,7 +44,8 @@ public class PlatefulSecurityConfiguration {
                         "/logout",
                         "/loading",
                         "/",
-                        "/error"
+                        "/error",
+                        "/contact"
                 ).permitAll()
                 .requestMatchers("/css/**", "/js/**", "/keys.js").permitAll()
         );

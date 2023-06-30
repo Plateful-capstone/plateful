@@ -54,6 +54,11 @@ public class UserController {
         return "login";
     }
 
+    @GetMapping("/contact")
+    public String showContactPage() {
+        return "contact";
+    }
+
     @PostMapping("/login")
     public String loginSessionSetter(Model model, HttpSession session) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
