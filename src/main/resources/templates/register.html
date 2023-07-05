@@ -18,6 +18,12 @@
         </div>
 
         <form th:action="@{/register}" th:method="post" class="register-form row form justify-space-between">
+          <div th:if="${param.usernameExists}">
+            <p style="color: red;">Username already exists. Please choose a different username.</p>
+          </div>
+          <div th:if="${param.emailExists}">
+            <p style="color: red;">Email already exists. Please choose a different email.</p>
+          </div>
           <div class="input-wrapper">
             <label class="card-title" for="username">Username:</label>
             <input class="card-text register_input" type="text" name="username" id="username">

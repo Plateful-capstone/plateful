@@ -283,6 +283,17 @@ footer.container .row {
     transition: all ease .3s;
 }
 
+.cookbook-close {
+    display: flex;
+    justify-content: flex-end;
+    transition: all ease .2s;
+}
+
+.cookbook-close:hover {
+    color: red;
+    cursor: pointer;
+}
+
 .close:hover:first-child,
 .close:focus:first-child {
     color: red;
@@ -464,6 +475,16 @@ form#comment-form {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
+.edit-recipe-modal input, .edit-recipe-modal textarea {
+    border-radius: 12px;
+    padding: 5px;
+    border: unset;
+}
+
+#editInstructions, #editDescription, #editIngredients {
+    /*height: 200px;*/
+    /*max-height: 200px;*/
+}
 
 
 
@@ -1475,6 +1496,30 @@ div.container.landingRecipe .row.recipe-row {
     text-decoration: none;
     cursor: pointer;
     transform: scale(1.1);
+}
+
+@media only screen and (min-width: 20rem) and (max-width: 48rem){
+    .recipe-description-index, .show-hide {
+        display: none;
+    }
+    .search-results-row {
+        width: 609px;
+    }
+}
+
+@media only screen and (min-width: 20rem) and (max-width: 30rem){
+    .recipe-description-index, .show-hide {
+        display: none;
+    }
+    .recipe-name-index {
+        font-size: 15px;
+    }
+    .search-results-row {
+        width: 375px;
+    }
+    .search-header-index {
+        font-size: 20px;
+    }
 }
 
 /*// ======================================= //*/

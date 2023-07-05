@@ -12,7 +12,7 @@
         <div th:case="true" class="row main-background main-searchbar-row pink-border">
             <div class="column ">
                 <div class="row justify-center searchbar-row">
-                    <h1>Search our Plateful Library</h1>
+                    <h1 class="search-header-index">Search our Plateful Library</h1>
                 </div>
                 <div class="row justify-center searchbar-row">
                     <form th:action="@{/recipes/search}" class="column" th:method="get">
@@ -32,7 +32,7 @@
         <div th:case="false" class="row main-background main-searchbar-row">
             <div class="column ">
                 <div class="row justify-center searchbar-row">
-                    <h1>Search our Plateful Library</h1>
+                    <h1 class="search-header-index">Search our Plateful Library</h1>
                 </div>
                 <div class="row justify-center searchbar-row">
                     <form action="#" id="search-form-denial" class="column">
@@ -87,10 +87,10 @@
                     <div class="row no-padding">
                         <div class="column justify-space-between">
                             <div class="row">
-                                <h2 th:text="${recipe.recipeName}"></h2>
+                                <h2  class="recipe-name-index" th:text="${recipe.recipeName}"></h2>
                             </div>
                             <div class="row">
-                                <p><b>Recipe Description:</b> <span th:text="${recipe.recipeDescription}"></span></p>
+                                <p class="recipe-description-index"><b>Recipe Description:</b> <span th:text="${recipe.recipeDescription}"></span></p>
                             </div>
                             <form th:action="@{/recipes/{id}/view(id=${recipe.id})}" method="get" class="row">
                                 <button class="cta">View Recipe</button>

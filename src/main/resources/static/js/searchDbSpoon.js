@@ -18,10 +18,10 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="row no-padding">
                 <div class="column justify-space-between">
                     <div class="row">
-                        <h2>${recipe.recipeName}</h2>
+                        <h2  class="recipe-name-index">${recipe.recipeName}</h2>
                     </div>
                     <div class="row">
-                        <p><b>Recipe Description: </b>${recipe.recipeDescription}</p>
+                        <p class="recipe-description-index"><b>Recipe Description: </b>${recipe.recipeDescription}</p>
                     </div>
                     <div class="row">
                         <button class="view-cookbook-button cta" ><a href="recipes/${recipe.id}/view">View Recipe</a></button>
@@ -147,10 +147,10 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <div class="row no-padding">
                                     <div class="column justify-space-between">
                                         <div class="row">
-                                            <h2>${result.title}</h2>
+                                            <h2 class="recipe-name-index">${result.title}</h2>
                                         </div>
                                         <div class="row">
-                                            <p> <b> Recipe Description: </b>${extractSummaryInfo(result.summary)}</p>
+                                            <p class="recipe-description-index"> <b> Recipe Description: </b>${extractSummaryInfo(result.summary)}</p>
                                         </div>
                                         <div class="row">
                                             <button class="add-to-cookbook-btn cta" data-results-index="${index}">Add to cookbook</button>

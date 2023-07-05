@@ -59,13 +59,13 @@
                                 <input type="text" name="recipeName" placeholder="Title"
                                        th:value="${recipe.recipeName}" required/>
                                 <h3>Description: </h3>
-                                <input type="text" name="recipeDescription" placeholder="Description"
+                                <input type="text" name="recipeDescription" id="editDescription" placeholder="Description"
                                        th:value="${recipe.recipeDescription}" required/>
                                 <h3>Ingredients: </h3>
-                                <input type="text" name="recipeIngredients" placeholder="Ingredients"
+                                <input type="text" name="recipeIngredients" id="editIngredients" placeholder="Ingredients"
                                        th:value="${recipe.recipeIngredients}" required/>
                                 <h3>Instructions: </h3>
-                                <textarea class="no-padding" type="text" name="recipeInstructions"
+                                <textarea class="no-padding" type="text" id="editInstructions" name="recipeInstructions"
                                           th:text="${recipe.recipeInstructions}" required></textarea>
                                 <h3>Add a Recipe Image: </h3>
                                 <button type="button" id="open" class="image-add cta" value="Change Image">Add Image</button>
