@@ -1471,6 +1471,22 @@ div.container.landingRecipe .row.recipe-row {
     width: 100%;
 }
 
+@media   (max-width: 50rem) {
+    .hero-left-text-column{
+        display: none;
+    }
+    .hero-chef{
+        display: none;
+    }
+    .hero-landing-row{
+        align-items: center;
+        min-width: unset;
+    }
+    .card-grid{
+        display:flex;
+        flex-direction: column;
+    }
+}
 /*// ======================================= //*/
 /*// ==============   Landing Page END  ========= //*/
 /*// ======================================= //*/
