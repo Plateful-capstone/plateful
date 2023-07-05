@@ -283,6 +283,17 @@ footer.container .row {
     transition: all ease .3s;
 }
 
+.cookbook-close {
+    display: flex;
+    justify-content: flex-end;
+    transition: all ease .2s;
+}
+
+.cookbook-close:hover {
+    color: red;
+    cursor: pointer;
+}
+
 .close:hover:first-child,
 .close:focus:first-child {
     color: red;
@@ -464,6 +475,16 @@ form#comment-form {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
+.edit-recipe-modal input, .edit-recipe-modal textarea {
+    border-radius: 12px;
+    padding: 5px;
+    border: unset;
+}
+
+#editInstructions, #editDescription, #editIngredients {
+    /*height: 200px;*/
+    /*max-height: 200px;*/
+}
 
 
 
