@@ -1477,6 +1477,30 @@ div.container.landingRecipe .row.recipe-row {
     transform: scale(1.1);
 }
 
+@media only screen and (min-width: 20rem) and (max-width: 48rem){
+    .recipe-description-index, .show-hide {
+        display: none;
+    }
+    .search-results-row {
+        width: 609px;
+    }
+}
+
+@media only screen and (min-width: 20rem) and (max-width: 30rem){
+    .recipe-description-index, .show-hide {
+        display: none;
+    }
+    .recipe-name-index {
+        font-size: 15px;
+    }
+    .search-results-row {
+        width: 375px;
+    }
+    .search-header-index {
+        font-size: 20px;
+    }
+}
+
 /*// ======================================= //*/
 /*// ==============   Search Page END  ========= //*/
 /*// ======================================= //*/
