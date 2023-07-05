@@ -7,7 +7,7 @@
 <div class="page-wrapper">
     <header th:replace="partials/navbar :: navbar"></header>
     <div class="container justify-center grow">
-        <h2>Welcome, <span sec:authentication="principal.username"></span>!</h2>
+        <h2>Welcome, <span th:text="${user.getUsername()}"></span>!</h2>
         <div class="row grow justify-center">
             <!-- cookbook section -->
             <div class="cookbook-column column shrink align-center border-radius-12 main-background pink-border">
@@ -36,7 +36,6 @@
                                     </div>
                                 </div>
                             </div>
-
                     </div>
                     <!-- Add recipe card -->
                     <div class="user-recipe-card add-recipe-card">
@@ -71,8 +70,8 @@
                 <div class="profile-info justify-center row gap-10">
                     <div class="column justify-center shrink align-center">
                         <h1>Your Profile</h1>
-                        <p>Username: <span sec:authentication="principal.username"></span></p>
-                        <p>Email: <span sec:authentication="principal.email"></span></p>
+                        <p>Username: <span th:text="${user.getUsername()}"></span></p>
+                        <p>Email: <span th:text="${user.getEmail()}"></span></p>
                         <button class="cta margin-10" id="edit-modal-profile-open">Edit Profile</button>
 
                         <!-- Modal Start -->
