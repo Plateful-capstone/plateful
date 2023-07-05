@@ -82,5 +82,6 @@ This project is covered under the MIT license. To learn more click the license b
 
 ![ezgif com-crop](https://github.com/Plateful-capstone/plateful/assets/97055710/d315fc02-a27f-4894-8e38-99087f52c188)
 
+![ezgif com-video-to-gif](https://github.com/Plateful-capstone/plateful/assets/97055710/4760b76a-94a1-42cc-bc47-f336b794404a)
 
 
