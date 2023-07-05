@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -79,8 +80,19 @@ public class UserController {
 
     // Handle POST request for user registration
     @PostMapping("/register")
-    public String registerUser(@RequestParam(name="username") String username, @RequestParam(name="email") String email, @RequestParam(name="password") String password, @RequestParam(name="avatarImageUrl") String avatar_url) {
+    public String registerUser(@RequestParam(name="username") String username, @RequestParam(name="email") String email, @RequestParam(name="password") String password, @RequestParam(name="avatarImageUrl") String avatar_url, RedirectAttributes redirectAttributes) {
         User user = new User(username, email, password, avatar_url);
+//        if the user exists, let the user know it exists
+        User existingUser = usersDao.findUserByUsername(username);
+        if (existingUser != null) {
+            redirectAttributes.addAttribute("usernameExists", true);
+            return "redirect:/register";
+        }
+        User existingEmail = usersDao.findUserByEmail(email);
+        if (existingEmail != null) {
+            redirectAttributes.addAttribute("emailExists", true);
+            return "redirect:/register";
+        }
         password = passwordEncoder.encode(password);
         usersDao.save(new User(username, email, password, avatar_url));
         return "redirect:/login";
