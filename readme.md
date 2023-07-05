@@ -9,9 +9,11 @@
 * [Tests](#tests)
 * [Features](#features)
 
-![](src/main/webapp/img/HomePage.png)
 <br>
-![plateful Demo](demo.gif)
+![ezgif com-crop](https://github.com/Plateful-capstone/plateful/assets/97055710/d315fc02-a27f-4894-8e38-99087f52c188)
+<br>
+![ezgif com-video-to-gif](https://github.com/Plateful-capstone/plateful/assets/97055710/4760b76a-94a1-42cc-bc47-f336b794404a)
+
 
 ## Description
 Welcome to PlateFul, the ultimate platform for food enthusiasts! PlateFul is a dynamic website that seamlessly combines the power of the Spoonacular API and the convenience of Filestack integration, providing you with a comprehensive cooking experience like no other.
@@ -80,8 +82,7 @@ This project is covered under the MIT license. To learn more click the license b
 6. Allows a user to search for recipes by name
 7. Allows a user to comment other users' recipes
 
-![ezgif com-crop](https://github.com/Plateful-capstone/plateful/assets/97055710/d315fc02-a27f-4894-8e38-99087f52c188)
 
-![ezgif com-video-to-gif](https://github.com/Plateful-capstone/plateful/assets/97055710/4760b76a-94a1-42cc-bc47-f336b794404a)
+
 
 
