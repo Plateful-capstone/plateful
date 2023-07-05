@@ -70,3 +70,6 @@ This project is covered under the MIT license. To learn more click the license b
 4. Allows a user to create, view, update their profile information on PlateFul
 5. Allows a user to browse and explore recipes 
 6. Allows a user to search for recipes by name, ingredients, or tags
+
+![ezgif com-crop](https://github.com/Plateful-capstone/plateful/assets/97055710/d315fc02-a27f-4894-8e38-99087f52c188)
+
