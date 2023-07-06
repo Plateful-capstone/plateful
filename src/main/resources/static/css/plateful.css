@@ -913,8 +913,8 @@ div.container.login-container {
     width: 100%;
     min-height: 30px;
     border-radius: 30px;
-    margin-left: 10px;
-    padding-left: 20px;
+    /*margin-left: 10px;*/
+    padding-left: 30px;
 }
 
 @media only screen and (max-width: 900px) {
@@ -981,6 +981,13 @@ div.container.login-container {
 .register_header {
     padding-bottom: 10px;
     padding-top: 30px;
+}
+.input-wrapper-register input {
+    width: 100%;
+    min-height: 30px;
+    border-radius: 30px;
+    margin-left: 10px;
+    padding-left: 20px;
 }
 
 /*// ======================================= //*/
