@@ -1679,3 +1679,42 @@ div.container.landingRecipe .row.recipe-row {
 /*// ======================================= //*/
 /*// ==============   CONTACT Page END  ========= //*/
 /*// ======================================= //*/
+
+
+
+.indiv-recipe-image-wrapper img {
+    min-width: 100%;
+    object-fit: cover;
+    aspect-ratio: 8/3;
+}
+.indiv-recipe-image-wrapper img.recipe-top-image-overlay {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 100%;
+    object-fit: contain;
+}
+img.recipe-top-image {
+    filter: blur(6px);
+}
+
+.indiv-recipe-image-wrapper {
+    position: relative;
+}
+
+.logout-button {
+    color: black;
+    background-color: white;
+    border: 2px solid var(--that-pink);
+    border-radius: 30px;
+    padding-bottom: 7px;
+    padding-top: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+    transition: all ease .3s;
+    font-weight: 700;
+}
+
+.logout-button:hover {
+    background-color: var(--that-pink);
+}
