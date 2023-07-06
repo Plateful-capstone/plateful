@@ -51,7 +51,8 @@ public class UserController {
     }
 
     @GetMapping("/login")
-    public String showLoginForm(){
+    public String showLoginForm(Model model, @RequestParam(value = "error", required = false) String error) {
+        model.addAttribute("loginError", error != null);
         return "login";
     }
 
@@ -61,11 +62,21 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public String loginSessionSetter(Model model, HttpSession session) {
+    public String loginSessionSetter(
+            RedirectAttributes redirectAttributes,
+            HttpSession session,
+            @RequestParam(value = "error", required = false) String error
+    ) {
+        if (error != null) {
+            redirectAttributes.addAttribute("loginError", true);
+            return "redirect:/login?error=true";
+        }
+
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         session.setAttribute("user", user);
         return "redirect:/profile";
     }
+
 
     @GetMapping("/logout")
     public String logout() {
