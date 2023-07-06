@@ -1042,6 +1042,11 @@ div.container.login-container {
     padding-bottom: 10px;
 }
 
+.about-container {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
 @media (min-width: 30rem) and (max-width: 65rem) {
     .the-team-pictures-row {
         display: flex;
