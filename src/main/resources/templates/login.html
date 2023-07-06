@@ -17,6 +17,9 @@
                     <h1>Welcome Back :)</h1>
                 </div>
                 <form th:action="@{/login}" th:method="post" class="form row login-form justify-space-around">
+                    <div th:if="${loginError}">
+                        <p style="color:red" class="already-exists">Username or password is incorrect</p>
+                    </div>
                     <label class="card-title" for="username">Username:</label>
                     <input class="card-text login_input" id="username" name="username" type="text" required>
                     <label class="card-title" for="password">Password:</label>

@@ -251,7 +251,7 @@ header.container {
 }
 
 /* Media query to show/hide the hamburger menu and overlay menu based on screen size */
-@media (max-width: 767px) {
+@media only screen and (max-width: 767px) {
     .nav-menu-regular {
         display: none;
     }
@@ -598,7 +598,8 @@ form#comment-form {
     border: unset;
 }
 
-@media screen and (max-width: 768px) {
+
+@media only screen and (max-width: 768px) {
     #ingredients-list {
         overflow-x: auto;
     }
@@ -795,7 +796,7 @@ form#comment-form {
 }
 
 
-@media (min-width: 20rem) and (max-width: 30rem) {
+@media only screen and (max-width: 30rem) {
     .user-recipes-grid {
         grid-template-columns: repeat(2, 1fr);
         display: flex;
@@ -916,7 +917,7 @@ div.container.login-container {
     border-bottom-left-radius: 30px;
 }
 
-@media screen and (max-width: 900px) {
+@media only screen and (max-width: 900px) {
     .login-content-wrapper.row {
         gap: 37px;
     }
@@ -927,7 +928,7 @@ div.container.login-container {
     }
 }
 
-@media screen and (max-width: 800px) {
+@media only screen and (max-width: 800px) {
     .row.login-inner.no-padding {
         display: flex;
         flex-direction: column;
@@ -1158,7 +1159,7 @@ div.container.login-container {
     overflow: hidden;
 }
 
-@media (min-width: 30rem) and (max-width: 65rem) {
+@media only screen and (max-width: 65rem) {
     .the-team-pictures-row {
         display: flex;
         flex-wrap: wrap;
@@ -1185,7 +1186,7 @@ div.container.login-container {
     }
 }
 
-@media (min-width: 20rem) and (max-width: 30rem) {
+@media only screen and (max-width: 30rem) {
     .the-team-pictures-row {
         display: flex;
         flex-wrap: wrap;
@@ -1395,7 +1396,7 @@ div.container.landingRecipe .row.recipe-row {
     width: 100%;
 }
 
-@media   (max-width: 50rem) {
+@media only screen and  (max-width: 50rem) {
     .hero-left-text-column{
         display: none;
     }
@@ -1565,7 +1566,7 @@ div.container.landingRecipe .row.recipe-row {
     transform: scale(1.1);
 }
 
-@media only screen and (min-width: 20rem) and (max-width: 48rem){
+@media only screen and(max-width: 48rem){
     .recipe-description-index, .show-hide {
         display: none;
     }
@@ -1574,7 +1575,7 @@ div.container.landingRecipe .row.recipe-row {
     }
 }
 
-@media only screen and (min-width: 20rem) and (max-width: 30rem){
+@media only screen and (max-width: 30rem){
     .recipe-description-index, .show-hide {
         display: none;
     }
