@@ -168,6 +168,133 @@ header.container {
     padding: unset;
     max-height: 20vh;
 }
+/*hamburger starts*/
+/* Add this CSS code to style the hamburger menu */
+.hamburger-toggle {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.line {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--border);
+    position: absolute;
+    left: 0;
+    transition: transform 0.3s ease;
+}
+
+.line:nth-child(1) {
+    top: 0;
+}
+
+.line:nth-child(2) {
+    top: 11px;
+}
+
+.line:nth-child(3) {
+    top: 22px;
+}
+
+.nav-list {
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-list li {
+    display: block;
+}
+
+.nav-list li a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+}
+
+.overlay-menu {
+    display: none;
+    position: fixed;
+    top: 135px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 999;
+}
+
+.overlay-menu ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 20px;
+    text-align: center;
+}
+
+.overlay-menu ul li {
+    margin-bottom: 20px;
+}
+
+/* Media query to show/hide the hamburger menu and overlay menu based on screen size */
+@media (max-width: 767px) {
+    .nav-menu-regular {
+        display: none;
+    }
+    .nav-list {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger-toggle:checked ~ .nav-list {
+        display: block;
+    }
+
+    .hamburger-toggle:checked ~ .overlay-menu {
+        display: flex;
+        justify-content: center;
+    }
+
+    .hamburger-toggle:checked ~ .hamburger .line:nth-child(1) {
+        transform: translateY(11px) rotate(45deg);
+    }
+
+    .hamburger-toggle:checked ~ .hamburger .line:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger-toggle:checked ~ .hamburger .line:nth-child(3) {
+        transform: translateY(-11px) rotate(-45deg);
+    }
+    nav {
+        padding-right: 10px;
+        padding-left: 20px;
+    }
+}
+/*hamburger end*/
+
+
+
+
+
+
 
 /*// ======================================= //*/
 /*// ==============   Navbar End   ========= //*/
@@ -1349,6 +1476,22 @@ div.container.landingRecipe .row.recipe-row {
     width: 100%;
 }
 
+@media   (max-width: 50rem) {
+    .hero-left-text-column{
+        display: none;
+    }
+    .hero-chef{
+        display: none;
+    }
+    .hero-landing-row{
+        align-items: center;
+        min-width: unset;
+    }
+    .card-grid{
+        display:flex;
+        flex-direction: column;
+    }
+}
 /*// ======================================= //*/
 /*// ==============   Landing Page END  ========= //*/
 /*// ======================================= //*/

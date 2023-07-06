@@ -6,15 +6,42 @@
             </div>
         </div>
         <div class="column align-right justify-center navholder">
-                <nav class="d-flex">
+            <nav class="d-flex">
+                <input type="checkbox" id="hamburger-toggle" class="hamburger-toggle">
+                <label for="hamburger-toggle" class="hamburger">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </label>
+                <ul th:if="${#authorization.expression('isAuthenticated()')}" class="nav-menu-regular d-flex align-center">
+                    <!-- Authenticated User -->
+                    <a th:href="@{/}"><li class="navli">Home</li></a>
+                    <a th:href="@{/recipes}"><li class="navli">All Recipes</li></a>
+                    <a th:href="@{/recipes/create}"><li class="navli">Add Recipe</li></a>
+                    <a th:href="@{/about}"><li class="navli">About Us</li></a>
+                    <a th:href="@{/profile}"><li class="navli">Profile</li></a>
+                    <li>
+                        <form th:action="@{/logout}" th:method="post" class="nav-menu-regular d-flex justify-center align-center">
+                            <button class="btn-link btn logout-btn cta">Logout</button>
+                        </form>
+                    </li>
+                </ul>
+                <ul th:unless="${#authorization.expression('isAuthenticated()')}" class="nav-menu-regular d-flex align-center">
+                    <!-- Not Authenticated User -->
+                    <a th:href="@{/}"><li class="navli">Home</li></a>
+                    <a th:href="@{/recipes}"><li class="navli">All Recipes</li></a>
+                    <a th:href="@{/about}"><li class="navli">About Us</li></a>
+                    <a th:href="@{/login}"><li class="navli">Login</li></a>
+                </ul>
+                <div class="overlay-menu">
                     <ul th:if="${#authorization.expression('isAuthenticated()')}" class="d-flex align-center">
                         <!-- Authenticated User -->
                         <a th:href="@{/}"><li class="navli">Home</li></a>
                         <a th:href="@{/recipes}"><li class="navli">All Recipes</li></a>
                         <a th:href="@{/recipes/create}"><li class="navli">Add Recipe</li></a>
                         <a th:href="@{/about}"><li class="navli">About Us</li></a>
-                        <a th:href="@{/profile}"><li class="navli">Profile</li>
-                        <li></a>
+                        <a th:href="@{/profile}"><li class="navli">Profile</li></a>
+                        <li>
                             <form th:action="@{/logout}" th:method="post" class="d-flex justify-center align-center">
                                 <button class="btn-link btn logout-btn cta">Logout</button>
                             </form>
@@ -27,7 +54,8 @@
                         <a th:href="@{/about}"><li class="navli">About Us</li></a>
                         <a th:href="@{/login}"><li class="navli">Login</li></a>
                     </ul>
-                </nav>
+                </div>
+            </nav>
         </div>
     </div>
 </header>
