@@ -17,7 +17,7 @@
           <p>Already have an account? <span class="anch"><a href="/login">Log in</a></span></p>
         </div>
 
-        <form th:action="@{/register}" th:method="post" class="register-form row form justify-space-between">
+        <form th:action="@{/register}" th:method="post" id="register-form" class="register-form row form justify-space-between">
           <div th:if="${param.usernameExists}">
             <p style="color: red;">Username already exists. Please choose a different username.</p>
           </div>
