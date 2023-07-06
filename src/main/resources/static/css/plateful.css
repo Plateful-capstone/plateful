@@ -73,7 +73,6 @@ div.container.grow.justify-center {
 }
 
 .cta-custom-search {
-    /*border: 1px solid var(--that-pink)*/
     color: white;
     background-color: var(--that-pink);
     border: unset;
@@ -127,7 +126,6 @@ nav ul {
 }
 
 .navli:hover {
-    /*color: var(--that-pink);*/
     color: var(--that-pink);
     background-color: var(--black-color);
     border: 1px solid black;
@@ -168,6 +166,8 @@ header.container {
     padding: unset;
     max-height: 20vh;
 }
+
+
 /*hamburger starts*/
 /* Add this CSS code to style the hamburger menu */
 .hamburger-toggle {
@@ -290,12 +290,6 @@ header.container {
 }
 /*hamburger end*/
 
-
-
-
-
-
-
 /*// ======================================= //*/
 /*// ==============   Navbar End   ========= //*/
 /*// ======================================= //*/
@@ -342,10 +336,6 @@ div.row.align-bottom {
     align-items: center;
 }
 
-footer.container {
-    /*min-height: 20vh;*/
-}
-
 footer.container .row {
     border-radius: 10px 10px 0 0;
 }
@@ -366,13 +356,12 @@ footer.container .row {
 /*// ==============   Footer END   ========= //*/
 /*// ======================================= //*/
 
+
+
 /*// ======================================= //*/
 /*// ==============  Modal Start  ========= //*/
 /*// ======================================= //*/
 
-
-
-/* Modal Content/Box */
 .modal-content {
     margin: 15% auto;
     padding: 20px;
@@ -393,7 +382,6 @@ footer.container .row {
     border-radius: 12px;
 }
 
-/* Close Button */
 .close {
 
     float: right;
@@ -491,6 +479,9 @@ footer.container .row {
 /*// ======================================= //*/
 /*// ==============   Recipe Grid END   ========= //*/
 /*// ======================================= //*/
+
+
+
 /*// ======================================= //*/
 /*// ==============   Recipe Individual Start   ========= //*/
 /*// ======================================= //*/
@@ -525,7 +516,6 @@ footer.container .row {
 }
 
 .indiv-recipe-image-wrapper {
-    /*min-width: 80vw;*/
     border-radius: 20px;
     overflow: hidden;
 }
@@ -608,22 +598,17 @@ form#comment-form {
     border: unset;
 }
 
-#editInstructions, #editDescription, #editIngredients {
-    /*height: 200px;*/
-    /*max-height: 200px;*/
-}
-
 @media screen and (max-width: 768px) {
     #ingredients-list {
         overflow-x: auto;
     }
 }
 
-
-
 /*// ======================================= //*/
 /*// ==============   Recipe Individual End   ========= //*/
 /*// ======================================= //*/
+
+
 /*// ======================================= //*/
 /*// ==============   Cookbook / Profile START   ========= //*/
 /*// ======================================= //*/
@@ -641,7 +626,7 @@ form#comment-form {
 
 .user-recipes-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Display 3 columns */
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
 }
 
@@ -651,11 +636,6 @@ form#comment-form {
     padding: 10px;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /*transition: transform 0.3s ease; !* Add transition for smooth hover effect *!*/
-}
-
-.user-recipe-card:hover {
-    /*transform: translateY(-5px); !* Apply a slight translation on hover *!*/
 }
 
 .user-card-link {
@@ -814,11 +794,6 @@ form#comment-form {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-/*@media (max-width: 768px) {*/
-/*    .user-recipes-grid {*/
-/*        grid-template-columns: repeat(2, 1fr);*/
-/*    }*/
-/*}*/
 
 @media (min-width: 20rem) and (max-width: 30rem) {
     .user-recipes-grid {
@@ -893,7 +868,6 @@ label {
 }
 
 .login-inner {
-    /* Remove or adjust the min-width property if necessary */
     min-width: 70vw;
     max-height: 70vh;
     border: 3px solid var(--border);
@@ -1124,7 +1098,6 @@ div.container.login-container {
     border-radius: 5px;
 }
 
-/* Additional styles for the image and logos */
 .the-team-picture-container img {
     width: 100%;
     height: auto;
@@ -1143,7 +1116,7 @@ div.container.login-container {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 400px; /* Adjust the height as needed */
+    height: 400px;
 }
 
 .row.the-team-picture-container img {
@@ -1156,7 +1129,7 @@ div.container.login-container {
 }
 
 .row.the-team-picture-container .column {
-    margin-top: 10px; /* Adjust the margin as needed */
+    margin-top: 10px;
 }
 
 .column.github-wrapper,
@@ -1195,8 +1168,8 @@ div.container.login-container {
     }
 
     .row.the-team-picture-container {
-        width: 90%; /* Adjust the width as desired */
-        max-width: 400px; /* Adjust the max-width as desired */
+        width: 90%;
+        max-width: 400px;
         margin: 10px;
     }
 
@@ -1206,8 +1179,8 @@ div.container.login-container {
     }
 
     .team-content-wrapper {
-        width: 70%; /* Adjust the width as desired */
-        max-width: 500px; /* Adjust the max-width as desired */
+        width: 70%;
+        max-width: 500px;
         margin: 10px auto;
     }
 }
@@ -1220,8 +1193,8 @@ div.container.login-container {
     }
 
     .the-team-picture-container {
-        width: 90%; /* Adjust the width as desired */
-        max-width: 300px; /* Adjust the max-width as desired */
+        width: 90%;
+        max-width: 300px;
         margin: 10px;
     }
 
@@ -1231,8 +1204,8 @@ div.container.login-container {
     }
 
     .team-content-wrapper {
-        width: 90%; /* Adjust the width as desired */
-        max-width: 300px; /* Adjust the max-width as desired */
+        width: 90%;
+        max-width: 300px;
         margin: 10px auto;
     }
 }
@@ -1413,71 +1386,6 @@ div.container.landingRecipe .row.recipe-row {
 .recipe-picture-container:hover .recipe-middle-text {
     opacity: 1;
 }
-
-/*.row.recipe-cards-row {*/
-/*    width: 100%;*/
-/*}*/
-
-/*.column.recipe-cards {*/
-/*    width: 100%;*/
-/*}*/
-
-/*.card-grid {*/
-/*    display: grid;*/
-/*    grid-template-columns: repeat(5, 1fr);*/
-/*    gap: 15px;*/
-/*}*/
-
-/*.recipe-card {*/
-/*    width: 100%;*/
-/*}*/
-
-/*.recipe-picture-container {*/
-/*    position: relative;*/
-/*    overflow: hidden;*/
-/*    width: 100%;*/
-/*    padding-bottom: 100%;*/
-/*    border-radius: 15px;*/
-/*    border: 3px solid var(--border);*/
-/*}*/
-
-/*.recipe-picture-container img {*/
-/*    position: absolute;*/
-/*    top: 0;*/
-/*    left: 0;*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    object-fit: cover;*/
-/*    object-position: center;*/
-/*    opacity: 1;*/
-/*    transition: opacity 0.3s, background-color 0.3s;*/
-/*}*/
-
-/*.recipe-picture-container:hover img {*/
-/*    opacity: 0;*/
-/*}*/
-
-/*.recipe-picture-container:hover {*/
-/*    background-color: pink;*/
-/*}*/
-
-/*.recipe-middle-text {*/
-/*    position: absolute;*/
-/*    top: 50%;*/
-/*    left: 50%;*/
-/*    transform: translate(-50%, -50%);*/
-/*    opacity: 0;*/
-/*    transition: opacity 0.3s;*/
-/*    text-align: center;*/
-/*    padding: 10px;*/
-/*    border-radius: 5px;*/
-/*    color: #fff;*/
-/*}*/
-
-/*.recipe-picture-container:hover .recipe-middle-text {*/
-/*    opacity: 1;*/
-/*}*/
-
 
 .recipe-card-content {
     width: 100%;
@@ -1735,6 +1643,7 @@ div.container.landingRecipe .row.recipe-row {
 /*// ======================================= //*/
 
 
+
 /*// ======================================= //*/
 /*// ==============   CONTACT Page START  ========= //*/
 /*// ======================================= //*/
@@ -1765,25 +1674,6 @@ div.container.landingRecipe .row.recipe-row {
     width: 100%;
     text-align: center;
 }
-
-/*.contact-wrapper {*/
-/*    width: 100vw;*/
-/*    overflow-x: hidden;*/
-/*}*/
-
-/*.contact-image-wrapper {*/
-/*    position: relative;*/
-/*    width: 100vw;*/
-/*    text-align: center;*/
-/*    margin-left: calc((100% - 100vw) / 2);*/
-/*    margin-right: calc((100% - 100vw) / 2);*/
-/*}*/
-
-/*.contact-image-content {*/
-/*    width: 100%;*/
-/*    height: auto;*/
-/*    display: block;*/
-/*}*/
 
 /*// ======================================= //*/
 /*// ==============   CONTACT Page END  ========= //*/
