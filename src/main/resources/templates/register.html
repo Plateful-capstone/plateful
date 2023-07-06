@@ -24,23 +24,23 @@
           <div th:if="${param.emailExists}">
             <p style="color: red;">Email already exists. Please choose a different email.</p>
           </div>
-          <div class="input-wrapper">
+          <div class="input-wrapper-register">
             <label class="card-title" for="username">Username:</label>
             <input class="card-text register_input" type="text" name="username" id="username" required>
           </div>
-          <div class="input-wrapper">
+          <div class="input-wrapper-register">
             <label class="card-title" for="email">Email:</label>
             <input class="card-text register_input" type="email" name="email" id="email" required>
           </div>
-          <div class="input-wrapper">
+          <div class="input-wrapper-register">
             <label class="card-title" for="password">Password:</label>
             <input class="card-text register_input" type="password" name="password" id="password" required>
           </div>
-          <div class="input-wrapper">
+          <div class="input-wrapper-register">
             <label class="card-title" for="confirm_password">Confirm Password:</label>
             <input class="card-text register_input" id="confirm_password" name="confirm_password" type="password" required>
           </div>
-          <div class="input-wrapper">
+          <div class="input-wrapper-register">
             <div class="form-group">
               <label class="card-title" for="open">Add profile picture: </label>
               <button type="button" name="image" class="image-add cta" id="open" value="Add image">Add Image</button>
