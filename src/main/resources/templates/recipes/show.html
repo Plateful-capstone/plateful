@@ -13,8 +13,8 @@
         </div>
         <div class="row indiv-card-row justify-center">
             <div class="column card-divider indiv-recipe-image-wrapper shrink main-background justify-center gap-20 pink-border">
-                <img th:src="${recipe.recipeImageUrl}" alt="recipe image">
-
+                <img th:src="${recipe.recipeImageUrl}" alt="recipe image" class="recipe-top-image">
+                <img th:src="${recipe.recipeImageUrl}" alt="recipe image" class="recipe-top-image-overlay">
                 <div class="column  gap-20 recipe-content">
                     <div class="row no-padding" id="ingredients-list"><b>Ingredients:</b>
                         <div class="row" id="ingredients-content" th:text=" ${recipe.recipeIngredients}"></div>
