@@ -613,6 +613,12 @@ form#comment-form {
     /*max-height: 200px;*/
 }
 
+@media screen and (max-width: 768px) {
+    #ingredients-list {
+        overflow-x: auto;
+    }
+}
+
 
 
 /*// ======================================= //*/
