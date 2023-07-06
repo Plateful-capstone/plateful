@@ -526,6 +526,8 @@ footer.container .row {
     aspect-ratio: 8/3;
 }
 
+
+
 .recipe-content {
     padding: 40px;
     color: #fff;
@@ -1713,13 +1715,6 @@ div.container.landingRecipe .row.recipe-row {
 /*// ==============   CONTACT Page END  ========= //*/
 /*// ======================================= //*/
 
-
-
-.indiv-recipe-image-wrapper img {
-    min-width: 100%;
-    object-fit: cover;
-    aspect-ratio: 8/3;
-}
 .indiv-recipe-image-wrapper img.recipe-top-image-overlay {
     position: absolute;
     top: 2px;
