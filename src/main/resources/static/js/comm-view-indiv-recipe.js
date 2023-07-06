@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
     commentBtn.addEventListener('click', function() {
         console.log("Comment button clicked");
         if (commentsRow.style.display === "none") {
-            commentsRow.style.display = "block";
+            commentsRow.style.display = "flex";
+            commentsRow.classList.add("column");
         } else {
             commentsRow.style.display = "none";
         }

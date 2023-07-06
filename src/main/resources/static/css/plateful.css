@@ -912,9 +912,9 @@ div.container.login-container {
 .input-wrapper input {
     width: 100%;
     min-height: 30px;
-    padding-left: 35px;
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
+    border-radius: 30px;
+    margin-left: 10px;
+    padding-left: 20px;
 }
 
 @media only screen and (max-width: 900px) {
@@ -927,6 +927,9 @@ div.container.login-container {
         padding-top: 64px;
     }
 }
+.display-column {
+    margin: 10px 0;
+}
 
 @media only screen and (max-width: 800px) {
     .row.login-inner.no-padding {
@@ -936,7 +939,9 @@ div.container.login-container {
     .login-inner {
         max-height: unset;
     }
-
+    .indiv-recipe-btns-row {
+        flex-direction: column;
+    }
 }
 
 /*// ======================================= //*/
@@ -1208,10 +1213,6 @@ div.container.login-container {
         width: 90%;
         max-width: 300px;
         margin: 10px auto;
-    }
-
-    .indiv-recipe-btns-row {
-        overflow-x: auto;
     }
     .comment-content-from-db {
         font-size: 15px;
