@@ -1209,6 +1209,26 @@ div.container.login-container {
         max-width: 300px;
         margin: 10px auto;
     }
+
+    .indiv-recipe-btns-row {
+        overflow-x: auto;
+    }
+    .comment-content-from-db {
+        font-size: 15px;
+    }
+    .comment-btns {
+        font-size: 10px;
+    }
+    .ingredients-data {
+        font-size: 15px;
+        flex-direction: row;
+    }
+    #ingredients-content {
+        flex-direction: column;
+    }
+    #ingredients-list {
+        flex-direction: column;
+    }
 }
 
 
