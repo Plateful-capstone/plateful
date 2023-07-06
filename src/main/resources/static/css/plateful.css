@@ -823,6 +823,12 @@ form#comment-form {
 @media (min-width: 20rem) and (max-width: 30rem) {
     .user-recipes-grid {
         grid-template-columns: repeat(2, 1fr);
+        display: flex;
+        flex-direction: column;
+    }
+    .main-profile-row {
+        display: flex;
+        flex-direction: column-reverse;
     }
 }
 
@@ -919,7 +925,7 @@ div.container.login-container {
     display: flex;
     align-items: start;
     position: relative;
-
+    justify-content: space-between;
 }
 
 .recipe-image {
@@ -963,6 +969,7 @@ div.container.login-container {
 /*// ======================================= //*/
 
 .register_input {
+    max-width: 15rem;
     border-radius: 50px;
     border: unset;
     padding-left: 5px;
@@ -975,9 +982,7 @@ div.container.login-container {
 }
 
 .register-inner {
-    /* Remove or adjust the min-width property if necessary */
     min-width: 70vw;
-    /*max-height: 100vh;*/
     border: 1px solid var(--border);
     border-radius: 10px;
     background-color: var(--color);
