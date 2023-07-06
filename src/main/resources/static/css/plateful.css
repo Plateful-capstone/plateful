@@ -982,6 +982,11 @@ div.container.login-container {
     padding-bottom: 10px;
     padding-top: 30px;
 }
+.input-wrapper-register {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+}
 .input-wrapper-register input {
     width: 100%;
     min-height: 30px;
