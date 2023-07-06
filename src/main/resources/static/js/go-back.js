@@ -25,12 +25,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Split into two columns after reaching halfway point
         if (index === halfLength - 1) {
-            ingredientList += '</div><div class="row justify-center" id="ingredients-content">';
+            ingredientList += '</div><div class="column ingredients-data">';
         }
     });
 
     // Wrap the ingredientList in <div> elements
-    ingredientList = '<div class="row justify-center" id="ingredients-content">' + ingredientList + '</div>';
+    ingredientList = '<div class="column ingredients-data" ' + ingredientList + '</div>';
 
     ingredientsElement.innerHTML = ingredientList;
     // MODIFIES THE INGREDIENTS SECTION TO DISPLAY IN TWO COLUMNS END
