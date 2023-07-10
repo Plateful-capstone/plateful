@@ -914,8 +914,8 @@ div.container.login-container {
 .input-wrapper input {
     width: 100%;
     min-height: 30px;
-    border-radius: 30px;
-    /*margin-left: 10px;*/
+    border-bottom-left-radius: 30px;
+    border-top-left-radius: 30px;
     padding-left: 30px;
 }
 
