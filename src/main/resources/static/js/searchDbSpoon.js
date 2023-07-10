@@ -65,8 +65,11 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     const createRecipeSteps = (analyzedInstructions) => {
-        let steps = analyzedInstructions[0].steps.map((step) => step.step);
-        return steps.join("\n");
+        if (analyzedInstructions && analyzedInstructions.length > 0 && analyzedInstructions[0].steps) {
+            const steps = analyzedInstructions[0].steps.map((step) => step.step);
+            return steps.join("\n");
+        }
+        return "";
     };
 
     const extractBoldTags = (text) => {
