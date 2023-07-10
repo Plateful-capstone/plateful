@@ -127,7 +127,6 @@
 <script th:replace="loading :: lottie-script"></script>
 
 <script th:if="${#authorization.expression('isAuthenticated')}" type="module" th:src="@{/js/searchDbSpoon.js}"></script>
-<script th:src="@{/js/searchDbSpoonAfterScript.js}"></script>
 <script th:unless="${#authorization.expression('isAuthenticated')}" th:src="@{/js/searchDenial.js}"></script>
 </body>
 </html>

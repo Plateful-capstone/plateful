@@ -1240,6 +1240,7 @@ div.container.login-container {
     }
     #ingredients-content {
         flex-direction: column;
+        gap: unset;
     }
     #ingredients-list {
         flex-direction: column;

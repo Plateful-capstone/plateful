@@ -20,8 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Comment Content Keyup Event
     commentContent.addEventListener('keyup', function() {
         if (commentContent.value.length > 0) {
-            commentsRow.style.display = "flex";
-            commentsRow.classList.add("column");
+            commentContentBtn.style.display = "block";
         } else {
             commentContentBtn.style.display = "none";
         }
